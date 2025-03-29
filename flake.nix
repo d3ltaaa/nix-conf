@@ -26,9 +26,9 @@
     {
       nixosConfigurations = {
         "T440P" = nixpkgs-unstable.lib.nixosSystem {
+          # nixpkgs-unstable -> pkgs
           system = "x86_64-linux";
           specialArgs = {
-            inherit inputs;
             inherit nixpkgs-stable;
           };
           modules = [

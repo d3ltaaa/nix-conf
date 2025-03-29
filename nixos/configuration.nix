@@ -8,71 +8,11 @@
   lib,
   ...
 }@inputs:
-let
-  unstable-pkgs = with pkgs; [
-    neovim
-    tmux
-    lf
-    zsh
-    zsh-syntax-highlighting
-    starship
-    git
-    unzip
-    tldr
-    ripgrep
-    fzf
-    less
-    man-db
-    docker
-
-    clang
-    cmake
-    meson
-    rustup
-    cpio
-    pkg-config
-    pyenv
-    bc
-    font-awesome
-    psutils
-
-    cups
-
-    hyprlock
-    hyprshade
-    xdg-desktop-portal-hyprland
-    waybar
-    foot
-    rofi-wayland
-    swww
-    dunst
-    nwg-look
-    whitesur-cursors
-    bibata-cursors
-
-    firefox
-    discord
-    virtualbox
-    libreoffice-still
-    arduino-ide
-    freecad-wayland
-    spotify
-    orca-slicer
-    remnote
-    telegram-desktop
-
-    upower
-
-  ];
-  stable-pkgs = with nixpkgs-stable.legacyPackages."x86_64-linux"; [
-    auto-cpufreq
-  ];
-in
-
 {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./packages.nix
     ./auto-login.nix
   ];
   # enable flakes
@@ -138,42 +78,17 @@ in
       "networkmanager"
       "wheel"
     ];
-    # shell = nixpkgs-stable.legacyPackages."x86_64-linux".zsh;
     shell = pkgs.zsh;
-    packages = with pkgs; [ ];
   };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-
-  environment.systemPackages = lib.concatLists [
-    unstable-pkgs
-    stable-pkgs
-  ];
-
-  # environment.systemPackages = with pkgs; [
-  #   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #   #  wget
-  # ];
 
   programs.dconf.enable = true;
   programs.hyprlock.enable = true;
   programs.zsh.enable = true;
   programs.thunar.enable = true;
-
   programs.hyprland.enable = true;
-  # wayland.windowManager.hyprland.plugins = [
-  #  custom-pkgs.hyprlandPlugin.hyprbars
-  # ];
-
-  fonts.packages = [
-    pkgs.nerd-fonts.ubuntu-mono
-    pkgs.nerd-fonts.fira-code
-    pkgs.nerd-fonts.hack
-  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -204,6 +119,7 @@ in
       turbo = "auto";
     };
   };
+
   programs.neovim.defaultEditor = true;
 
   security.sudo.extraConfig = "Defaults        !sudoedit_checkdir";
