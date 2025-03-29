@@ -13,7 +13,6 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./packages.nix
-    ./auto-login.nix
   ];
   # enable flakes
   nix.settings.experimental-features = [
@@ -55,12 +54,6 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "de";
-    variant = "";
-  };
-
   # Configure console keymap
   console.keyMap = "de";
 
@@ -81,15 +74,6 @@
     shell = pkgs.zsh;
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-
-  programs.dconf.enable = true;
-  programs.hyprlock.enable = true;
-  programs.zsh.enable = true;
-  programs.thunar.enable = true;
-  programs.hyprland.enable = true;
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -98,29 +82,7 @@
   #   enableSSHSupport = true;
   # };
 
-  # List services that you want to enable:
-
   # Enable the OpenSSH daemon.
-  services.upower.enable = true;
-  services.udisks2.enable = true;
-  services.printing.enable = true;
-  services.auto-cpufreq.enable = true;
-  services.syncthing.enable = true;
-  services.auto-cpufreq.settings = {
-    battery = {
-      governor = "powersave";
-      turbo = "never";
-      enable_thresholds = true;
-      start_threshold = 70;
-      stop_threshold = 95;
-    };
-    charger = {
-      governor = "performance";
-      turbo = "auto";
-    };
-  };
-
-  programs.neovim.defaultEditor = true;
 
   security.sudo.extraConfig = "Defaults        !sudoedit_checkdir";
 

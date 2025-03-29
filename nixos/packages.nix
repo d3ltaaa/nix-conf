@@ -6,18 +6,11 @@
 }@inputs:
 let
   unstable-system-pkgs = with pkgs; [
-    neovim
-    tmux
     lf
-    zsh
-    zsh-syntax-highlighting
-    starship
-    git
     unzip
     tldr
     ripgrep
     fzf
-    less
     man-db
     docker
 
@@ -32,21 +25,14 @@ let
     font-awesome
     psutils
 
-    cups
-
-    hyprlock
     hyprshade
     xdg-desktop-portal-hyprland
-    waybar
-    foot
     rofi-wayland
     swww
     dunst
     nwg-look
     whitesur-cursors
     bibata-cursors
-
-    firefox
 
     upower
 
@@ -98,4 +84,46 @@ in
     unstable-font-pkgs
     stable-font-pkgs
   ];
+
+  programs = {
+    firefox.enable = true;
+    less.enable = true;
+    thunar.enable = true;
+    dconf.enable = true;
+  };
+
+  # List services that you want to enable:
+  services = {
+    upower.enable = true;
+    udisks2.enable = true;
+    printing.enable = true;
+    auto-cpufreq.enable = true;
+    syncthing.enable = true;
+
+    auto-cpufreq.settings = {
+      battery = {
+        governor = "powersave";
+        turbo = "never";
+        enable_thresholds = true;
+        start_threshold = 70;
+        stop_threshold = 95;
+      };
+      charger = {
+        governor = "performance";
+        turbo = "auto";
+      };
+    };
+
+    # Configure keymap in X11
+    xserver.xkb = {
+      layout = "de";
+      variant = "";
+    };
+
+    services.getty = {
+      autologinOnce = true;
+      autologinUser = "falk";
+      # loginProgram = "${pkgs.shadow}/bin/hyprland";
+    };
+  };
 }
