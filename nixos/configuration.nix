@@ -2,7 +2,11 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }@inputs:
+{
+  pkgs,
+  nixpkgs-stable,
+  ...
+}@inputs:
 
 {
   imports = [
@@ -73,7 +77,7 @@
       "networkmanager"
       "wheel"
     ];
-    shell = pkgs.zsh;
+    shell = nixpkgs-stable.legacyPackages."x86_64-linux".zsh;
     packages = with pkgs; [ ];
   };
 
@@ -147,7 +151,7 @@
 
   programs.hyprland.enable = true;
   # wayland.windowManager.hyprland.plugins = [
-  #   pkgs.hyprlandPlugin.hyprbars
+  #  custom-pkgs.hyprlandPlugin.hyprbars
   # ];
 
   fonts.packages = [

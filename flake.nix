@@ -1,7 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -20,13 +20,17 @@
     {
       self,
       nixpkgs,
+      nixpkgs-stable,
       ...
     }@inputs:
     {
       nixosConfigurations = {
         "T440P" = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          # specialArgs = { inherit inputs; };
+          specialArgs = {
+            inherit inputs;
+            inherit nixpkgs-stable;
+          };
           modules = [
             ./nixos/configuration.nix
             inputs.home-manager.nixosModules.home-manager
