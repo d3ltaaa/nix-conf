@@ -90,6 +90,7 @@ in
     less.enable = true;
     thunar.enable = true;
     dconf.enable = true;
+    zsh.enable = true;
   };
 
   # List services that you want to enable:
@@ -120,7 +121,7 @@ in
       variant = "";
     };
 
-    services.getty = {
+    getty = {
       autologinOnce = true;
       autologinUser = "falk";
       # loginProgram = "${pkgs.shadow}/bin/hyprland";
