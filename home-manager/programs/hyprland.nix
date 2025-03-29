@@ -77,8 +77,7 @@
           size = 5;
           passes = 2;
         };
-
-        windowrule = "opacity 0.9, foot";
+        # windowrule = "opacity 0.9, foot";
       };
 
       dwindle = {

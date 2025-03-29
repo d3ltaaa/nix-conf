@@ -20,6 +20,9 @@
             installCargo = true;
             enable = true;
           };
+          nixd = {
+            enable = true;
+          };
           html = {
             enable = true;
           };

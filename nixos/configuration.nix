@@ -77,7 +77,8 @@
       "networkmanager"
       "wheel"
     ];
-    shell = nixpkgs-stable.legacyPackages."x86_64-linux".zsh;
+    # shell = nixpkgs-stable.legacyPackages."x86_64-linux".zsh;
+    shell = pkgs.zsh;
     packages = with pkgs; [ ];
   };
 
