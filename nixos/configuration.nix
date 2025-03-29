@@ -5,8 +5,69 @@
 {
   pkgs,
   nixpkgs-stable,
+  lib,
   ...
 }@inputs:
+let
+  unstable-pkgs = with pkgs; [
+    neovim
+    tmux
+    lf
+    zsh
+    zsh-syntax-highlighting
+    starship
+    git
+    unzip
+    tldr
+    ripgrep
+    fzf
+    less
+    man-db
+    docker
+
+    clang
+    cmake
+    meson
+    rustup
+    cpio
+    pkg-config
+    pyenv
+    bc
+    font-awesome
+    psutils
+
+    cups
+
+    hyprlock
+    hyprshade
+    xdg-desktop-portal-hyprland
+    waybar
+    foot
+    rofi-wayland
+    swww
+    dunst
+    nwg-look
+    whitesur-cursors
+    bibata-cursors
+
+    firefox
+    discord
+    virtualbox
+    libreoffice-still
+    arduino-ide
+    freecad-wayland
+    spotify
+    orca-slicer
+    remnote
+    telegram-desktop
+
+    upower
+
+  ];
+  stable-pkgs = with nixpkgs-stable.legacyPackages."x86_64-linux"; [
+    auto-cpufreq
+  ];
+in
 
 {
   imports = [
@@ -87,63 +148,16 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    #  wget
-    neovim
-    tmux
-    lf
-    zsh
-    zsh-syntax-highlighting
-    starship
-    git
-    unzip
-    tldr
-    ripgrep
-    fzf
-    less
-    man-db
-    docker
 
-    clang
-    cmake
-    meson
-    rustup
-    cpio
-    pkg-config
-    pyenv
-    bc
-    font-awesome
-    psutils
-
-    cups
-
-    hyprlock
-    hyprshade
-    xdg-desktop-portal-hyprland
-    waybar
-    foot
-    rofi-wayland
-    swww
-    dunst
-    nwg-look
-    whitesur-cursors
-    bibata-cursors
-
-    firefox
-    discord
-    virtualbox
-    libreoffice-still
-    arduino-ide
-    freecad-wayland
-    spotify
-    orca-slicer
-    remnote
-    telegram-desktop
-
-    nixpkgs-stable.legacyPackages."x86_64-linux".auto-cpufreq
-    upower
+  environment.systemPackages = lib.concatLists [
+    unstable-pkgs
+    stable-pkgs
   ];
+
+  # environment.systemPackages = with pkgs; [
+  #   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  #   #  wget
+  # ];
 
   programs.dconf.enable = true;
   programs.hyprlock.enable = true;
@@ -207,8 +221,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-
-}
-ad the comment?
 
 }
