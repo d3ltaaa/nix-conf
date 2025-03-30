@@ -159,7 +159,6 @@
         "$mod CONTROL, J, resizeactive, 0 40"
         "$mod, S, exec, menu_options &"
         "$mod SHIFT, S, exec, menu_system &"
-        ",F86AudioMute, exec, scr_volume mute"
         ",F86AudioMicMute, exec, rofi"
         ",F86AudioPlay, exec, playerctl play-pause"
         ",F86AudioPrev, exec, playerctl previous"
@@ -180,10 +179,11 @@
       ];
 
       binde = [
-        ",f86audiolowervolume, exec, scr_volume dec"
-        ",f86audioraisevolume, exec, scr_volume inc"
-        ",f86monbrightnessup, exec, scr_light up"
-        ",f86monbrightnessdown, exec, scr_light down"
+        ",XF86AudioMute, exec, scr_volume mute"
+        ",XF86AudioLowerVolume, exec, scr_volume dec"
+        ",XF86AudioRaiseVolume, exec, scr_volume inc"
+        ",XF86MonBrightnessUp, exec, brillo -A 10"
+        ",XF86MonBrightnessDown, exec, brillo -U 10"
       ];
 
       monitor = [

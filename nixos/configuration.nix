@@ -79,6 +79,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "video"
     ];
     shell = pkgs.zsh;
     packages = with pkgs; [ ];

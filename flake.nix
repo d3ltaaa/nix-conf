@@ -34,6 +34,7 @@
           modules = [
             ./nixos/configuration.nix
             ./nixos/T480/hardware-configuration.nix
+            ./nixos/T480/extra-configuration.nix
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;

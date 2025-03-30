@@ -65,5 +65,6 @@
   # networking.interfaces.wwp0s20f0u6.useDHCP = lib.mkDefault true;
 
   hardware.enableAllFirmware = true;
+  hardware.brillo.enable = true;
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

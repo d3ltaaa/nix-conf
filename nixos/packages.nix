@@ -38,6 +38,7 @@ let
     bibata-cursors
 
     upower
+    pulsemixer
 
     firefox
     waybar
