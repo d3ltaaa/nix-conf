@@ -51,6 +51,7 @@ let
     remnote
     telegram-desktop
 
+    furmark
   ];
   stable-system-pkgs = with nixpkgs-stable.legacyPackages.${pkgs.system}; [
     auto-cpufreq
