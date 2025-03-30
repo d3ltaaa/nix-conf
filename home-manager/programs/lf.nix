@@ -29,6 +29,7 @@
 
       cmd setwallpaper ''${{
           swww img "$f"
+          mkdir -p ~/.config/wall
           cp "$f" ~/.config/wall/paper
       }}
 

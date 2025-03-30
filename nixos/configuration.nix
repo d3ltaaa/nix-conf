@@ -11,7 +11,6 @@
 {
   imports = [
     # Include the results of the hardware scan.
-    ./hardware-configuration.nix
     ./packages.nix
   ];
   # enable flakes
@@ -38,6 +37,16 @@
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
+
+  # Virtualization
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.guest.enable = true;
+  virtualisation.virtualbox.guest.dragAndDrop = true;
+
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = [ "falk" ];
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";

@@ -25,6 +25,29 @@
     }@inputs:
     {
       nixosConfigurations = {
+        "T480" = nixpkgs-unstable.lib.nixosSystem {
+          # nixpkgs-unstable -> pkgs
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit nixpkgs-stable;
+          };
+          modules = [
+            ./nixos/configuration.nix
+            ./nixos/T480/hardware-configuration.nix
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.falk.imports = [ ./home.nix ];
+            }
+            # {
+            #   nixpkgs.config.allowUnfree = true;
+            #   nixpkgs.config.allowUnfreePredicate = (pkg: true);
+            # }
+          ];
+        };
+
         "T440P" = nixpkgs-unstable.lib.nixosSystem {
           # nixpkgs-unstable -> pkgs
           system = "x86_64-linux";
@@ -33,6 +56,7 @@
           };
           modules = [
             ./nixos/configuration.nix
+            ./nixos/T440P/hardware-configuration.nix
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;

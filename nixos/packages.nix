@@ -42,7 +42,6 @@ let
     firefox
     waybar
     discord
-    virtualbox
     libreoffice-still
     arduino-ide
     freecad-wayland
@@ -93,6 +92,7 @@ in
 
   programs = {
     hyprland.enable = true;
+    hyprlock.enable = true;
     hyprland.xwayland.enable = true;
     zsh.enable = true;
     git.enable = true;
