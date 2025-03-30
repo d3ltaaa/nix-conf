@@ -13,6 +13,9 @@ let
     fzf
     man-db
     docker
+    zsh
+    zsh-syntax-highlighting
+    starship
 
     clang
     cmake
@@ -36,12 +39,8 @@ let
 
     upower
 
-  ];
-  stable-system-pkgs = with nixpkgs-stable.legacyPackages.${pkgs.system}; [
-    auto-cpufreq
-  ];
-
-  unstable-user-pkgs = with pkgs; [
+    firefox
+    waybar
     discord
     virtualbox
     libreoffice-still
@@ -51,6 +50,13 @@ let
     orca-slicer
     remnote
     telegram-desktop
+
+  ];
+  stable-system-pkgs = with nixpkgs-stable.legacyPackages.${pkgs.system}; [
+    auto-cpufreq
+  ];
+
+  unstable-user-pkgs = with pkgs; [
   ];
 
   stable-user-pkgs = with nixpkgs-stable.legacyPackages.${pkgs.system}; [ ];
@@ -86,11 +92,12 @@ in
   ];
 
   programs = {
-    firefox.enable = true;
-    less.enable = true;
+    hyprland.enable = true;
+    hyprland.xwayland.enable = true;
+    zsh.enable = true;
+    git.enable = true;
     thunar.enable = true;
     dconf.enable = true;
-    zsh.enable = true;
   };
 
   # List services that you want to enable:

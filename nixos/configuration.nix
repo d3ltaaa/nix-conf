@@ -72,6 +72,7 @@
       "wheel"
     ];
     shell = pkgs.zsh;
+    packages = with pkgs; [ ];
   };
 
   # Some programs need SUID wrappers, can be configured further or are
