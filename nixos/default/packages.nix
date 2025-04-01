@@ -2,6 +2,7 @@
   pkgs,
   nixpkgs-stable,
   lib,
+  config,
   ...
 }@inputs:
 let
@@ -107,8 +108,12 @@ in
     upower.enable = true;
     udisks2.enable = true;
     printing.enable = true;
-    syncthing.enable = true;
     hypridle.enable = true;
+    syncthing = {
+      enable = true;
+      dataDir = "/home/falk";
+      user = "falk";
+    };
 
     auto-cpufreq = {
       enable = true;

@@ -5,6 +5,9 @@
   ...
 }:
 {
+
+  networking.hostName = "T480"; # Define your hostname.
+
   hardware.graphics = {
     enable = true;
   };

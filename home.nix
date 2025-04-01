@@ -1,5 +1,6 @@
 {
   inputs,
+  config,
   ...
 }:
 
@@ -22,6 +23,22 @@
 
   home.username = "falk";
   home.homeDirectory = "/home/falk";
+
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = true;
+    documents = "${config.home.homeDirectory}/Dokumente";
+    download = "${config.home.homeDirectory}/Downloads";
+    pictures = "${config.home.homeDirectory}/Bilder";
+    music = "${config.home.homeDirectory}/Audio";
+    videos = "${config.home.homeDirectory}/Videos";
+    templates = null;
+    publicShare = null;
+    desktop = null;
+    extraConfig = {
+      XDG_SYNC_DIR = "${config.home.homeDirectory}/Sync";
+    };
+  };
 
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
