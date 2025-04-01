@@ -56,8 +56,9 @@
             inherit nixpkgs-stable;
           };
           modules = [
-            ./nixos/configuration.nix
+            ./nixos/default/configuration.nix
             ./nixos/T440P/hardware-configuration.nix
+            ./nixos/T440P/extra-configuration.nix
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
