@@ -17,6 +17,7 @@ let
     zsh
     zsh-syntax-highlighting
     starship
+    git-credential-manager
 
     clang
     cmake
