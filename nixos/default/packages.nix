@@ -98,9 +98,15 @@ in
     hyprlock.enable = true;
     hyprland.xwayland.enable = true;
     zsh.enable = true;
-    git.enable = true;
     thunar.enable = true;
     dconf.enable = true;
+    git = {
+      enable = true;
+      package = pkgs.gitFull;
+      extraConfig.credential.helper = "manager";
+      extraConfig.credential."https://github.com".username = "falk";
+      extraConfig.credential.credentialstore = "cache";
+    };
   };
 
   # List services that you want to enable:
