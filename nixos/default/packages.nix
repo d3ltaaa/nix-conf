@@ -43,6 +43,7 @@ let
     pulsemixer
 
     firefox
+    protonmail-desktop
     waybar
     discord
     libreoffice-still
