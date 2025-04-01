@@ -103,9 +103,9 @@ in
     git = {
       enable = true;
       package = pkgs.gitFull;
-      extraConfig.credential.helper = "manager";
-      extraConfig.credential."https://github.com".username = "falk";
-      extraConfig.credential.credentialstore = "cache";
+      config.credential.helper = "manager";
+      config.credential."https://github.com".username = "falk";
+      config.credential.credentialstore = "cache";
     };
   };
 

@@ -32,7 +32,7 @@
             inherit nixpkgs-stable;
           };
           modules = [
-            ./nixos/configuration.nix
+            ./nixos/default/configuration.nix
             ./nixos/T480/hardware-configuration.nix
             ./nixos/T480/extra-configuration.nix
             inputs.home-manager.nixosModules.home-manager
