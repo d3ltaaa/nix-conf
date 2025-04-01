@@ -107,20 +107,24 @@ in
     upower.enable = true;
     udisks2.enable = true;
     printing.enable = true;
-    auto-cpufreq.enable = true;
     syncthing.enable = true;
+    hypridle.enable = true;
 
-    auto-cpufreq.settings = {
-      battery = {
-        governor = "powersave";
-        turbo = "never";
-        enable_thresholds = true;
-        start_threshold = 70;
-        stop_threshold = 95;
-      };
-      charger = {
-        governor = "performance";
-        turbo = "auto";
+    auto-cpufreq = {
+      enable = true;
+      settings = {
+        battery = {
+          governor = "powersave";
+          energy_performance_bias = "balance_performance";
+          turbo = "auto";
+          enable_thresholds = true;
+          start_threshold = 90;
+          stop_threshold = 95;
+        };
+        charger = {
+          governor = "performance";
+          turbo = "auto";
+        };
       };
     };
 
