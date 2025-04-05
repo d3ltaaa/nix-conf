@@ -12,6 +12,9 @@
     catppuccin.url = "github:catppuccin/nix";
     catppuccin.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
+    scripts.url = "github:d3ltaaa/fscripts";
+    scripts.flake = false;
+
     # hyprland.url = "github:hyprwm/Hyprland";
     # hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
     # hyprland-plugins.inputs.hyprland.follows = "hyprland";
@@ -21,6 +24,7 @@
       self,
       nixpkgs-unstable,
       nixpkgs-stable,
+      scripts,
       ...
     }@inputs:
     {
@@ -30,6 +34,7 @@
           system = "x86_64-linux";
           specialArgs = {
             inherit nixpkgs-stable;
+            inherit scripts;
           };
           modules = [
             ./nixos/default/configuration.nix

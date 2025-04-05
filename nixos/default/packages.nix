@@ -2,6 +2,7 @@
   pkgs,
   nixpkgs-stable,
   lib,
+  scripts,
   config,
   ...
 }@inputs:
@@ -55,6 +56,10 @@ let
     telegram-desktop
 
     furmark
+    powertop
+    ncdu
+    htop
+    powerstat
   ];
   stable-system-pkgs = with nixpkgs-stable.legacyPackages.${pkgs.system}; [
     auto-cpufreq
@@ -73,8 +78,13 @@ let
 
   stable-font-pkgs = with nixpkgs-stable.legacyPackages.${pkgs.system}; [ ];
 
+  # derivations
+  my-scripts = import ./../derivations/scripts.nix { inherit pkgs scripts; };
+  derivations = [ my-scripts ]; # add to list
+
 in
 {
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -82,6 +92,7 @@ in
   environment.systemPackages = lib.concatLists [
     unstable-system-pkgs
     stable-system-pkgs
+    derivations
   ];
 
   # Instal user packages
@@ -128,7 +139,8 @@ in
       settings = {
         battery = {
           governor = "powersave";
-          energy_performance_bias = "balance_performance";
+          energy_performance_bias = "power";
+          energy_performance_preference = "power";
           turbo = "auto";
           enable_thresholds = true;
           start_threshold = 90;

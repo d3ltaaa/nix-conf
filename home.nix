@@ -7,7 +7,7 @@
 {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
-    inputs.catppuccin.homeManagerModules.catppuccin
+    inputs.catppuccin.homeModules.catppuccin
     ./home-manager/theme.nix
     ./home-manager/programs/foot.nix
     ./home-manager/programs/hyprland.nix

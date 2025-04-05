@@ -7,6 +7,7 @@
   nixpkgs-stable,
   lib,
   config,
+  scripts,
   ...
 }@inputs:
 {
