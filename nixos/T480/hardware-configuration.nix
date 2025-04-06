@@ -28,7 +28,7 @@
   ];
   boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-label/NIXOS_LUKS";
   boot.kernelModules = [ "kvm-intel" ];
-  boot.kernelParams = [ "kvm.enable_virt_at_load=0" ];
+  boot.kernelParams = [ "kvm.enable_virt_at_load=0 intel_pstate=disable" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
