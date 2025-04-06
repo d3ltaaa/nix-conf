@@ -44,14 +44,7 @@
   # the Home Manager release notes for a list of state version
   # changes in each release.
   home.stateVersion = "24.11";
-  home.sessionPath = [
-    "/home/falk/.scripts/"
-    "/home/falk/.scripts/app_names/"
-    "/home/falk/.scripts/system_scripts/"
-    "/home/falk/.scripts/theme_scripts/"
-    "/home/falk/.scripts/dwmblocks_scripts/"
-    "/home/falk/.scripts/test_scripts/"
-  ];
+  home.sessionPath = [ ];
   programs.home-manager.enable = true;
 
   dconf.settings = {
