@@ -59,6 +59,7 @@
           system = "x86_64-linux";
           specialArgs = {
             inherit nixpkgs-stable;
+            inherit scripts;
           };
           modules = [
             ./nixos/default/configuration.nix

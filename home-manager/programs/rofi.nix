@@ -165,7 +165,7 @@ in
       kb-row-up = "Up,Alt+k,Shift+Tab,Shift+ISO_Left_Tab";
       kb-row-down = "Down,Alt+j";
       kb-accept-entry = "Return";
-      terminal = "kitty";
+      terminal = "foot";
       kb-remove-to-eol = "Alt+Shift+e";
       kb-mode-next = "Shift+Right,Alt+Tab,Alt+o";
       kb-mode-complete = "";

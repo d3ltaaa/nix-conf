@@ -8,6 +8,7 @@
 }@inputs:
 let
   unstable-system-pkgs = with pkgs; [
+    wget
     lf
     unzip
     tldr
@@ -61,6 +62,7 @@ let
     htop
     powerstat
     tlp
+    stress-ng
   ];
   stable-system-pkgs = with nixpkgs-stable.legacyPackages.${pkgs.system}; [
     auto-cpufreq

@@ -14,6 +14,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./packages.nix
+    ./virtualisation.nix
   ];
   # enable flakes
   nix.settings.experimental-features = [
@@ -40,14 +41,14 @@
   time.timeZone = "Europe/Berlin";
 
   # Virtualization
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.guest.enable = true;
-  virtualisation.virtualbox.guest.dragAndDrop = true;
+  virtualisation.virtualbox.host.enable = false;
+  virtualisation.virtualbox.guest.enable = false;
+  virtualisation.virtualbox.guest.dragAndDrop = false;
 
   programs.virt-manager.enable = true;
-  users.groups.libvirtd.members = [ "falk" ];
   virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
+  users.groups.libvirtd.members = [ "falk" ];
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
