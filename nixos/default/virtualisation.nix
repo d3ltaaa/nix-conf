@@ -8,6 +8,7 @@
   virtualisation.spiceUSBRedirection.enable = true;
 
   users.groups.libvirtd.members = [ "falk" ];
+  users.groups.libvirt.members = [ "falk" ];
 
   virtualisation.libvirtd = {
     enable = true;

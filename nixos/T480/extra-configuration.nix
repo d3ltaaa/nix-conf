@@ -5,7 +5,6 @@
   ...
 }:
 {
-
   networking.hostName = "T480"; # Define your hostname.
 
   # enable nvidia

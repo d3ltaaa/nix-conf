@@ -72,6 +72,7 @@
     EDITOR = "nvim";
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
     WLR_RENDERER_ALLOW_SOFTWARE = 1;
+    LIBVIRT_DEFAULT_URI = "qemu:///system";
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.

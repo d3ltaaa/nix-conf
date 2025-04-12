@@ -7,7 +7,7 @@
       layer = "top";
       position = "top";
       spacing = 0;
-      height = 34;
+      height = 41;
 
       modules-left = [
         "custom/logo"
@@ -22,6 +22,7 @@
         "tray"
         "network"
         "pulseaudio"
+        "custom/idle"
         "custom/appmenu"
         "custom/system_stats"
         "custom/settings"
@@ -67,7 +68,13 @@
 
       network = {
         format-wifi = "{icon}";
-        format-icons = [ "󰤯" "󰤟" "󰤢" "󰤥" "󰤨" ];
+        format-icons = [
+          "󰤯"
+          "󰤟"
+          "󰤢"
+          "󰤥"
+          "󰤨"
+        ];
         format-ethernet = "󰀂";
         format-alt = "󱛇";
         format-disconnected = "󰖪";
@@ -88,7 +95,11 @@
         format-muted = "󰝟";
         format-icons = {
           headphone = "";
-          default = [ "󰖀" "󰕾" "" ];
+          default = [
+            "󰖀"
+            "󰕾"
+            ""
+          ];
         };
         on-click = "pulsemixer --toggle-mute";
         scroll-step = 5;
@@ -137,6 +148,14 @@
         on-click = "sleep 0.1; rofi -show drun -case-insensitive";
       };
 
+      "custom/idle" = {
+        format = "{}";
+        tooltip = false;
+        on-click = "toggle_hypridle.sh";
+        exec = "hypridle_icon.sh";
+        return-type = "json";
+      };
+
       cpu = {
         interval = 10;
         format = "{}% ";
@@ -178,164 +197,169 @@
 
     };
   };
-  programs.waybar.style =
-    ''
-      * {
-        border: none;
-        border-radius: 0;
-        min-height: 0;
-        font-family: Font Awesome Icons, Material Design Icons, JetBrainsMono Nerd Font;
-        font-size: 13px;
-      }
+  programs.waybar.style = ''
+    * {
+      border: none;
+      border-radius: 0;
+      min-height: 0;
+      font-family: Font Awesome Icons, Material Design Icons, JetBrainsMono Nerd Font;
+      font-size: 13px;
+    }
 
-      window#waybar {
-        background-color: transparent;
-        transition-property: background-color;
-        transition-duration: 0.2s;
-      }
+    window#waybar {
+      background-color: transparent;
+      transition-property: background-color;
+      transition-duration: 0.2s;
+    }
 
-      window#waybar.hidden {
-        opacity: 0.5;
-      }
+    window#waybar.hidden {
+      opacity: 0.5;
+    }
 
-      #workspaces {
-        background-color: transparent;
-      }
+    #workspaces {
+      background-color: transparent;
+    }
 
-      #workspaces button {
-        all: initial; /* Remove GTK theme values (waybar #1351) */
-        min-width: 0; /* Fix weird spacing in materia (waybar #450) */
-        box-shadow: inset 0 -3px transparent; /* Use box-shadow instead of border so the text isn't offset */
-        padding: 6px 18px;
-        margin: 6px 3px;
-        border-radius: 4px;
-        background-color: #1e1e2e;
-        color: #cdd6f4;
-      }
-
-      #workspaces button.active {
-        color: #1e1e2e;
-        background-color: #ffffff;
-      }
-
-      #workspaces button:hover {
-       box-shadow: inherit;
-       text-shadow: inherit;
-       color: #1e1e2e;
-       background-color: #ffffff;
-      }
-
-      #workspaces button.urgent {
-        background-color: #ffffff;
-      }
-
-      #custom-system_stats,
-      #cpu,
-      #custom-test,
-      #memory,
-      #temperature,
-      #custom-power,
-      #battery,
-      #backlight,
-      #pulseaudio,
-      #network,
-      #clock,
-      #custom-settings,
-      #custom-appmenu,
-      #custom-logo {
-        border-radius: 4px;
-        margin: 6px 3px;
-        padding: 6px 12px;
-        background-color: #1e1e2e;
-        color: #181825;
-      }
-
-      #custom-power {
-        margin-right: 6px;
-      }
-
-      #temperature,
-      #cpu,
-      #memory {
-        background-color: #ffffff;
-      }
-
-      #battery {
-        background-color: #ffffff;
-      }
-
-      @keyframes blink {
-        to {
-          background-color: #ffffff;
-          color: #181825;
-        }
-      }
-
-      #battery.warning,
-      #battery.critical,
-      #battery.urgent {
-        background-color: #ffffff;
-        color: #181825;
-        animation-name: blink;
-        animation-duration: 0.5s;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-      }
-      #battery.charging {
-        background-color: #ffffff;
-      }
-
-      #backlight {
-        background-color: #ffffff;
-      }
-
-      #pulseaudio {
-        background-color: #ffffff;
-      }
-
-      #network {
-        background-color: #ffffff;
-        padding-right: 17px;
-      }
-
-      #clock {
-        font-family: JetBrainsMono Nerd Font;
-        background-color: #ffffff;
-      }
-
-      #custom-power {
-        background-color: #ffffff;
-      }
-
-      #tray {
-        border-radius: 4px;
-        margin: 6px 3px;
-        padding: 6px 12px;
-        background-color: #1e1e2e;
-        color: #181825;
-      }
-
-      #custom-settings {
-        background-color: #ffffff;
-      }
-
-      #custom-system_stats,
-      #custom-appmenu {
-        background-color: #ffffff;
-      }
-
-
-      tooltip {
-      border-radius: 8px;
-      padding: 15px;
+    #workspaces button {
+      all: initial; /* Remove GTK theme values (waybar #1351) */
+      min-width: 0; /* Fix weird spacing in materia (waybar #450) */
+      box-shadow: inset 0 -3px transparent; /* Use box-shadow instead of border so the text isn't offset */
+      padding: 6px 18px;
+      margin: 6px 3px;
+      border-radius: 4px;
       background-color: #1e1e2e;
-      }
+      color: #cdd6f4;
+    }
 
-      tooltip label {
-      padding: 5px;
+    #workspaces button.active {
+      color: #1e1e2e;
+      background-color: #ffffff;
+    }
+
+    #workspaces button:hover {
+     box-shadow: inherit;
+     text-shadow: inherit;
+     color: #1e1e2e;
+     background-color: #ffffff;
+    }
+
+    #workspaces button.urgent {
+      background-color: #ffffff;
+    }
+
+    #custom-system_stats,
+    #cpu,
+    #custom-test,
+    #memory,
+    #temperature,
+    #custom-power,
+    #custom-idle,
+    #battery,
+    #backlight,
+    #pulseaudio,
+    #network,
+    #clock,
+    #custom-settings,
+    #custom-appmenu,
+    #custom-logo {
+      border-radius: 4px;
+      margin: 6px 3px;
+      padding: 6px 12px;
       background-color: #1e1e2e;
+      color: #181825;
+    }
+
+    #custom-power {
+      margin-right: 6px;
+    }
+
+    #temperature,
+    #cpu,
+    #memory {
+      background-color: #ffffff;
+    }
+
+    #battery {
+      background-color: #ffffff;
+    }
+
+    @keyframes blink {
+      to {
+        background-color: #ffffff;
+        color: #181825;
       }
-    '';
+    }
+
+    #battery.warning,
+    #battery.critical,
+    #battery.urgent {
+      background-color: #ffffff;
+      color: #181825;
+      animation-name: blink;
+      animation-duration: 0.5s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+    }
+    #battery.charging {
+      background-color: #ffffff;
+    }
+
+    #backlight {
+      background-color: #ffffff;
+    }
+
+    #pulseaudio {
+      background-color: #ffffff;
+    }
+
+    #custom-idle {
+      background-color: #ffffff;
+    }
+
+    #network {
+      background-color: #ffffff;
+      padding-right: 17px;
+    }
+
+    #clock {
+      font-family: JetBrainsMono Nerd Font;
+      background-color: #ffffff;
+    }
+
+
+    #custom-power {
+      background-color: #ffffff;
+    }
+
+    #tray {
+      border-radius: 4px;
+      margin: 6px 3px;
+      padding: 6px 12px;
+      background-color: #1e1e2e;
+      color: #181825;
+    }
+
+    #custom-settings {
+      background-color: #ffffff;
+    }
+
+    #custom-system_stats,
+    #custom-appmenu {
+      background-color: #ffffff;
+    }
+
+
+    tooltip {
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #1e1e2e;
+    }
+
+    tooltip label {
+    padding: 5px;
+    background-color: #1e1e2e;
+    }
+  '';
 
 }
