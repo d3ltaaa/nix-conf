@@ -1,5 +1,23 @@
 { pkgs, ... }:
 {
+  # virtualbox
+  users.groups.vboxusers.members = [ "falk" ];
+
+  virtualisation.virtualbox = {
+    host = {
+      enable = true;
+      enableExtensionPack = false;
+      addNetworkInterface = true;
+      enableKvm = false;
+    };
+    guest = {
+      enable = true;
+      dragAndDrop = true;
+      clipboard = true;
+    };
+  };
+
+  # kvm, qemu, libvrit, virt-manager
   programs.virt-manager = {
     enable = true;
     package = pkgs.virt-manager;

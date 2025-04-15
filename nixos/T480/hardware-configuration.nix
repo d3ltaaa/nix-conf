@@ -29,7 +29,7 @@
   boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-label/NIXOS_LUKS";
   boot.kernelModules = [ "kvm-intel" ];
   boot.kernelParams = [
-    "intel_pstate=disable" # disable intel_pstate => acpi_cpufreq
+    # "intel_pstate=disable" # disable intel_pstate => acpi_cpufreq
 
     # virtualisation
     "kvm.enable_virt_at_load=0"

@@ -57,16 +57,6 @@
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
-  # Virtualization
-  virtualisation.virtualbox.host.enable = false;
-  virtualisation.virtualbox.guest.enable = false;
-  virtualisation.virtualbox.guest.dragAndDrop = false;
-
-  programs.virt-manager.enable = true;
-  virtualisation.libvirtd.enable = true;
-  virtualisation.spiceUSBRedirection.enable = true;
-  users.groups.libvirtd.members = [ "falk" ];
-
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 

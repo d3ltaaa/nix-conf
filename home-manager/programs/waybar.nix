@@ -149,6 +149,8 @@
       };
 
       "custom/idle" = {
+        interval = "once";
+        signal = "6";
         format = "{}";
         tooltip = false;
         on-click = "toggle_hypridle.sh";
