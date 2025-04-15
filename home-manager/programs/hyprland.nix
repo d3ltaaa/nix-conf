@@ -187,7 +187,8 @@
       ];
 
       monitor = [
-        "eDP-1, 1920x1080@60, 0x0, 1"
+        "DP-3, 2560x1440@240, 0x0, 1"
+        "DP-2, 1920x1080@165, 2560x0, 1"
       ];
       # exec-once = "hyprlock &; swww-daemonn &; swww img ~/.config/wall/selected*; hyprpm reload -n; waybar -c ~/.config/waybar/config -s ~/.config/waybar/style.css &;";
       exec-once = "~/.config/start.sh";

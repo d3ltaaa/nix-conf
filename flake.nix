@@ -78,6 +78,31 @@
             # }
           ];
         };
+
+        "PC" = nixpkgs-unstable.lib.nixosSystem {
+          # nixpkgs-unstable -> pkgs
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit nixpkgs-stable;
+            inherit scripts;
+          };
+          modules = [
+            ./nixos/default/configuration.nix
+            ./nixos/PC/hardware-configuration.nix
+            ./nixos/PC/extra-configuration.nix
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.falk.imports = [ ./home.nix ];
+            }
+            # {
+            #   nixpkgs.config.allowUnfree = true;
+            #   nixpkgs.config.allowUnfreePredicate = (pkg: true);
+            # }
+          ];
+        };
       };
     };
 }

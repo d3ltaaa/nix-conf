@@ -43,6 +43,7 @@ let
 
     upower
     pulsemixer
+    libpulseaudio
 
     firefox
     protonmail-desktop
@@ -53,7 +54,7 @@ let
     freecad-wayland
     spotify
     orca-slicer
-    remnote
+    # remnote
     telegram-desktop
 
     furmark
@@ -186,6 +187,10 @@ in
 
       };
     };
+
+    pulseaudio.enable = true;
+    pulseaudio.support32Bit = true;
+    pipewire.enable = false;
 
     auto-cpufreq = {
       enable = true;
