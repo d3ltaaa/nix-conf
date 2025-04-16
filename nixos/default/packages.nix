@@ -83,7 +83,7 @@ let
   stable-font-pkgs = with nixpkgs-stable.legacyPackages.${pkgs.system}; [ ];
 
   # derivations
-  my-scripts = import ./../derivations/scripts.nix { inherit pkgs scripts; };
+  my-scripts = import ./../../derivations/scripts.nix { inherit pkgs scripts; };
   derivations = [ my-scripts ]; # add to list
 
 in

@@ -8,17 +8,17 @@
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     inputs.catppuccin.homeModules.catppuccin
-    ./home-manager/theme.nix
-    ./home-manager/programs/foot.nix
-    ./home-manager/programs/hyprland.nix
-    ./home-manager/programs/waybar.nix
-    ./home-manager/programs/git.nix
-    ./home-manager/programs/tmux.nix
-    ./home-manager/programs/neovim/default.nix
-    ./home-manager/programs/lf.nix
-    ./home-manager/programs/dunst.nix
-    ./home-manager/programs/rofi.nix
-    ./home-manager/programs/zsh.nix
+    ./home-manager/default/theme.nix
+    ./home-manager/default/programs/foot.nix
+    ./home-manager/default/programs/hyprland.nix
+    ./home-manager/default/programs/waybar.nix
+    ./home-manager/default/programs/git.nix
+    ./home-manager/default/programs/tmux.nix
+    ./home-manager/default/programs/neovim/default.nix
+    ./home-manager/default/programs/lf.nix
+    ./home-manager/default/programs/dunst.nix
+    ./home-manager/default/programs/rofi.nix
+    ./home-manager/default/programs/zsh.nix
   ];
 
   home.username = "falk";
