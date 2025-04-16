@@ -14,6 +14,11 @@
 
   networking.hostName = "T480"; # Define your hostname.
 
+  # enable modules
+  configuration-module.enable = true;
+  packages-module.enable = true;
+  virtualisation-module.enable = true;
+
   # enable nvidia
   # hardware.graphics = {
   #   enable = true;
