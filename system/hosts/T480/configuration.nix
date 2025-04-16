@@ -10,6 +10,7 @@
     ./../../modules/configuration.nix
     ./../../modules/packages.nix
     ./../../modules/virtualisation.nix
+    ./../../modules/ai.nix
   ];
 
   networking.hostName = "T480"; # Define your hostname.
@@ -18,6 +19,7 @@
   configuration-module.enable = true;
   packages-module.enable = true;
   virtualisation-module.enable = true;
+  ai-packages.enable = false;
 
   # enable nvidia
   # hardware.graphics = {

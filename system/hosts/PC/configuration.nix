@@ -5,6 +5,7 @@
     ./../../modules/configuration.nix
     ./../../modules/packages.nix
     ./../../modules/virtualisation.nix
+    ./../../modules/ai.nix
   ];
 
   networking.hostName = "PC";
@@ -13,5 +14,5 @@
   configuration-module.enable = true;
   packages-module.enable = true;
   virtualisation-module.enable = true;
-
+  ai-packages.enable = true;
 }
