@@ -47,10 +47,6 @@
                 ./home/hosts/T480/home.nix
               ];
             }
-            # {
-            #   nixpkgs.config.allowUnfree = true;
-            #   nixpkgs.config.allowUnfreePredicate = (pkg: true);
-            # }
           ];
         };
 
@@ -72,10 +68,6 @@
                 ./home/hosts/T440P/home.nix
               ];
             }
-            # {
-            #   nixpkgs.config.allowUnfree = true;
-            #   nixpkgs.config.allowUnfreePredicate = (pkg: true);
-            # }
           ];
         };
 
@@ -98,13 +90,8 @@
                 ./home/hosts/PC/home.nix
               ];
             }
-            # {
-            #   nixpkgs.config.allowUnfree = true;
-            #   nixpkgs.config.allowUnfreePredicate = (pkg: true);
-            # }
           ];
         };
-        # homeManagerModules.default = ./home/modules;
       };
     };
 }

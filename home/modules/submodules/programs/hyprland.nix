@@ -196,8 +196,19 @@
           ",XF86MonBrightnessDown, exec, brillo -U 10"
         ];
 
-        # exec-once = "hyprlock &; swww-daemonn &; swww img ~/.config/wall/selected*; hyprpm reload -n; waybar -c ~/.config/waybar/config -s ~/.config/waybar/style.css &;";
-        exec-once = "~/.config/start.sh";
+        monitor = lib.mkDefault [
+          "eDP-1, 1920x1080@60, 0x0, 1"
+        ];
+
+        exec-once = [
+          "hyprlock &"
+          "swww-daemon &"
+          "swww img ~/.config/wall/selected* &"
+          "hyprpm reload -n"
+          "waybar -c ~/.config/waybar/config -s ~/.config/waybar/style.css &"
+        ];
+        # exec-once = "hyprlock & && swww-daemon & && swww img ~/.config/wall/selected* && hyprpm reload -n && waybar -c ~/.config/waybar/config -s ~/.config/waybar/style.css &;";
+        # exec-once = "~/.config/start.sh";
 
       };
 

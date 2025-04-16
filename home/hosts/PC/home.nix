@@ -45,4 +45,16 @@
     "DP-3, 2560x1440@240, 0x0, 1"
     "DP-2, 1920x1080@165, 2560x0, 1"
   ];
+
+  wayland.windowManager.hyprland.settings.workspace = [
+    "1, monitor:DP-3"
+    "3, monitor:DP-3"
+    "5, monitor:DP-3"
+    "7, monitor:DP-3"
+    "9, monitor:DP-3"
+    "2, monitor:DP-2"
+    "4, monitor:DP-2"
+    "6, monitor:DP-2"
+    "8, monitor:DP-2"
+  ];
 }
