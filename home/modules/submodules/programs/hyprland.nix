@@ -200,16 +200,7 @@
           "eDP-1, 1920x1080@60, 0x0, 1"
         ];
 
-        exec-once = [
-          "hyprlock &"
-          "swww-daemon &"
-          "swww img ~/.config/wall/selected* &"
-          "hyprpm reload -n"
-          "waybar -c ~/.config/waybar/config -s ~/.config/waybar/style.css &"
-        ];
-        # exec-once = "hyprlock & && swww-daemon & && swww img ~/.config/wall/selected* && hyprpm reload -n && waybar -c ~/.config/waybar/config -s ~/.config/waybar/style.css &;";
-        # exec-once = "~/.config/start.sh";
-
+        exec-once = "start-hyprland-env.sh";
       };
 
       plugins = [

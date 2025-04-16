@@ -74,6 +74,11 @@ let
 
   stable-user-pkgs = with nixpkgs-stable.legacyPackages.${pkgs.system}; [ ];
 
+  unstable-ai-pkgs = with pkgs; [
+    ollama-rocm
+    open-webui
+  ];
+
   unstable-font-pkgs = with pkgs; [
     nerd-fonts.ubuntu-mono
     nerd-fonts.fira-code
@@ -90,19 +95,20 @@ in
 {
   options = {
     packages-module.enable = lib.mkEnableOption "Enables Packages module";
+    ai-packages.enable = lib.mkEnableOption "Enable Ai packages";
   };
   config = lib.mkIf config.packages-module.enable {
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
-    # Instal system packages
+    # Install system packages
     environment.systemPackages = lib.concatLists [
       unstable-system-pkgs
       stable-system-pkgs
       derivations
     ];
 
-    # Instal user packages
+    # Install user packages
     users.users.falk.packages = lib.concatLists [
       unstable-user-pkgs
       stable-user-pkgs
