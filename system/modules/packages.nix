@@ -135,11 +135,6 @@ in
       udisks2.enable = true;
       printing.enable = true;
       hypridle.enable = true;
-      syncthing = {
-        enable = true;
-        dataDir = "/home/falk";
-        user = "falk";
-      };
 
       tlp = {
         enable = true;

@@ -10,7 +10,7 @@
     ./../../modules/configuration.nix
     ./../../modules/packages.nix
     ./../../modules/virtualisation.nix
-    ./../../modules/ai.nix
+    ./../../modules/syncthing.nix
   ];
 
   networking.hostName = "T480"; # Define your hostname.
@@ -18,8 +18,10 @@
   # enable modules
   configuration-module.enable = true;
   packages-module.enable = true;
+
+  # T480
   virtualisation-module.enable = true;
-  ai-packages.enable = false;
+  syncthing-module.enable = true;
 
   # enable nvidia
   # hardware.graphics = {
