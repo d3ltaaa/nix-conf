@@ -29,61 +29,55 @@
     }@inputs:
     {
       nixosConfigurations = {
-        #   "T480" = nixpkgs-unstable.lib.nixosSystem {
-        #     # nixpkgs-unstable -> pkgs
-        #     system = "x86_64-linux";
-        #     specialArgs = {
-        #       inherit nixpkgs-stable;
-        #       inherit scripts;
-        #     };
-        #     modules = [
-        #       ./nixos/default/configuration.nix
-        #       ./nixos/machines/T480/hardware-configuration.nix
-        #       ./nixos/machines/T480/extra-configuration.nix
-        #       inputs.home-manager.nixosModules.home-manager
-        #       {
-        #         home-manager.useGlobalPkgs = true;
-        #         home-manager.useUserPackages = true;
-        #         home-manager.extraSpecialArgs = { inherit inputs; };
-        #         home-manager.users.falk.imports = [
-        #           ./home.nix
-        #           ./home-manager/machines/T480/hyprland.nix
-        #         ];
-        #       }
-        #       # {
-        #       #   nixpkgs.config.allowUnfree = true;
-        #       #   nixpkgs.config.allowUnfreePredicate = (pkg: true);
-        #       # }
-        #     ];
-        #   };
-        #
-        #   "T440P" = nixpkgs-unstable.lib.nixosSystem {
-        #     # nixpkgs-unstable -> pkgs
-        #     system = "x86_64-linux";
-        #     specialArgs = {
-        #       inherit nixpkgs-stable;
-        #       inherit scripts;
-        #     };
-        #     modules = [
-        #       ./nixos/default/configuration.nix
-        #       ./nixos/machines/T440P/hardware-configuration.nix
-        #       ./nixos/machines/T440P/extra-configuration.nix
-        #       inputs.home-manager.nixosModules.home-manager
-        #       {
-        #         home-manager.useGlobalPkgs = true;
-        #         home-manager.useUserPackages = true;
-        #         home-manager.extraSpecialArgs = { inherit inputs; };
-        #         home-manager.users.falk.imports = [
-        #           ./home.nix
-        #           ./home-manager/machines/T440P/hyprland.nix
-        #         ];
-        #       }
-        #       # {
-        #       #   nixpkgs.config.allowUnfree = true;
-        #       #   nixpkgs.config.allowUnfreePredicate = (pkg: true);
-        #       # }
-        #     ];
-        #   };
+        "T480" = nixpkgs-unstable.lib.nixosSystem {
+          # nixpkgs-unstable -> pkgs
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit nixpkgs-stable;
+            inherit scripts;
+          };
+          modules = [
+            ./system/hosts/T480/configuration.nix
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.falk.imports = [
+                ./home/hosts/T480/home.nix
+              ];
+            }
+            # {
+            #   nixpkgs.config.allowUnfree = true;
+            #   nixpkgs.config.allowUnfreePredicate = (pkg: true);
+            # }
+          ];
+        };
+
+        "T440P" = nixpkgs-unstable.lib.nixosSystem {
+          # nixpkgs-unstable -> pkgs
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit nixpkgs-stable;
+            inherit scripts;
+          };
+          modules = [
+            ./system/hosts/T440P/configuration.nix
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.falk.imports = [
+                ./home/hosts/T440P/home.nix
+              ];
+            }
+            # {
+            #   nixpkgs.config.allowUnfree = true;
+            #   nixpkgs.config.allowUnfreePredicate = (pkg: true);
+            # }
+          ];
+        };
 
         "PC" = nixpkgs-unstable.lib.nixosSystem {
           # nixpkgs-unstable -> pkgs
