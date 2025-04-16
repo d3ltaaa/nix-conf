@@ -8,7 +8,8 @@
   options = {
     ai-packages.enable = lib.mkEnableOption "Enable Ai packages";
   };
-  config = lib.mkIf config.ai-packages.enable {
+  config = lib.mkIf (config.ai-packages.enable == true && config.networking.hostName == "PC") {
+
     services.open-webui = {
       enable = true;
       # port = 8080;
@@ -20,8 +21,7 @@
       acceleration = "rocm";
       user = "ollama";
       group = "ollama";
-      # models = "/home/falk/OllamaModels";
-      # rocmOverrideGfx = "10.3.1";
+      rocmOverrideGfx = "11.0.0"; # 7900xt (gpu-family)
       loadModels = [
         "gemma3:27b"
         "mistral"

@@ -16,9 +16,12 @@
   configuration-module.enable = true;
   packages-module.enable = true;
 
-  # PC
   virtualisation-module.enable = true;
   amdgpu-module.enable = true;
   syncthing-module.enable = true;
+
+  # enable options
   ai-packages.enable = true;
+  os-prober-option.enable = true;
+
 }

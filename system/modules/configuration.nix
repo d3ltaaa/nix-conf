@@ -14,6 +14,7 @@
 
   options = {
     configuration-module.enable = lib.mkEnableOption "Enables Configuration module";
+    os-prober-option.enable = lib.mkEnableOption "Enables Os-Prober";
   };
   config = lib.mkIf config.configuration-module.enable {
     # enable flakes
@@ -27,7 +28,7 @@
       grub = {
         enable = true;
         device = "nodev";
-        useOSProber = true;
+        useOSProber = lib.mkIf config.os-prober-option.enable true;
         efiSupport = true;
         extraEntries = ''
           menuentry "Reboot" {
