@@ -27,14 +27,21 @@
       scripts,
       ...
     }@inputs:
+    let
+      user = "falk";
+      userHomeDir = "/home/falk";
+    in
     {
       nixosConfigurations = {
         "T480" = nixpkgs-unstable.lib.nixosSystem {
           # nixpkgs-unstable -> pkgs
           system = "x86_64-linux";
           specialArgs = {
+            inherit inputs;
             inherit nixpkgs-stable;
             inherit scripts;
+            inherit user;
+            inherit userHomeDir;
           };
           modules = [
             ./system/hosts/T480/configuration.nix
@@ -42,8 +49,12 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.falk.imports = [
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+                inherit user;
+                inherit userHomeDir;
+              };
+              home-manager.users.${user}.imports = [
                 ./home/hosts/T480/home.nix
               ];
             }
@@ -54,8 +65,11 @@
           # nixpkgs-unstable -> pkgs
           system = "x86_64-linux";
           specialArgs = {
+            inherit inputs;
             inherit nixpkgs-stable;
             inherit scripts;
+            inherit user;
+            inherit userHomeDir;
           };
           modules = [
             ./system/hosts/T440P/configuration.nix
@@ -63,8 +77,12 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.falk.imports = [
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+                inherit user;
+                inherit userHomeDir;
+              };
+              home-manager.users.${user}.imports = [
                 ./home/hosts/T440P/home.nix
               ];
             }
@@ -78,6 +96,8 @@
             inherit inputs;
             inherit nixpkgs-stable;
             inherit scripts;
+            inherit user;
+            inherit userHomeDir;
           };
           modules = [
             ./system/hosts/PC/configuration.nix
@@ -85,8 +105,12 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.falk.imports = [
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+                inherit user;
+                inherit userHomeDir;
+              };
+              home-manager.users.${user}.imports = [
                 ./home/hosts/PC/home.nix
               ];
             }

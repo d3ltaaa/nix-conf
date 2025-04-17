@@ -2,6 +2,8 @@
   pkgs,
   lib,
   config,
+  user,
+  userHomeDir,
   ...
 }:
 {
@@ -213,7 +215,7 @@
     programs.hyprlock.settings = {
       background = {
         monitor = "";
-        path = "/home/falk/.config/wall/paper";
+        path = "${userHomeDir}/.config/wall/paper";
       };
 
       input-field = {

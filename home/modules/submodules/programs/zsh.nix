@@ -30,7 +30,6 @@
         compinit
         _comp_options+=(globdots)		# Include hidden files.
       '';
-      # dotDir = "/home/falk/.config/zsh";
       syntaxHighlighting.enable = true;
       history.save = 1000;
       history.size = 1000;

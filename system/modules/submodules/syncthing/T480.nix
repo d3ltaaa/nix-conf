@@ -1,4 +1,10 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  user,
+  userHomeDir,
+  ...
+}:
 {
   services.syncthing.settings = lib.mkIf (config.networking.hostName == "T480") {
     devices = {
@@ -12,7 +18,7 @@
 
     folders = {
       "Dokumente" = {
-        path = "/home/falk/Dokumente";
+        path = "${userHomeDir}/Dokumente";
         devices = [
           "PC"
           # "T440P"

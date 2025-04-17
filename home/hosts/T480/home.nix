@@ -2,6 +2,8 @@
   inputs,
   config,
   lib,
+  user,
+  userHomeDir,
   ...
 }:
 
@@ -17,8 +19,8 @@
 
   programs.home-manager.enable = true;
 
-  home.username = "falk";
-  home.homeDirectory = "/home/falk";
+  home.username = "${user}";
+  home.homeDirectory = "${userHomeDir}";
 
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version

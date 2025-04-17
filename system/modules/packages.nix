@@ -4,6 +4,7 @@
   lib,
   scripts,
   config,
+  user,
   ...
 }@inputs:
 let
@@ -103,7 +104,7 @@ in
     ];
 
     # Install user packages
-    users.users.falk.packages = lib.concatLists [
+    users.users.${user}.packages = lib.concatLists [
       unstable-user-pkgs
       stable-user-pkgs
     ];
@@ -124,7 +125,7 @@ in
         enable = true;
         package = pkgs.gitFull;
         config.credential.helper = "manager";
-        config.credential."https://github.com".username = "falk";
+        config.credential."https://github.com".username = "${user}";
         config.credential.credentialstore = "cache";
       };
     };
@@ -217,7 +218,7 @@ in
 
       getty = {
         autologinOnce = true;
-        autologinUser = "falk";
+        autologinUser = "${user}";
         # loginProgram = "${pkgs.shadow}/bin/hyprland";
       };
     };

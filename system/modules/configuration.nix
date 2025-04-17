@@ -8,6 +8,7 @@
   lib,
   config,
   scripts,
+  user,
   ...
 }@inputs:
 {
@@ -84,9 +85,9 @@
     };
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.users.falk = {
+    users.users.${user} = {
       isNormalUser = true;
-      description = "Falk";
+      description = "${user}";
       extraGroups = [
         "networkmanager"
         "wheel"
