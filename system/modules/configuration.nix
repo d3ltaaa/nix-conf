@@ -8,7 +8,7 @@
   lib,
   config,
   scripts,
-  user,
+  variables,
   ...
 }@inputs:
 {
@@ -85,9 +85,9 @@
     };
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.users.${user} = {
+    users.users.${variables.user} = {
       isNormalUser = true;
-      description = "${user}";
+      description = "${variables.user}";
       extraGroups = [
         "networkmanager"
         "wheel"

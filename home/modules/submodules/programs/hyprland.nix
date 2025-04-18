@@ -2,8 +2,7 @@
   pkgs,
   lib,
   config,
-  user,
-  userHomeDir,
+  variables,
   ...
 }:
 {
@@ -180,7 +179,8 @@
           "$mod, N, exec, dunstctl close"
           "$mod CONTROL, N, exec, dunstctl close-all && dunstctl history-clear"
 
-          "$mod, Q, exec, grim -g $(slurp) - | swappy -f -"
+          "$mod, Q, exec, grim -g \"$(slurp)\" - | swappy -f -"
+          # "$mod, Q, exec, screenshot_save.sh"
           "$mod, G, exec, hyprlock"
         ];
 
@@ -215,7 +215,7 @@
     programs.hyprlock.settings = {
       background = {
         monitor = "";
-        path = "${userHomeDir}/.config/wall/paper";
+        path = "${variables.userHomeDir}/.config/wall/paper";
       };
 
       input-field = {

@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -24,4 +24,6 @@
   ai-packages.enable = true;
   os-prober-option.enable = true;
 
+  # ddcutil for backlight
+  environment.systemPackages = with pkgs; [ ddcutil ];
 }

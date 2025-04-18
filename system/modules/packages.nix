@@ -4,7 +4,7 @@
   lib,
   scripts,
   config,
-  user,
+  variables,
   ...
 }@inputs:
 let
@@ -14,6 +14,7 @@ let
     unzip
     tldr
     ripgrep
+    rsync
     fzf
     man-db
     docker
@@ -41,6 +42,22 @@ let
     nwg-look
     whitesur-cursors
     bibata-cursors
+
+    slurp
+    feh
+    grim
+    swappy
+
+    zathura
+    pandoc
+
+    mpv
+    yt-dlg
+
+    sox # ?
+    ffmpeg_4 # ?
+
+    android-tools
 
     upower
     pulsemixer
@@ -104,7 +121,7 @@ in
     ];
 
     # Install user packages
-    users.users.${user}.packages = lib.concatLists [
+    users.users.${variables.user}.packages = lib.concatLists [
       unstable-user-pkgs
       stable-user-pkgs
     ];
@@ -125,7 +142,7 @@ in
         enable = true;
         package = pkgs.gitFull;
         config.credential.helper = "manager";
-        config.credential."https://github.com".username = "${user}";
+        config.credential."https://github.com".username = "${variables.user}";
         config.credential.credentialstore = "cache";
       };
     };
@@ -218,7 +235,7 @@ in
 
       getty = {
         autologinOnce = true;
-        autologinUser = "${user}";
+        autologinUser = "${variables.user}";
         # loginProgram = "${pkgs.shadow}/bin/hyprland";
       };
     };

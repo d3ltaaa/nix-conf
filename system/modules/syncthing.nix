@@ -1,8 +1,7 @@
 {
   lib,
   config,
-  user,
-  userHomeDir,
+  variables,
   ...
 }:
 {
@@ -16,8 +15,8 @@
   config = lib.mkIf config.syncthing-module.enable {
     services.syncthing = {
       enable = true;
-      dataDir = "${userHomeDir}";
-      user = "${user}";
+      dataDir = "${variables.userHomeDir}";
+      user = "${variables.user}";
       openDefaultPorts = true;
     };
     systemd.services.syncthing.environment.STNODEFAULTFOLDER = "true"; # Don't create default ~/Sync

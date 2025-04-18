@@ -1,8 +1,7 @@
 {
   lib,
   config,
-  user,
-  userHomeDir,
+  variables,
   ...
 }:
 {
@@ -18,7 +17,7 @@
 
     folders = {
       "Dokumente" = {
-        path = "${userHomeDir}/Dokumente";
+        path = "${variables.userHomeDir}/Dokumente";
         devices = [
           "PC"
           # "T440P"

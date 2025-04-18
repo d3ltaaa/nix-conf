@@ -2,7 +2,7 @@
   lib,
   config,
   pkgs,
-  user,
+  variables,
   ...
 }:
 {
@@ -11,7 +11,7 @@
   };
   config = lib.mkIf config.virtualisation-module.enable {
     # virtualbox
-    users.groups.vboxusers.members = [ "${user}" ];
+    users.groups.vboxusers.members = [ "${variables.user}" ];
 
     virtualisation.virtualbox = {
       host = {
@@ -35,8 +35,8 @@
 
     virtualisation.spiceUSBRedirection.enable = true;
 
-    users.groups.libvirtd.members = [ "${user}" ];
-    users.groups.libvirt.members = [ "${user}" ];
+    users.groups.libvirtd.members = [ "${variables.user}" ];
+    users.groups.libvirt.members = [ "${variables.user}" ];
 
     virtualisation.libvirtd = {
       enable = true;

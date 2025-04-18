@@ -2,7 +2,7 @@
   pkgs,
   lib,
   config,
-  user,
+  variables,
   ...
 }:
 {
@@ -28,6 +28,6 @@
         "mistral"
       ];
     };
-    users.groups.ollama.members = [ "${user}" ];
+    users.groups.ollama.members = [ "${variables.user}" ];
   };
 }

@@ -9,6 +9,8 @@
       flavor = "frappe";
       dunst.enable = false;
       hyprlock.enable = false;
+      gtk.enable = true;
+      gtk.flavor = "latte";
     };
     gtk = {
       enable = true;

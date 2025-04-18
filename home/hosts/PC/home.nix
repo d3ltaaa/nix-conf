@@ -2,8 +2,7 @@
   inputs,
   config,
   lib,
-  user,
-  userHomeDir,
+  variables,
   ...
 }:
 
@@ -19,8 +18,8 @@
 
   programs.home-manager.enable = true;
 
-  home.username = "${user}";
-  home.homeDirectory = "${userHomeDir}";
+  home.username = "${variables.user}";
+  home.homeDirectory = "${variables.userHomeDir}";
 
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
@@ -38,6 +37,7 @@
   rofi-module.enable = true;
   tmux-module.enable = true;
   waybar-module.enable = true;
+  swappy-module.enable = true;
   zsh-module.enable = true;
   dconf-module.enable = true;
   userdirs-module.enable = true;

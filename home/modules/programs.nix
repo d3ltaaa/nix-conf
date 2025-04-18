@@ -11,5 +11,6 @@
     ./submodules/programs/tmux.nix
     ./submodules/programs/waybar.nix
     ./submodules/programs/zsh.nix
+    ./submodules/programs/swappy.nix
   ];
 }
