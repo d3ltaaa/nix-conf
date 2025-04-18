@@ -7,10 +7,14 @@
     catppuccin = {
       enable = true;
       flavor = "frappe";
+
       dunst.enable = false;
       hyprlock.enable = false;
+      waybar.enable = false;
+
       gtk.enable = true;
       gtk.flavor = "latte";
+
     };
     gtk = {
       enable = true;

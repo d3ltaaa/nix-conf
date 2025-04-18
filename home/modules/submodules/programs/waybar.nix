@@ -365,13 +365,14 @@
       tooltip {
       border-radius: 8px;
       padding: 15px;
-      background-color: #1e1e2e;
+      background-color: #ffffff;
       }
 
       tooltip label {
       padding: 5px;
-      background-color: #1e1e2e;
+      background-color: #ffffff;
       }
     '';
   };
+  # background-color: #1e1e2e;
 }
