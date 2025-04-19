@@ -9,13 +9,17 @@
 
   # enable modules
   bootloader-module.enable = true;
-  os-prober-option.enable = true;
+  bootloader-module.os-prober.enable = true;
 
   locale-module.enable = true;
 
   user-module.enable = true;
 
   packages-module.enable = true;
+
+  programs-module.enable = true;
+
+  services-module.enable = true;
 
   environment-module.enable = true;
 
@@ -25,16 +29,16 @@
 
   # specific
   brightness-module.enable = true;
-  monitortype-option = "external";
+  brightness-module.monitorType = "external";
 
   amdgpu-module.enable = true;
 
   ai-module.enable = true;
 
   virtualisation-module.enable = true;
-  vbox-options.enable = true;
-  kvmqemu-options.enable = true;
+  virtualisation-module.vbox.enable = true;
+  virtualisation-module.kvmqemu.enable = true;
 
   nvidiagpu-module.enable = false;
-  enable-nvidia-option = false;
+  nvidiagpu-module.enableGpu = false;
 }

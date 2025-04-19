@@ -8,16 +8,18 @@
 
 {
   options = {
-    virtualisation-module.enable = lib.mkEnableOption "Enables Virtualisation module";
-    vbox-options.enable = lib.mkEnableOption "Enables Virtualbox options";
-    kvmqemu-options.enable = lib.mkEnableOption "Enables KVM, Qemu and libvirt options";
+    virtualisation-module = {
+      enable = lib.mkEnableOption "Enables Virtualisation module";
+      vbox.enable = lib.mkEnableOption "Enables Virtualbox options";
+      kvmqemu.enable = lib.mkEnableOption "Enables KVM, Qemu and libvirt options";
+    };
   };
 
   config = lib.mkIf config.virtualisation-module.enable (
     lib.mkMerge [
 
       # VirtualBox config block
-      (lib.mkIf config.vbox-options.enable {
+      (lib.mkIf config.virtualisation-module.vbox.enable {
         users.groups.vboxusers.members = [ "${variables.user}" ];
 
         virtualisation.virtualbox = {
@@ -36,7 +38,7 @@
       })
 
       # KVM/QEMU/libvirt config block
-      (lib.mkIf config.kvmqemu-options.enable {
+      (lib.mkIf config.virtualisation-module.kvmqemu.enable {
         programs.virt-manager = {
           enable = true;
           package = pkgs.virt-manager;

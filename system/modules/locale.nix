@@ -25,5 +25,10 @@
 
     # Configure console keymap
     console.keyMap = "de";
+
+    services.xserver.xkb = {
+      layout = "de";
+      variant = "";
+    };
   };
 }

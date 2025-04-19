@@ -2,8 +2,10 @@
 {
 
   options = {
-    bootloader-module.enable = lib.mkEnableOption "Enables Bootlaoder module";
-    os-prober-option.enable = lib.mkEnableOption "Enables Os-Prober";
+    bootloader-module = {
+      enable = lib.mkEnableOption "Enables Bootlaoder module";
+      os-prober.enable = lib.mkEnableOption "Enables Os-Prober";
+    };
   };
   config = lib.mkIf config.bootloader-module.enable {
     boot.loader.systemd-boot.enable = false;
@@ -11,7 +13,7 @@
       grub = {
         enable = true;
         device = "nodev";
-        useOSProber = lib.mkIf config.os-prober-option.enable true;
+        useOSProber = lib.mkIf config.bootloader-module.os-prober.enable true;
         efiSupport = true;
         extraEntries = ''
           menuentry "Reboot" {

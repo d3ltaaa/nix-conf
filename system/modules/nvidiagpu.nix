@@ -6,16 +6,14 @@
 }:
 {
   options = {
-    nvidiagpu-module.enable = lib.mkEnableOption "Enables Nvidia module";
-    enable-nvidia-option = lib.mkOption {
-      description = "Enable Nvidia GPU";
-      type = lib.types.bool;
-      default = false;
+    nvidiagpu-module = {
+      enable = lib.mkEnableOption "Enables Nvidia module";
+      enableGpu = lib.mkEnableOption "Enable Nvidia GPU";
     };
   };
   config = lib.mkIf config.nvidiagpu-module.enable (
     lib.mkMerge [
-      (lib.mkIf (config.enable-nvidia-option == true) {
+      (lib.mkIf (config.nvidiagpu-module.enableGpu == true) {
         # enable nvidia
         hardware.graphics = {
           enable = true;
@@ -45,7 +43,7 @@
         };
 
       })
-      (lib.mkIf (config.enable-nvidia-option == false) {
+      (lib.mkIf (config.nvidiagpu-module.enableGpu == false) {
         # disable nvidia
         boot.extraModprobeConfig = ''
           blacklist nouveau

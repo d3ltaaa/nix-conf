@@ -11,6 +11,8 @@
     ./locale.nix
     ./nvidiagpu.nix
     ./packages.nix
+    ./programs.nix
+    ./services.nix
     ./syncthing.nix
     ./user.nix
     ./virtualisation.nix
