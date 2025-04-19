@@ -10,10 +10,7 @@
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     inputs.catppuccin.homeModules.catppuccin
-    ./../../modules/programs.nix
-    ./../../modules/theme.nix
-    ./../../modules/userdirs.nix
-    ./../../modules/dconf.nix
+    ./../../modules/default.nix
   ];
 
   programs.home-manager.enable = true;

@@ -23,6 +23,7 @@
     "sd_mod"
   ];
   boot.initrd.kernelModules = [
+    "i2c-dev"
     "dm-snapshot"
     "cryptd"
   ];

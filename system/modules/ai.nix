@@ -7,9 +7,9 @@
 }:
 {
   options = {
-    ai-packages.enable = lib.mkEnableOption "Enable Ai packages";
+    ai-module.enable = lib.mkEnableOption "Enable Ai module";
   };
-  config = lib.mkIf (config.ai-packages.enable == true && config.networking.hostName == "PC") {
+  config = lib.mkIf (config.ai-module.enable == true && config.networking.hostName == "PC") {
 
     services.open-webui = {
       enable = true;

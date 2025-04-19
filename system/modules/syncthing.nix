@@ -11,6 +11,7 @@
   imports = [
     ./submodules/syncthing/T480.nix
     ./submodules/syncthing/PC.nix
+    ./submodules/syncthing/T440P.nix
   ];
   config = lib.mkIf config.syncthing-module.enable {
     services.syncthing = {
