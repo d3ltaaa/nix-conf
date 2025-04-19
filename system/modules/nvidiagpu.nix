@@ -11,7 +11,7 @@
       enableGpu = lib.mkEnableOption "Enable Nvidia GPU";
     };
   };
-  config = lib.mkIf config.nvidiagpu-module.enable (
+  config = lib.mkIf (config.nvidiagpu-module.enable && config.networking.hostName == "T480") (
     lib.mkMerge [
       (lib.mkIf (config.nvidiagpu-module.enableGpu == true) {
         # enable nvidia

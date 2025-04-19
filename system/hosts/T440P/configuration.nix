@@ -9,7 +9,7 @@
 
   # enable modules
   bootloader-module.enable = true;
-  bootloader-module.os-prober.enable = true;
+  bootloader-module.os-prober.enable = false;
 
   locale-module.enable = true;
 

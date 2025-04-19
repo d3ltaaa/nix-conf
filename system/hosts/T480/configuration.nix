@@ -14,7 +14,7 @@
 
   # enable modules
   bootloader-module.enable = true;
-  bootloader-module.os-prober.enable = true;
+  bootloader-module.os-prober.enable = falsfalsee;
 
   locale-module.enable = true;
 
@@ -46,4 +46,10 @@
 
   nvidiagpu-module.enable = true;
   nvidiagpu-module.enableGpu = false;
+
+  specialisation = {
+    nvidia-enable.configuration = {
+      nvidiagpu-module.enableGpu = lib.mkForce true;
+    };
+  };
 }

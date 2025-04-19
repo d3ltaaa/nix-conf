@@ -9,6 +9,8 @@
     amdgpu-module.enable = lib.mkEnableOption "Enables Amdgpu module";
   };
   config = lib.mkIf config.amdgpu-module.enable {
+    services.xserver.videoDrivers = [ "amdgpu" ];
+
     environment.systemPackages = with pkgs; [
       lact
     ];
