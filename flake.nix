@@ -15,7 +15,7 @@
     scripts.url = "github:d3ltaaa/fscripts";
     scripts.flake = false;
 
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # hyprland.url = "github:hyprwm/Hyprland";
     # hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
