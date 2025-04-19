@@ -15,6 +15,8 @@
     scripts.url = "github:d3ltaaa/fscripts";
     scripts.flake = false;
 
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     # hyprland.url = "github:hyprwm/Hyprland";
     # hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
     # hyprland-plugins.inputs.hyprland.follows = "hyprland";
@@ -46,6 +48,7 @@
           };
           modules = [
             ./system/hosts/T480/configuration.nix
+            inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -72,6 +75,7 @@
           };
           modules = [
             ./system/hosts/T440P/configuration.nix
+            inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t440p
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
