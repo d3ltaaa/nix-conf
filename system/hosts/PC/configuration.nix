@@ -27,6 +27,8 @@
 
   syncthing-module.enable = true;
 
+  theme-module.enable = true;
+
   # specific
   brightness-module.enable = true;
   brightness-module.monitorType = "external";

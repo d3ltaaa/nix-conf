@@ -23,7 +23,10 @@
         environment.systemPackages = with pkgs; [ brillo ];
       })
       (lib.mkIf (config.brightness-module.monitorType == "external") {
-        environment.systemPackages = with pkgs; [ ddcutil ];
+        environment.systemPackages = with pkgs; [
+          ddcutil
+          i2c-tools
+        ];
       })
     ]
   );

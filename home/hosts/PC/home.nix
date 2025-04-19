@@ -8,8 +8,6 @@
 
 {
   imports = [
-    inputs.nixvim.homeManagerModules.nixvim
-    inputs.catppuccin.homeModules.catppuccin
     ./../../modules/default.nix
   ];
 

@@ -14,6 +14,7 @@
     ./programs.nix
     ./services.nix
     ./syncthing.nix
+    ./theme.nix
     ./user.nix
     ./virtualisation.nix
   ];
