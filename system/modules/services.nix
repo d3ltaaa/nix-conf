@@ -14,7 +14,6 @@
     services = {
       upower.enable = true;
       udisks2.enable = true;
-      printing.enable = true;
       hypridle.enable = true;
       pulseaudio.enable = true;
       pulseaudio.support32Bit = true;
