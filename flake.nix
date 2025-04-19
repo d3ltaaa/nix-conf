@@ -48,7 +48,7 @@
           };
           modules = [
             ./system/hosts/T480/configuration.nix
-            inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
+            # inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -75,7 +75,7 @@
           };
           modules = [
             ./system/hosts/T440P/configuration.nix
-            inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t440p
+            # inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t440p
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
