@@ -26,10 +26,8 @@
       (lib.mkIf (config.brightness-module.monitorType == "external") {
         environment.systemPackages = with pkgs; [
           ddcutil
-          i2c-tools
         ];
-
-        users.groups.i2c.members = [ "${variables.user}" ];
+        hardware.i2c.enable = true;
       })
     ]
   );
