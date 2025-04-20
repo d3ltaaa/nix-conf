@@ -22,12 +22,14 @@
     lib.mkMerge [
       (lib.mkIf (config.brightness-module.monitorType == "internal") {
         environment.systemPackages = with pkgs; [ brillo ];
+        environment.variables.MONITOR_TYPE = "internal";
       })
       (lib.mkIf (config.brightness-module.monitorType == "external") {
         environment.systemPackages = with pkgs; [
           ddcutil
         ];
         hardware.i2c.enable = true;
+        environment.variables.MONITOR_TYPE = "external";
       })
     ]
   );

@@ -194,8 +194,8 @@
           ",XF86AudioMute, exec, scr_volume mute"
           ",XF86AudioLowerVolume, exec, scr_volume dec"
           ",XF86AudioRaiseVolume, exec, scr_volume inc"
-          ",XF86MonBrightnessUp, exec, brillo -A 10"
-          ",XF86MonBrightnessDown, exec, brillo -U 10"
+          ",XF86MonBrightnessUp, exec, scr_light up"
+          ",XF86MonBrightnessDown, exec, scr_light down"
         ];
 
         monitor = lib.mkDefault [
@@ -273,18 +273,6 @@
         };
 
         listener = [
-          {
-            timeout = 100; # 2.5min.
-            on-timeout = "brightnessctl -s set 10"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
-            on-resume = "brightnessctl -r"; # monitor backlight restore.
-          }
-          # turn off keyboard backlight, comment out this section if you dont have a keyboard backlight.
-          {
-            timeout = 100; # 2.5min.
-            on-timeout = "brightnessctl -sd rgb:kbd_backlight set 0"; # turn off keyboard backlight.
-            on-resume = "brightnessctl -rd rgb:kbd_backlight"; # turn on keyboard backlight.
-          }
-
           {
             timeout = 200; # 5min
             on-timeout = "loginctl lock-session"; # lock screen when timeout has passed

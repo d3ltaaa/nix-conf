@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   inherit (config.lib.formats.rasi) mkLiteral;
   rofi-theme = {
@@ -167,22 +172,22 @@ in
       theme = rofi-theme;
       package = pkgs.rofi-wayland;
       extraConfig = {
-        kb-row-up = "Up,Alt+k,Shift+Tab,Shift+ISO_Left_Tab";
-        kb-row-down = "Down,Alt+j";
+        kb-row-up = "Up,alt+k,Shift+Tab,Shift+ISO_Left_Tab";
+        kb-row-down = "Down,alt+j";
         kb-accept-entry = "Return";
         terminal = "foot";
-        kb-remove-to-eol = "Alt+Shift+e";
-        kb-mode-next = "Shift+Right,Alt+Tab,Alt+o";
+        kb-remove-to-eol = "alt+Shift+e";
+        kb-mode-next = "Shift+Right,alt+Tab,alt+o";
         kb-mode-complete = "";
-        kb-mode-previous = "Shift+Left,Alt+Shift+Tab,Alt+i";
+        kb-mode-previous = "Shift+Left,alt+Shift+Tab,alt+i";
         kb-remove-char-back = "BackSpace";
         kb-clear-line = "";
-        kb-remove-word-back = "Alt+w";
+        kb-remove-word-back = "alt+w";
         kb-cancel = "Escape,MouseSecondary";
         hover-select = true;
         me-select-entry = "";
         me-accept-entry = "MousePrimary";
-  
+
         display-run = "";
         display-drun = "";
         display-window = "";
