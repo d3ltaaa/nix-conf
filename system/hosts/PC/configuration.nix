@@ -39,7 +39,7 @@
 
   virtualisation-module.enable = true;
   virtualisation-module.vbox.enable = true;
-  virtualisation-module.kvmqemu.enable = true;
+  virtualisation-module.kvmqemu.enable = false;
 
   nvidiagpu-module.enable = false;
   nvidiagpu-module.enableGpu = false;

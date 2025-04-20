@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  variables,
   ...
 }:
 {
@@ -27,6 +28,8 @@
           ddcutil
           i2c-tools
         ];
+
+        users.groups.i2c.members = [ "${variables.user}" ];
       })
     ]
   );
