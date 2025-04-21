@@ -9,6 +9,9 @@
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
+    nix-colors.url = "github:misterio77/nix-colors";
+    nix-colors.inputs.nixpkgs.follows = "nixpkgs-unstable";
+
     # catppuccin.url = "github:catppuccin/nix";
     # catppuccin.inputs.nixpkgs.follows = "nixpkgs-unstable";
 

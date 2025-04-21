@@ -1,4 +1,8 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  ...
+}:
 {
   options = {
     theme-module.enable = lib.mkEnableOption "Enables Theme module";

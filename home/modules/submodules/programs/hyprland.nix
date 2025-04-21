@@ -37,8 +37,8 @@
           gaps_in = 10;
           gaps_out = 20;
           border_size = 4;
-          "col.active_border" = "rgba(ffffffff)";
-          "col.inactive_border" = "rgba(595959aa)";
+          "col.active_border" = "rgb(${config.colorScheme.palette.base06})";
+          "col.inactive_border" = "rgb(${config.colorScheme.palette.base02})";
 
           layout = "dwindle";
           allow_tearing = false;
@@ -50,16 +50,16 @@
             bar_title_enabled = false;
             bar_part_of_window = false;
             bar_precedence_over_border = false;
-            bar_color = "rgb(1e1e2e)";
+            bar_color = "rgb(${config.colorScheme.palette.base00})";
             bar_blur = true;
-            col.text = "rgb(ffffff)";
+            col.text = "rgb(${config.colorScheme.palette.base06})";
             bar_padding = 10;
             bar_button_padding = 15;
             hyprbars-button = [
-              "rgb(1e1e2e), 20,  , hyprctl dispatch killactive"
-              "rgb(1e1e2e), 20,  , hyprctl dispatch fullscreen 1"
-              "rgb(1e1e2e), 20,  , hyprctl dispatch togglefloating"
-              "rgb(1e1e2e), 20, 󰋴 , resize_window.sh"
+              "rgb(${config.colorScheme.palette.base00}), 20,  , hyprctl dispatch killactive"
+              "rgb(${config.colorScheme.palette.base00}), 20,  , hyprctl dispatch fullscreen 1"
+              "rgb(${config.colorScheme.palette.base00}), 20,  , hyprctl dispatch togglefloating"
+              "rgb(${config.colorScheme.palette.base00}), 20, 󰋴 , resize_window.sh"
 
             ];
           };
@@ -226,16 +226,16 @@
         dots_spacing = 0.15; # Scale of dots' absolute size, 0.0 - 1.0;
         dots_center = true;
         dots_rounding = -1;
-        outer_color = "rgb(151515)";
-        inner_color = "rgb(FFFFFF)";
-        font_color = "rgb(10, 10, 10)";
+        outer_color = "rgb(${config.colorScheme.palette.base00})";
+        inner_color = "rgb(${config.colorScheme.palette.base06})";
+        font_color = "rgb(${config.colorScheme.palette.base00})";
         fade_on_empty = true;
         fade_timeout = 1000;
         placeholder_text = "<i> Input Password...</i>";
         hide_input = false;
         rounding = -1; # -1 means complete rounding (circle/oval)
-        check_color = "rgb(204, 136, 34)";
-        fail_color = "rgb(204, 34, 34)"; # if authentication failed, changes outer_color and fail message color
+        check_color = "rgb(${config.colorScheme.palette.base0A})";
+        fail_color = "rgb(${config.colorScheme.palette.base08})"; # if authentication failed, changes outer_color and fail message color
         fail_text = "<i>$FAIL <b>($ATTEMPTS)</b></i>"; # can be set to empty
         fail_transition = 300; # transition time in ms between normal outer_color and fail_color
         capslock_color = -1;
@@ -254,7 +254,7 @@
         size = 280; # lesser side if not 1:1 ratio
         rounding = -1; # negative values mean circle
         border_size = 4;
-        border_color = "rgb(221, 221, 221)";
+        border_color = "rgb(${config.colorScheme.palette.base05})";
         rotate = 0; # degrees, counter-clockwise
         reload_time = -1; # seconds between reloading, 0 to reload with SIGUSR2
         position = "0, 200";

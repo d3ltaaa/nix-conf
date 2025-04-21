@@ -239,24 +239,24 @@
         padding: 6px 18px;
         margin: 6px 3px;
         border-radius: 4px;
-        background-color: #1e1e2e;
-        color: #cdd6f4;
+        background-color: #${config.colorScheme.palette.base00};
+        color: #${config.colorScheme.palette.base05};
       }
 
       #workspaces button.active {
-        color: #1e1e2e;
-        background-color: #ffffff;
+        color: #${config.colorScheme.palette.base00};
+        background-color: #${config.colorScheme.palette.base06};
       }
 
       #workspaces button:hover {
        box-shadow: inherit;
        text-shadow: inherit;
-       color: #1e1e2e;
-       background-color: #ffffff;
+        color: #${config.colorScheme.palette.base00};
+        background-color: #${config.colorScheme.palette.base06};
       }
 
       #workspaces button.urgent {
-        background-color: #ffffff;
+        background-color: #${config.colorScheme.palette.base06};
       }
 
       #custom-system_stats,
@@ -277,8 +277,8 @@
         border-radius: 4px;
         margin: 6px 3px;
         padding: 6px 12px;
-        background-color: #1e1e2e;
-        color: #181825;
+        color: #${config.colorScheme.palette.base00};
+        background-color: #${config.colorScheme.palette.base06};
       }
 
       #custom-power {
@@ -288,25 +288,25 @@
       #temperature,
       #cpu,
       #memory {
-        background-color: #ffffff;
+        background-color: #${config.colorScheme.palette.base06};
       }
 
       #battery {
-        background-color: #ffffff;
+        background-color: #${config.colorScheme.palette.base06};
       }
 
       @keyframes blink {
         to {
-          background-color: #ffffff;
-          color: #181825;
+          background-color: #${config.colorScheme.palette.base06};
+          color: #${config.colorScheme.palette.base00};
         }
       }
 
       #battery.warning,
       #battery.critical,
       #battery.urgent {
-        background-color: #ffffff;
-        color: #181825;
+          background-color: #${config.colorScheme.palette.base06};
+          color: #${config.colorScheme.palette.base00};
         animation-name: blink;
         animation-duration: 0.5s;
         animation-timing-function: linear;
@@ -314,65 +314,64 @@
         animation-direction: alternate;
       }
       #battery.charging {
-        background-color: #ffffff;
+          background-color: #${config.colorScheme.palette.base06};
       }
 
       #backlight {
-        background-color: #ffffff;
+          background-color: #${config.colorScheme.palette.base06};
       }
 
       #pulseaudio {
-        background-color: #ffffff;
+          background-color: #${config.colorScheme.palette.base06};
       }
 
       #custom-idle {
-        background-color: #ffffff;
+          background-color: #${config.colorScheme.palette.base06};
       }
 
       #network {
-        background-color: #ffffff;
+          background-color: #${config.colorScheme.palette.base06};
         padding-right: 17px;
       }
 
       #clock {
         font-family: JetBrainsMono Nerd Font;
-        background-color: #ffffff;
+          background-color: #${config.colorScheme.palette.base06};
       }
 
 
       #custom-power {
-        background-color: #ffffff;
+          background-color: #${config.colorScheme.palette.base06};
       }
 
       #tray {
         border-radius: 4px;
         margin: 6px 3px;
         padding: 6px 12px;
-        background-color: #1e1e2e;
-        color: #181825;
+        background-color: #${config.colorScheme.palette.base00};
+        color: #${config.colorScheme.palette.base00};
       }
 
       #custom-settings {
-        background-color: #ffffff;
+          background-color: #${config.colorScheme.palette.base06};
       }
 
       #custom-system_stats,
       #custom-appmenu {
-        background-color: #ffffff;
+          background-color: #${config.colorScheme.palette.base06};
       }
 
 
       tooltip {
       border-radius: 8px;
       padding: 15px;
-      background-color: #ffffff;
+          background-color: #${config.colorScheme.palette.base06};
       }
 
       tooltip label {
       padding: 5px;
-      background-color: #ffffff;
+          background-color: #${config.colorScheme.palette.base06};
       }
     '';
   };
-  # background-color: #1e1e2e;
 }

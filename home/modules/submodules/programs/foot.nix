@@ -16,43 +16,43 @@
         pad = "2x2"; # 5x5
       };
       cursor = {
-        color = "232634 f2d5cf";
+        color = "${config.colorScheme.palette.base01} ${config.colorScheme.palette.base0F}";
       };
       colors = {
         alpha = "0.8";
 
-        foreground = "c6d0f5";
-        background = "303446";
+        foreground = "${config.colorScheme.palette.base05}";
+        background = "${config.colorScheme.palette.base02}";
 
-        regular0 = "51576d";
-        regular1 = "e78284";
-        regular2 = "a6d189";
-        regular3 = "e5c890";
-        regular4 = "8caaee";
-        regular5 = "f4b8e4";
-        regular6 = "81c8be";
-        regular7 = "b5bfe2";
+        regular0 = "${config.colorScheme.palette.base04}";
+        regular1 = "${config.colorScheme.palette.base08}";
+        regular2 = "${config.colorScheme.palette.base0B}";
+        regular3 = "${config.colorScheme.palette.base0A}";
+        regular4 = "${config.colorScheme.palette.base0D}";
+        regular5 = "${config.colorScheme.palette.base0E}";
+        regular6 = "${config.colorScheme.palette.base0C}";
+        regular7 = "${config.colorScheme.palette.base05}";
 
-        bright0 = "626880";
-        bright1 = "e78284";
-        bright2 = "a6d189";
-        bright3 = "e5c890";
-        bright4 = "8caaee";
-        bright5 = "f4b8e4";
-        bright6 = "81c8be";
-        bright7 = "a5adce";
+        bright0 = "${config.colorScheme.palette.base04}";
+        bright1 = "${config.colorScheme.palette.base08}";
+        bright2 = "${config.colorScheme.palette.base0B}";
+        bright3 = "${config.colorScheme.palette.base0A}";
+        bright4 = "${config.colorScheme.palette.base0D}";
+        bright5 = "${config.colorScheme.palette.base0E}";
+        bright6 = "${config.colorScheme.palette.base0C}";
+        bright7 = "${config.colorScheme.palette.base05}";
 
-        "16" = "ef9f76";
-        "17" = "f2d5cf";
+        "16" = "${config.colorScheme.palette.base09}";
+        "17" = "${config.colorScheme.palette.base0F}";
 
-        selection-foreground = "c6d0f5";
-        selection-background = "4f5369";
+        selection-foreground = "${config.colorScheme.palette.base05}";
+        selection-background = "${config.colorScheme.palette.base02}";
 
-        search-box-no-match = "232634 e78284";
-        search-box-match = "c6d0f5 414559";
+        search-box-no-match = "${config.colorScheme.palette.base01} ${config.colorScheme.palette.base08}";
+        search-box-match = "${config.colorScheme.palette.base05} ${config.colorScheme.palette.base03}";
 
-        jump-labels = "232634 ef9f76";
-        urls = "8caaee";
+        jump-labels = "${config.colorScheme.palette.base01} ${config.colorScheme.palette.base09}";
+        urls = "${config.colorScheme.palette.base0D}";
       };
     };
   };

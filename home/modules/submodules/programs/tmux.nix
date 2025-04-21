@@ -15,7 +15,7 @@
       enable = true;
       plugins = [
         pkgs.tmuxPlugins.better-mouse-mode
-        pkgs.tmuxPlugins.catppuccin
+        # pkgs.tmuxPlugins.catppuccin
       ];
       keyMode = "vi";
       clock24 = true;
@@ -25,6 +25,19 @@
       prefix = "M-space";
       extraConfig = ''
         set -ag terminal-overrides ",xterm-256color:RGB"
+        # default statusbar colors
+        set-option -g status-bg "#${config.colorScheme.palette.base01}"  # base01 (light background)
+        set-option -g status-fg "#${config.colorScheme.palette.base04}"  # base04 (dark foreground)
+
+        # pane number display
+        set-option -g display-panes-active-colour "#${config.colorScheme.palette.base0B}"  # base0B (strings, inherited class)
+        set-option -g display-panes-colour "#${config.colorScheme.palette.base0A}"  # base0A (classes, search background)
+
+        # clock
+        set-window-option -g clock-mode-colour "#${config.colorScheme.palette.base0B}"  # base0B (strings)
+
+        # bell
+        set-window-option -g window-status-bell-style fg="#${config.colorScheme.palette.base01}",bg="#${config.colorScheme.palette.base08}"  # base01 (background), base08 (error highlight)
 
         # split panes using | and -
         unbind '"'

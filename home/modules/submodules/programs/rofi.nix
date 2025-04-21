@@ -9,8 +9,9 @@ let
   rofi-theme = {
 
     "*" = {
-      background-color = mkLiteral "#1e1e2e";
-      text-color = mkLiteral "white";
+      background-color = mkLiteral "#${config.colorScheme.colors.base00}";
+      text-color = mkLiteral "#${config.colorScheme.colors.base06}";
+      border-color = mkLiteral "#${config.colorScheme.colors.base06}";
       dpadding = mkLiteral "10px";
       dspacing = mkLiteral "10px";
       rborder = mkLiteral "10px";
@@ -19,7 +20,6 @@ let
 
     "window" = {
       border = mkLiteral "@sborder";
-      border-color = mkLiteral "white";
       border-radius = mkLiteral "@rborder";
       children = [ "mainbox" ];
       height = mkLiteral "600";
@@ -38,9 +38,8 @@ let
     };
 
     "inputbar" = {
-      background-color = mkLiteral "#303446";
+      background-color = mkLiteral "#${config.colorScheme.colors.base02}";
       border = mkLiteral "@sborder";
-      border-color = mkLiteral "white";
       border-radius = mkLiteral "@rborder";
       children = [
         "prompt"
@@ -53,7 +52,6 @@ let
       enabled = mkLiteral "true";
       horizontal-align = mkLiteral "0.50";
       padding = mkLiteral "15 5 15 15";
-      text-color = mkLiteral "white";
       vertical-align = mkLiteral "0.50";
     };
 
@@ -63,8 +61,7 @@ let
       horizontal-align = mkLiteral "0.45";
       padding = mkLiteral "15 0 15 0";
       placeholder = mkLiteral "\"\"";
-      placeholder-color = mkLiteral "white";
-      text-color = mkLiteral "white";
+      placeholder-color = mkLiteral "#${config.colorScheme.colors.base04}";
       vertical-align = mkLiteral "0.50";
     };
 
@@ -80,7 +77,6 @@ let
       orientation = mkLiteral "horizontal";
       padding = mkLiteral "@dpadding";
       position = mkLiteral "east";
-      text-color = mkLiteral "white";
       vertical-align = mkLiteral "0";
     };
 
@@ -92,11 +88,9 @@ let
     "element normal urgent" = { };
     "element selected active" = { };
     "element selected normal" = {
-      background-color = mkLiteral "#303446";
+      background-color = mkLiteral "#${config.colorScheme.colors.base02}";
       border = mkLiteral "@sborder";
-      border-color = mkLiteral "white";
       border-radius = mkLiteral "@rborder";
-      text-color = mkLiteral "white";
     };
     "element selected urgent" = { };
     "element-icon" = {
@@ -114,7 +108,6 @@ let
     "textbox" = {
       font = mkLiteral "\"InconsolataGo Nerd Font Bold 11\"";
       horizontal-align = mkLiteral "0.50";
-      text-color = mkLiteral "white";
     };
   };
 in
