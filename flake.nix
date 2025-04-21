@@ -9,8 +9,8 @@
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
-    catppuccin.url = "github:catppuccin/nix";
-    catppuccin.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    # catppuccin.url = "github:catppuccin/nix";
+    # catppuccin.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
     scripts.url = "github:d3ltaaa/fscripts";
     scripts.flake = false;
@@ -49,7 +49,7 @@
           modules = [
             ./system/hosts/T480/configuration.nix
             # inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
-            inputs.catppuccin.nixosModules.catppuccin
+            # inputs.catppuccin.nixosModules.catppuccin
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -60,7 +60,7 @@
               };
               home-manager.users.${variables.user}.imports = [
                 inputs.nixvim.homeManagerModules.nixvim
-                inputs.catppuccin.homeModules.catppuccin
+                # inputs.catppuccin.homeModules.catppuccin
                 ./home/hosts/T480/home.nix
               ];
             }
@@ -79,7 +79,7 @@
           modules = [
             ./system/hosts/T440P/configuration.nix
             # inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t440p
-            inputs.catppuccin.nixosModules.catppuccin
+            # inputs.catppuccin.nixosModules.catppuccin
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -90,7 +90,7 @@
               };
               home-manager.users.${variables.user}.imports = [
                 inputs.nixvim.homeManagerModules.nixvim
-                inputs.catppuccin.homeModules.catppuccin
+                # inputs.catppuccin.homeModules.catppuccin
                 ./home/hosts/T440P/home.nix
               ];
             }
@@ -108,7 +108,7 @@
           };
           modules = [
             ./system/hosts/PC/configuration.nix
-            inputs.catppuccin.nixosModules.catppuccin
+            # inputs.catppuccin.nixosModules.catppuccin
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -119,7 +119,7 @@
               };
               home-manager.users.${variables.user}.imports = [
                 inputs.nixvim.homeManagerModules.nixvim
-                inputs.catppuccin.homeModules.catppuccin
+                # inputs.catppuccin.homeModules.catppuccin
                 ./home/hosts/PC/home.nix
               ];
             }

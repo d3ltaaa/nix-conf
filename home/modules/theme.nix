@@ -4,18 +4,18 @@
     theme-module.enable = lib.mkEnableOption "Enables Theme module";
   };
   config = lib.mkIf config.theme-module.enable {
-    catppuccin = {
-      enable = true;
-      flavor = "frappe";
-
-      dunst.enable = false;
-      hyprlock.enable = false;
-      waybar.enable = false;
-
-      gtk.enable = true;
-      gtk.flavor = "latte";
-
-    };
+    # catppuccin = {
+    #   enable = true;
+    #   flavor = "frappe";
+    #
+    #   dunst.enable = false;
+    #   hyprlock.enable = false;
+    #   waybar.enable = false;
+    #
+    #   gtk.enable = true;
+    #   gtk.flavor = "latte";
+    #
+    # };
     gtk = {
       enable = true;
       # theme.name = "adw-gtk3";

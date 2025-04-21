@@ -36,7 +36,7 @@
   zsh-module.enable = true;
   dconf-module.enable = true;
   userdirs-module.enable = true;
-  theme-module.enable = false;
+  theme-module.enable = true;
 
   wayland.windowManager.hyprland.settings.monitor = [
     "DP-3, 2560x1440@240, 0x0, 1"
