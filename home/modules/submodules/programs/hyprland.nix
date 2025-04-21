@@ -37,7 +37,7 @@
           gaps_in = 10;
           gaps_out = 20;
           border_size = 4;
-          "col.active_border" = "rgb(${config.colorScheme.palette.base06})";
+          "col.active_border" = "rgb(${config.colorScheme.palette.base05})";
           "col.inactive_border" = "rgb(${config.colorScheme.palette.base02})";
 
           layout = "dwindle";
@@ -52,7 +52,7 @@
             bar_precedence_over_border = false;
             bar_color = "rgb(${config.colorScheme.palette.base00})";
             bar_blur = true;
-            col.text = "rgb(${config.colorScheme.palette.base06})";
+            col.text = "rgb(${config.colorScheme.palette.base05})";
             bar_padding = 10;
             bar_button_padding = 15;
             hyprbars-button = [
@@ -227,7 +227,7 @@
         dots_center = true;
         dots_rounding = -1;
         outer_color = "rgb(${config.colorScheme.palette.base00})";
-        inner_color = "rgb(${config.colorScheme.palette.base06})";
+        inner_color = "rgb(${config.colorScheme.palette.base05})";
         font_color = "rgb(${config.colorScheme.palette.base00})";
         fade_on_empty = true;
         fade_timeout = 1000;

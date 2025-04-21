@@ -9,9 +9,9 @@ let
   rofi-theme = {
 
     "*" = {
-      background-color = mkLiteral "#${config.colorScheme.colors.base00}";
-      text-color = mkLiteral "#${config.colorScheme.colors.base06}";
-      border-color = mkLiteral "#${config.colorScheme.colors.base06}";
+      background-color = mkLiteral "#${config.colorScheme.palette.base00}";
+      text-color = mkLiteral "#${config.colorScheme.palette.base05}";
+      border-color = mkLiteral "#${config.colorScheme.palette.base05}";
       dpadding = mkLiteral "10px";
       dspacing = mkLiteral "10px";
       rborder = mkLiteral "10px";
@@ -38,7 +38,7 @@ let
     };
 
     "inputbar" = {
-      background-color = mkLiteral "#${config.colorScheme.colors.base02}";
+      background-color = mkLiteral "#${config.colorScheme.palette.base02}";
       border = mkLiteral "@sborder";
       border-radius = mkLiteral "@rborder";
       children = [
@@ -61,7 +61,7 @@ let
       horizontal-align = mkLiteral "0.45";
       padding = mkLiteral "15 0 15 0";
       placeholder = mkLiteral "\"\"";
-      placeholder-color = mkLiteral "#${config.colorScheme.colors.base04}";
+      placeholder-color = mkLiteral "#${config.colorScheme.palette.base04}";
       vertical-align = mkLiteral "0.50";
     };
 
@@ -88,7 +88,7 @@ let
     "element normal urgent" = { };
     "element selected active" = { };
     "element selected normal" = {
-      background-color = mkLiteral "#${config.colorScheme.colors.base02}";
+      background-color = mkLiteral "#${config.colorScheme.palette.base02}";
       border = mkLiteral "@sborder";
       border-radius = mkLiteral "@rborder";
     };

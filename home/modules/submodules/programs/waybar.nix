@@ -245,18 +245,18 @@
 
       #workspaces button.active {
         color: #${config.colorScheme.palette.base00};
-        background-color: #${config.colorScheme.palette.base06};
+        background-color: #${config.colorScheme.palette.base05};
       }
 
       #workspaces button:hover {
        box-shadow: inherit;
        text-shadow: inherit;
         color: #${config.colorScheme.palette.base00};
-        background-color: #${config.colorScheme.palette.base06};
+        background-color: #${config.colorScheme.palette.base05};
       }
 
       #workspaces button.urgent {
-        background-color: #${config.colorScheme.palette.base06};
+        background-color: #${config.colorScheme.palette.base05};
       }
 
       #custom-system_stats,
@@ -278,7 +278,7 @@
         margin: 6px 3px;
         padding: 6px 12px;
         color: #${config.colorScheme.palette.base00};
-        background-color: #${config.colorScheme.palette.base06};
+        background-color: #${config.colorScheme.palette.base05};
       }
 
       #custom-power {
@@ -288,16 +288,16 @@
       #temperature,
       #cpu,
       #memory {
-        background-color: #${config.colorScheme.palette.base06};
+        background-color: #${config.colorScheme.palette.base05};
       }
 
       #battery {
-        background-color: #${config.colorScheme.palette.base06};
+        background-color: #${config.colorScheme.palette.base05};
       }
 
       @keyframes blink {
         to {
-          background-color: #${config.colorScheme.palette.base06};
+          background-color: #${config.colorScheme.palette.base05};
           color: #${config.colorScheme.palette.base00};
         }
       }
@@ -305,7 +305,7 @@
       #battery.warning,
       #battery.critical,
       #battery.urgent {
-          background-color: #${config.colorScheme.palette.base06};
+          background-color: #${config.colorScheme.palette.base05};
           color: #${config.colorScheme.palette.base00};
         animation-name: blink;
         animation-duration: 0.5s;
@@ -314,34 +314,34 @@
         animation-direction: alternate;
       }
       #battery.charging {
-          background-color: #${config.colorScheme.palette.base06};
+          background-color: #${config.colorScheme.palette.base05};
       }
 
       #backlight {
-          background-color: #${config.colorScheme.palette.base06};
+          background-color: #${config.colorScheme.palette.base05};
       }
 
       #pulseaudio {
-          background-color: #${config.colorScheme.palette.base06};
+          background-color: #${config.colorScheme.palette.base05};
       }
 
       #custom-idle {
-          background-color: #${config.colorScheme.palette.base06};
+          background-color: #${config.colorScheme.palette.base05};
       }
 
       #network {
-          background-color: #${config.colorScheme.palette.base06};
+          background-color: #${config.colorScheme.palette.base05};
         padding-right: 17px;
       }
 
       #clock {
         font-family: JetBrainsMono Nerd Font;
-          background-color: #${config.colorScheme.palette.base06};
+          background-color: #${config.colorScheme.palette.base05};
       }
 
 
       #custom-power {
-          background-color: #${config.colorScheme.palette.base06};
+          background-color: #${config.colorScheme.palette.base05};
       }
 
       #tray {
@@ -353,24 +353,24 @@
       }
 
       #custom-settings {
-          background-color: #${config.colorScheme.palette.base06};
+          background-color: #${config.colorScheme.palette.base05};
       }
 
       #custom-system_stats,
       #custom-appmenu {
-          background-color: #${config.colorScheme.palette.base06};
+          background-color: #${config.colorScheme.palette.base05};
       }
 
 
       tooltip {
       border-radius: 8px;
       padding: 15px;
-          background-color: #${config.colorScheme.palette.base06};
+          background-color: #${config.colorScheme.palette.base05};
       }
 
       tooltip label {
       padding: 5px;
-          background-color: #${config.colorScheme.palette.base06};
+          background-color: #${config.colorScheme.palette.base05};
       }
     '';
   };

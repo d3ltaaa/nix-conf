@@ -83,7 +83,7 @@
 
           # Defines color of the frame around the notification window.
           # frame_color = "#83a5c0"
-          frame_color = "#${config.colorScheme.palette.base06}";
+          frame_color = "#${config.colorScheme.palette.base05}";
 
           # Size of gap to display between notifications - requires a compositor.
           # If value is greater than 0, separator_height will be ignored and a border
@@ -291,7 +291,7 @@
         urgency_low = {
 
           background = "#${config.colorScheme.palette.base00}";
-          foreground = "#${config.colorScheme.palette.base06}";
+          foreground = "#${config.colorScheme.palette.base05}";
           timeout = 10;
           # Icon for notifications with low urgency, uncomment to enable
           #default_icon = /path/to/icon
@@ -299,7 +299,7 @@
 
         urgency_normal = {
           background = "#${config.colorScheme.palette.base00}";
-          foreground = "#${config.colorScheme.palette.base06}";
+          foreground = "#${config.colorScheme.palette.base05}";
           timeout = 20;
         };
         # Icon for notifications with normal urgency, uncomment to enable
@@ -307,7 +307,7 @@
 
         urgency_critical = {
           background = "#${config.colorScheme.palette.base00}";
-          foreground = "#${config.colorScheme.palette.base06}";
+          foreground = "#${config.colorScheme.palette.base05}";
           timeout = 0;
         };
       };
