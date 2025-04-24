@@ -22,7 +22,7 @@
         alpha = "0.8";
 
         foreground = "${config.colorScheme.palette.base05}";
-        background = "${config.colorScheme.palette.base02}";
+        background = "${config.colorScheme.palette.base01}";
 
         regular0 = "${config.colorScheme.palette.base04}";
         regular1 = "${config.colorScheme.palette.base08}";
