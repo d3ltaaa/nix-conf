@@ -62,6 +62,7 @@ let
     upower
     pulsemixer
     libpulseaudio
+    pavucontrol
 
     firefox
     protonmail-desktop

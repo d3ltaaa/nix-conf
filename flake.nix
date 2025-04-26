@@ -12,6 +12,8 @@
     nix-colors.url = "github:misterio77/nix-colors";
     nix-colors.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
+    nix-flatpak.url = "github:gmodena/nix-flatpak"; # unstable branch. Use github:gmodena/nix-flatpak/?ref=<tag> to pin releases.
+
     # catppuccin.url = "github:catppuccin/nix";
     # catppuccin.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
@@ -54,6 +56,7 @@
             # inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
             # inputs.catppuccin.nixosModules.catppuccin
             inputs.home-manager.nixosModules.home-manager
+            inputs.nix-flatpak.nixosModules.nix-flatpak
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;

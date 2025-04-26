@@ -7,6 +7,7 @@
     ./bootloader.nix
     ./connections.nix
     ./environment.nix
+    ./flatpaks.nix
     ./general.nix
     ./locale.nix
     ./nvidiagpu.nix
