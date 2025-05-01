@@ -115,6 +115,7 @@
           modules = [
             ./system/hosts/PC/configuration.nix
             # inputs.catppuccin.nixosModules.catppuccin
+            inputs.nix-flatpak.nixosModules.nix-flatpak
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
