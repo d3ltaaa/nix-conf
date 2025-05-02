@@ -7,12 +7,17 @@
 }:
 {
   networking = lib.mkIf (config.networking.hostName == "SERVER") {
+    useDHCP = false;
     interfaces.ens18.ipv4.addresses = [
       {
         address = "192.168.2.11";
-        prefixLenght = 24;
+        prefixLength = 24;
       }
     ];
+    defaultGateway = "192.168.2.1";
+    nameservers = [
+      "192.168.2.1"
+    ]; # or your router's DNS
 
     nat = {
       enable = true;
