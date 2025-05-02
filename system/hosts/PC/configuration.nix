@@ -57,9 +57,10 @@
       printing = true;
       usb = true;
       login = true;
-      flatpaks = true;
     };
   };
+
+  flatpaks-module.enable = true;
 
   environment-module.enable = true;
 

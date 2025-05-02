@@ -24,6 +24,8 @@
       packages = with pkgs; [ ];
     };
 
+    programs.zsh.enable = true;
+
     security.sudo.extraConfig = "Defaults        !sudoedit_checkdir";
   };
 }
