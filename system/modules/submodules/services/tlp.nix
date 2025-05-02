@@ -1,7 +1,6 @@
 { lib, config, ... }:
 {
   services.tlp = {
-    enable = true;
     settings = {
       CPU_SCALING_GOVERNOR_ON_AC = "";
       CPU_SCALING_GOVERNOR_ON_BAT = "";

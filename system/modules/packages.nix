@@ -8,7 +8,7 @@
   ...
 }@inputs:
 let
-  unstable-system-pkgs = with pkgs; [
+  unstable-base-pkgs = with pkgs; [
     wget
     lf
     unzip
@@ -22,7 +22,9 @@ let
     zsh-syntax-highlighting
     starship
     git-credential-manager
+  ];
 
+  unstable-lang-pkgs = with pkgs; [
     clang
     cmake
     meson
@@ -33,7 +35,9 @@ let
     bc
     font-awesome
     psutils
+  ];
 
+  unstable-hypr-pkgs = with pkgs; [
     hyprshade
     xdg-desktop-portal-hyprland
     rofi-wayland
@@ -50,7 +54,9 @@ let
 
     zathura
     pandoc
+  ];
 
+  unstable-tool-pkgs = with pkgs; [
     mpv
     yt-dlg
 
@@ -63,7 +69,9 @@ let
     pulsemixer
     libpulseaudio
     pavucontrol
+  ];
 
+  unstable-desk-pkgs = with pkgs; [
     firefox
     protonmail-desktop
     waybar
@@ -75,7 +83,9 @@ let
     orca-slicer
     # remnote
     telegram-desktop
+  ];
 
+  unstable-power-pkgs = with pkgs; [
     furmark
     powertop
     ncdu
@@ -84,6 +94,10 @@ let
     tlp
     stress-ng
   ];
+
+  unstable-system-pkgs = with pkgs; [
+  ];
+
   stable-system-pkgs = with nixpkgs-stable.legacyPackages.${pkgs.system}; [
     auto-cpufreq
   ];
@@ -108,28 +122,57 @@ let
 in
 {
   options = {
-    packages-module.enable = lib.mkEnableOption "Enables Packages module";
+    packages-module = {
+      enable = lib.mkEnableOption "Enables Packages module";
+      system = {
+        stable = lib.mkEnableOption "Enables stable-system-pkgs";
+        unstable = lib.mkEnableOption "Enables unstable-system-pkgs";
+        unstable-base = lib.mkEnableOption "Enables unstable-base-pkgs";
+        unstable-lang = lib.mkEnableOption "Enables unstable-lang-pkgs";
+        unstable-tool = lib.mkEnableOption "Enables unstable-tool-pkgs";
+        unstable-hypr = lib.mkEnableOption "Enables unstable-hypr-pkgs";
+        unstable-desk = lib.mkEnableOption "Enables unstable-desk-pkgs";
+        unstable-power = lib.mkEnableOption "Enables unstable-power-pkgs";
+        derivations = lib.mkEnableOption "Enables derivations";
+      };
+
+      user = {
+        stable = lib.mkEnableOption "Enables stable-user-pkgs";
+        unstable = lib.mkEnableOption "Enables unstable-user-pkgs";
+      };
+      fonts = {
+        stable = lib.mkEnableOption "Enables stable-font-pkgs";
+        unstable = lib.mkEnableOption "Enables unstable-font-pkgs";
+      };
+    };
   };
+
   config = lib.mkIf config.packages-module.enable {
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
     # Install system packages
-    environment.systemPackages = lib.concatLists [
-      unstable-system-pkgs
-      stable-system-pkgs
-      derivations
-    ];
+    environment.systemPackages =
+      [ ]
+      ++ (pkgs.lib.optionals config.packages-module.system.stable stable-system-pkgs)
+      ++ (pkgs.lib.optionals config.packages-module.system.unstable unstable-system-pkgs)
+      ++ (pkgs.lib.optionals config.packages-module.system.unstable-base unstable-base-pkgs)
+      ++ (pkgs.lib.optionals config.packages-module.system.unstable-lang unstable-lang-pkgs)
+      ++ (pkgs.lib.optionals config.packages-module.system.unstable-tool unstable-tool-pkgs)
+      ++ (pkgs.lib.optionals config.packages-module.system.unstable-hypr unstable-hypr-pkgs)
+      ++ (pkgs.lib.optionals config.packages-module.system.unstable-desk unstable-desk-pkgs)
+      ++ (pkgs.lib.optionals config.packages-module.system.unstable-power unstable-power-pkgs)
+      ++ (pkgs.lib.optionals config.packages-module.system.derivations derivations);
 
     # Install user packages
-    users.users.${variables.user}.packages = lib.concatLists [
-      unstable-user-pkgs
-      stable-user-pkgs
-    ];
-
-    fonts.packages = lib.concatLists [
-      unstable-font-pkgs
-      stable-font-pkgs
-    ];
+    users.users.${variables.user}.packages =
+      [ ]
+      ++ (pkgs.lib.optionals config.packages-module.user.stable stable-user-pkgs)
+      ++ (pkgs.lib.optionals config.packages-module.user.unstable unstable-user-pkgs);
+    # Install font packages
+    fonts.packages =
+      [ ]
+      ++ (pkgs.lib.optionals config.packages-module.fonts.stable stable-font-pkgs)
+      ++ (pkgs.lib.optionals config.packages-module.fonts.unstable unstable-font-pkgs);
   };
 }

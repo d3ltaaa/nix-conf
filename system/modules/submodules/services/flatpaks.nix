@@ -1,7 +1,5 @@
 { lib, ... }:
 {
-  services.flatpak.enable = true;
-
   # Add a new remote. Keep the default one (flathub)
   services.flatpak.remotes = lib.mkOptionDefault [
     {

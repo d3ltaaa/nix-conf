@@ -1,8 +1,12 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 {
   services = {
     printing = {
-      enable = true;
       drivers = with pkgs; [
         gutenprint
         hplip
@@ -13,16 +17,12 @@
 
     # auto discovery of network printers
     avahi = {
-      enable = true;
       nssmdns4 = true;
       openFirewall = true;
     };
-
-    # smbd protocol
-    samba.enable = true;
   };
 
-  hardware.printers = {
+  hardware.printers = lib.mkIf config.services-module.services.printing {
     ensurePrinters = [
       {
         name = "Samsung_ML-1865W_Series";
