@@ -22,6 +22,7 @@ let
     zsh-syntax-highlighting
     starship
     git-credential-manager
+    fastfetch
   ];
 
   unstable-lang-pkgs = with pkgs; [

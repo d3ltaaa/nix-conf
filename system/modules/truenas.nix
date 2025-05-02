@@ -11,7 +11,10 @@
 
   config = lib.mkIf config.truenas-module.enable {
     # For mount.cifs, required unless domain name resolution is not needed.
-    environment.systemPackages = [ pkgs.cifs-utils ];
+    environment.systemPackages = [
+      pkgs.cifs-utils
+      pkgs.nfs-utils
+    ];
     fileSystems."/mnt/share" = {
       device = "//192.168.2.12/media";
       fsType = "cifs";
@@ -23,5 +26,11 @@
         in
         [ "${automount_opts},credentials=/etc/samba/smb-secrets" ];
     };
+    fileSystems."/mnt/test" = {
+      device = "192.168.2.12:/mnt/storage/test";
+      fsType = "nfs";
+    };
+    # optional, but ensures rpc-statsd is running for on demand mounting
+    boot.supportedFilesystems = [ "nfs" ];
   };
 }
