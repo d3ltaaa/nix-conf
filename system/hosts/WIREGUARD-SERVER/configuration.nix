@@ -5,7 +5,7 @@
     ./../../modules/default.nix
   ];
 
-  networking.hostName = "SERVER";
+  networking.hostName = "WIREGUARD-SERVER";
 
   # enable modules
   bootloader-module.enable = true;

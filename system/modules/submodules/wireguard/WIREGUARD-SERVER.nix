@@ -6,7 +6,7 @@
   ...
 }:
 {
-  networking = lib.mkIf (config.networking.hostName == "SERVER") {
+  networking = lib.mkIf (config.networking.hostName == "WIREGUARD-SERVER") {
     useDHCP = false;
     interfaces.ens18.ipv4.addresses = [
       {
