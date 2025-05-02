@@ -20,7 +20,7 @@ in
           # Don't listen for incoming connections (client-only)
           listenPort = null;
 
-          privateKeyFile = "/home/${variables.user}/.wireguard/private";
+          privateKeyFile = "/home/${variables.user}/.wireguard-keys/private";
 
           peers = [
             {
