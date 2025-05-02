@@ -7,7 +7,7 @@
 }:
 
 let
-  serverAddress = builtins.readFile "/home/${variables.user}/.server_address";
+  serverAddress = lib.strings.trim (builtins.readFile "/home/${variables.user}/.server_address");
 in
 {
   networking = lib.mkIf (config.networking.hostName == "T480") {
@@ -28,7 +28,7 @@ in
               publicKey = "hAvazVD4FMIbtZPLa5rtUXrZ3iXYIiW5Ivemyv1UmWA=";
               endpoint = "${serverAddress}:51920";
               # allowedIPs = [ "0.0.0.0/0" ]; # Route all traffic through VPN
-              allowedIPs = [ "10.100.0.0/0" ]; # only routes VPN subnet traffic
+              allowedIPs = [ "10.100.0.0/24" ]; # only routes VPN subnet traffic
               persistentKeepalive = 25; # Helps with NAT traversal
             }
           ];
