@@ -132,7 +132,7 @@
             }
           ];
         };
-        "SERVER" = nixpkgs-unstable.lib.nixosSystem {
+        "WIREGUARD-SERVER" = nixpkgs-unstable.lib.nixosSystem {
           # nixpkgs-unstable -> pkgs
           system = "x86_64-linux";
           specialArgs = {
