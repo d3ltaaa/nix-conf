@@ -3,7 +3,6 @@
   imports = [
     ./submodules/services/auto-cpufreq.nix
     ./submodules/services/autoLogin.nix
-    ./submodules/services/flatpaks.nix
     ./submodules/services/tlp.nix
     ./submodules/services/printing.nix
   ];
@@ -49,9 +48,6 @@
         printing.enable = true;
         samba.enable = true;
         avahi.enable = true;
-      })
-      (lib.mkIf config.services-module.services.flatpaks {
-        flatpaks.enable = true;
       })
     ];
   };

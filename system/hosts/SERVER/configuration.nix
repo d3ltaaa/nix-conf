@@ -15,37 +15,78 @@
 
   user-module.enable = true;
 
-  packages-module.enable = false;
+  packages-module = {
+    enable = true;
+    system = {
+      stable = false;
+      unstable = false;
+      unstable-base = true;
+      unstable-lang = false;
+      unstable-tool = false;
+      unstable-hypr = false;
+      unstable-desk = false;
+      unstable-power = false;
+      derivations = false;
+    };
+    user = {
+      stable = false;
+      unstable = false;
+    };
+    fonts = {
+      stable = false;
+      unstable = false;
+    };
+  };
 
-  programs-module.enable = false;
+  programs-module = {
+    enable = true;
+    programs = {
+      hyprland = false;
+      zsh = true;
+      thunar = false;
+      dconf = true;
+      git = true;
+    };
+  };
 
-  services-module.enable = false;
+  services-module = {
+    enable = true;
+    services = {
+      powerManagement = false;
+      audio = false;
+      printing = false;
+      usb = true;
+      login = true;
+    };
+  };
+
+  flatpak-module.enable = false;
 
   environment-module.enable = true;
 
-  connections-module.enable = false;
+  connections-module.enable = true;
 
   syncthing-module.enable = false;
 
   theme-module.enable = false;
 
-  # specific
-  brightness-module.enable = false;
-  # brightness-module.monitorType = "external";
+  brightness-module = {
+    enable = false;
+    monitorType = "external";
+  };
 
   amdgpu-module.enable = false;
 
   ai-module.enable = false;
 
-  virtualisation-module.enable = false;
-  virtualisation-module.vbox.enable = false;
-  virtualisation-module.kvmqemu.enable = false;
+  virtualisation-module = {
+    enable = false;
+    vbox.enable = false;
+    kvmqemu.enable = false;
+  };
 
-  nvidiagpu-module.enable = false;
-  nvidiagpu-module.enableGpu = false;
-  
-  environment.systemPackages = with pkgs; [
-    git
-    vim
-  ];
+  nvidiagpu-module = {
+    enable = false;
+    enableGpu = true;
+  };
 }
