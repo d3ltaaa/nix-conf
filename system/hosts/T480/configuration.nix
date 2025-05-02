@@ -54,4 +54,6 @@
       nvidiagpu-module.enableGpu = lib.mkForce true;
     };
   };
+
+  wireguard-module.enable = true;
 }

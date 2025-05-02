@@ -18,5 +18,6 @@
     ./theme.nix
     ./user.nix
     ./virtualisation.nix
+    ./wireguard.nix
   ];
 }

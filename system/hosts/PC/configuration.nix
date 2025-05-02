@@ -89,4 +89,6 @@
     enable = false;
     enableGpu = false;
   };
+
+  wireguard-module.enable = false;
 }

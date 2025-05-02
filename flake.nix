@@ -144,6 +144,7 @@
           modules = [
             ./system/hosts/SERVER/configuration.nix
             # inputs.catppuccin.nixosModules.catppuccin
+            inputs.nix-flatpak.nixosModules.nix-flatpak
           ];
         };
       };
