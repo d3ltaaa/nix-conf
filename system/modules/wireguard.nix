@@ -9,7 +9,7 @@
     wireguard-module.enable = lib.mkEnableOption "Enables wireguard module";
   };
   imports = [
-    ./submodules/wireguard/SERVER.nix
+    ./submodules/wireguard/WIREGUARD-SERVER.nix
     ./submodules/wireguard/T480.nix
   ];
 

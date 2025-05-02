@@ -142,7 +142,7 @@
             inherit variables;
           };
           modules = [
-            ./system/hosts/SERVER/configuration.nix
+            ./system/hosts/WIREGUARD-SERVER/configuration.nix
             # inputs.catppuccin.nixosModules.catppuccin
             inputs.nix-flatpak.nixosModules.nix-flatpak
           ];
