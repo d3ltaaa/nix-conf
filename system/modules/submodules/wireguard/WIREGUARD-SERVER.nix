@@ -64,6 +64,11 @@
               publicKey = "Am+PSLEvczLPxaoI/x2QEiQCe1N5/LwSzVqPD/CUDF4=";
               allowedIPs = [ "10.100.0.3/32" ];
             }
+            {
+              # MEDION
+              publicKey = "U0VkfE6TbUkE9QsbzdSMM+lu6XxpszXmnilF98DrRQY=";
+              allowedIPs = [ "10.100.0.4/32" ];
+            }
           ];
         };
       };
