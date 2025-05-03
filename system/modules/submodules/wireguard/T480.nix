@@ -28,7 +28,10 @@ in
               publicKey = "hAvazVD4FMIbtZPLa5rtUXrZ3iXYIiW5Ivemyv1UmWA=";
               endpoint = "${serverAddress}:51920";
               # allowedIPs = [ "0.0.0.0/0" ]; # Route all traffic through VPN
-              allowedIPs = [ "10.100.0.0/24" ]; # only routes VPN subnet traffic
+              allowedIPs = [
+                "10.100.0.0/24"
+                "192.168.2.0/24"
+              ]; # only routes VPN subnet traffic
               persistentKeepalive = 25; # Helps with NAT traversal
             }
           ];

@@ -102,4 +102,6 @@
   };
 
   wireguard-module.enable = false;
+
+  truenas-module.enable = true;
 }
