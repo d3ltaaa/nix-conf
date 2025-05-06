@@ -53,6 +53,8 @@
             "server string" = "nixos-smb";
             "netbios name" = "nixos-smb";
             "security" = "user";
+            "max protocol" = "smb2";
+            "min protocol" = "smb2";
             "hosts allow" = "192.168.0. 127.0.0.1 localhost";
             "hosts deny" = "0.0.0.0/0";
             "guest account" = "nobody";
