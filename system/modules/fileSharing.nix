@@ -37,7 +37,7 @@
     })
 
     (lib.mkIf (config.fileSharing-module.enable == true && config.fileSharing-module.type == "server") {
-      interfaces.ens18.ipv4.addresses = [
+      networking.interfaces.ens18.ipv4.addresses = [
         {
           address = "192.168.2.12";
           prefixLength = 24;
