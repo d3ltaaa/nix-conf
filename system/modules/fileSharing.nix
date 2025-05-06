@@ -25,7 +25,7 @@
         pkgs.cifs-utils
       ];
       fileSystems."/mnt/share" = {
-        device = "//192.168.2.12/falk";
+        device = "//192.168.2.12/public";
         fsType = "cifs";
         options =
           let
@@ -61,7 +61,7 @@
           };
 
           public = {
-            "path" = "/mnt/shared";
+            "path" = "/mnt/shared/public";
             "browseable" = "yes";
             "read only" = "no";
             "guest ok" = "yes";
