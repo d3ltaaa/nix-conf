@@ -147,6 +147,21 @@
             inputs.nix-flatpak.nixosModules.nix-flatpak
           ];
         };
+        "SERVER" = nixpkgs-unstable.lib.nixosSystem {
+          # nixpkgs-unstable -> pkgs
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+            inherit nixpkgs-stable;
+            inherit scripts;
+            inherit variables;
+          };
+          modules = [
+            ./system/hosts/WIREGUARD-SERVER/configuration.nix
+            # inputs.catppuccin.nixosModules.catppuccin
+            inputs.nix-flatpak.nixosModules.nix-flatpak
+          ];
+        };
       };
     };
 }
