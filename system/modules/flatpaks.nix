@@ -5,8 +5,10 @@
     # Add a new remote. Keep the default one (flathub)
   };
 
-  config = {
-    services.flatpak = lib.mkIf config.flatpak-module.enable {
+  config = lib.mkIf config.flatpak-module.enable {
+    xdg.portal.enable = true;
+
+    services.flatpak = {
       enable = true;
 
       remotes = lib.mkOptionDefault [
