@@ -16,7 +16,7 @@
     ./services.nix
     ./syncthing.nix
     ./theme.nix
-    ./truenas.nix
+    ./fileSharing.nix
     ./user.nix
     ./virtualisation.nix
     ./wireguard.nix

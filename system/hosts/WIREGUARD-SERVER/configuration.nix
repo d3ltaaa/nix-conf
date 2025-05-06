@@ -91,4 +91,7 @@
   };
 
   wireguard-module.enable = true;
+
+  fileSharing-module.enable = false;
+
 }

@@ -103,5 +103,8 @@
 
   wireguard-module.enable = true;
 
-  truenas-module.enable = true;
+  fileSharing-module = {
+    enable = true;
+    type = "client";
+  };
 }
