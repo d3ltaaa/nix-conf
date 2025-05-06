@@ -34,15 +34,16 @@
           in
           [ "${automount_opts},credentials=/etc/samba/smb-secrets,uid=1000,gid=100" ];
       };
-      # fileSystems."/mnt/test" = {
-      #   device = "192.168.2.12:/mnt/storage/test";
-      #   fsType = "nfs";
-      # };
-      # # optional, but ensures rpc-statsd is running for on demand mounting
-      # boot.supportedFilesystems = [ "nfs" ];
-
     })
+
     (lib.mkIf (config.fileSharing-module.enable == true && config.fileSharing-module.type == "server") {
+      interfaces.ens18.ipv4.addresses = [
+        {
+          address = "192.168.2.12";
+          prefixLength = 24;
+        }
+      ];
+
       services.samba = {
         enable = true;
         securityType = "user";
