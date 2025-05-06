@@ -101,7 +101,7 @@
     };
   };
 
-  wireguard-module.enable = false;
+  wireguard-module.enable = true;
 
   truenas-module.enable = true;
 }

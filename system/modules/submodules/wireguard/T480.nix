@@ -10,9 +10,9 @@ let
   serverAddress = lib.strings.trim (builtins.readFile "/home/${variables.user}/.server_address");
 in
 {
+
   networking = lib.mkIf (config.networking.hostName == "T480") {
     wireguard = {
-      enable = true;
       interfaces = {
         wg0 = {
           ips = [ "10.100.0.2/32" ];
