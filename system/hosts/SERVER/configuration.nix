@@ -21,12 +21,12 @@
       stable = false;
       unstable = false;
       unstable-base = true;
-      unstable-lang = false;
-      unstable-tool = false;
+      unstable-lang = true;
+      unstable-tool = true;
       unstable-hypr = false;
       unstable-desk = false;
       unstable-power = false;
-      derivations = false;
+      derivations = true;
     };
     user = {
       stable = false;
@@ -34,7 +34,7 @@
     };
     fonts = {
       stable = false;
-      unstable = false;
+      unstable = true;
     };
   };
 
@@ -54,13 +54,13 @@
     services = {
       powerManagement = false;
       audio = false;
-      printing = false;
+      printing = true;
       usb = true;
       login = true;
     };
   };
 
-  flatpak-module.enable = false;
+  flatpak-module.enable = true;
 
   environment-module.enable = true;
 

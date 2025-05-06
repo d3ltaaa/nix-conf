@@ -157,9 +157,23 @@
             inherit variables;
           };
           modules = [
-            ./system/hosts/WIREGUARD-SERVER/configuration.nix
+            ./system/hosts/SERVER/configuration.nix
             # inputs.catppuccin.nixosModules.catppuccin
             inputs.nix-flatpak.nixosModules.nix-flatpak
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+                inherit variables;
+              };
+              home-manager.users.${variables.user}.imports = [
+                inputs.nixvim.homeManagerModules.nixvim
+                # inputs.catppuccin.homeModules.catppuccin
+                ./home/hosts/SERVER/home.nix
+              ];
+            }
           ];
         };
       };
