@@ -8,10 +8,13 @@
   options = {
     fileSharing-module = {
       enable = lib.mkEnableOption "Enables FileSharing module";
-      type = lib.types.enum [
-        "server"
-        "client"
-      ];
+      type = lib.mkOption {
+        type = lib.types.enum [
+          "server"
+          "client"
+        ];
+        default = "client";
+      };
     };
   };
 
