@@ -60,7 +60,7 @@
     };
   };
 
-  flatpak-module.enable = true;
+  flatpak-module.enable = false;
 
   environment-module.enable = true;
 
