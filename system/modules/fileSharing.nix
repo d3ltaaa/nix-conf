@@ -25,7 +25,7 @@
         pkgs.cifs-utils
       ];
       fileSystems."/mnt/share" = {
-        device = "//192.168.2.12/public";
+        device = "//192.168.2.12/private";
         fsType = "cifs";
         options =
           let
@@ -37,17 +37,19 @@
     })
 
     (lib.mkIf (config.fileSharing-module.enable == true && config.fileSharing-module.type == "server") {
-      useDHCP = false;
-      interfaces.ens18.ipv4.addresses = [
-        {
-          address = "192.168.2.12";
-          prefixLength = 24;
-        }
-      ];
-      defaultGateway = "192.168.2.1";
-      nameservers = [
-        "192.168.2.1"
-      ]; # or your router's DNS
+      networking = {
+        useDHCP = false;
+        interfaces.ens18.ipv4.addresses = [
+          {
+            address = "192.168.2.12";
+            prefixLength = 24;
+          }
+        ];
+        defaultGateway = "192.168.2.1";
+        nameservers = [
+          "192.168.2.1"
+        ]; # or your router's DNS
+      };
 
       services.samba = {
         enable = true;
@@ -65,14 +67,15 @@
             "map to guest" = "bad user";
           };
 
-          public = {
-            "path" = "/mnt/shared/public";
+          private = {
+            "path" = "/mnt/shared/private";
             "browseable" = "yes";
             "read only" = "no";
-            "guest ok" = "yes";
+            "guest ok" = "no";
+            "valid user" = "falk";
             "create mask" = "0644";
             "directory mask" = "0755";
-            "force user" = "nixos";
+            "force user" = "falk";
             "force group" = "users";
           };
         };
@@ -82,10 +85,6 @@
         enable = true;
         openFirewall = true;
       };
-
-      networking.firewall.enable = true;
-      networking.firewall.allowPing = true;
-
     })
   ];
 }
