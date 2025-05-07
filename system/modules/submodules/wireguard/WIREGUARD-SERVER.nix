@@ -6,70 +6,81 @@
   ...
 }:
 {
-  networking = lib.mkIf (config.networking.hostName == "WIREGUARD-SERVER") {
-    useDHCP = false;
-    interfaces.ens18.ipv4.addresses = [
-      {
-        address = "192.168.2.11";
-        prefixLength = 24;
-      }
-    ];
-    defaultGateway = "192.168.2.1";
-    nameservers = [
-      "192.168.2.1"
-    ]; # or your router's DNS
+  config = lib.mkIf (config.networking.hostName == "WIREGUARD-SERVER") {
 
-    nat = {
+    services.dnsmasq = {
       enable = true;
-      externalInterface = "ens18";
-      internalInterfaces = [ "wg0" ];
+      settings = {
+        address = [ "/proxmox.home.net/192.168.2.50" ];
+        listen-address = "127.0.0.1,10.100.0.1"; # Listen on WireGuard interface too
+      };
     };
 
-    wireguard = {
-      interfaces = {
-        # "wg0" is the network interface name. You can name the interface arbitrarily.
-        wg0 = {
-          # Determines the IP address and subnet of the server's end of the tunnel interface.
-          ips = [ "10.100.0.1/24" ];
+    networking = {
+      useDHCP = false;
+      interfaces.ens18.ipv4.addresses = [
+        {
+          address = "192.168.2.11";
+          prefixLength = 24;
+        }
+      ];
+      defaultGateway = "192.168.2.1";
+      nameservers = [
+        "192.168.2.1"
+      ]; # or your router's DNS
 
-          # The port that WireGuard listens to. Must be accessible by the client.
-          listenPort = 51920;
+      nat = {
+        enable = true;
+        externalInterface = "ens18";
+        internalInterfaces = [ "wg0" ];
+      };
 
-          # This allows the wireguard server to route your traffic to the internet and hence be like a VPN
-          # For this to work you have to set the dnsserver IP of your router (or dnsserver of choice) in your clients
-          postSetup = ''
-            ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o ens18 -j MASQUERADE
-          '';
+      wireguard = {
+        interfaces = {
+          # "wg0" is the network interface name. You can name the interface arbitrarily.
+          wg0 = {
+            # Determines the IP address and subnet of the server's end of the tunnel interface.
+            ips = [ "10.100.0.1/24" ];
 
-          # This undoes the above command
-          postShutdown = ''
-            ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o ens18 -j MASQUERADE
-          '';
+            # The port that WireGuard listens to. Must be accessible by the client.
+            listenPort = 51920;
 
-          # Path to the private key file.
-          #
-          # Note: The private key can also be included inline via the privateKey option,
-          # but this makes the private key world-readable; thus, using privateKeyFile is
-          # recommended.
-          privateKeyFile = "/home/${variables.user}/.wireguard-keys/private";
+            # This allows the wireguard server to route your traffic to the internet and hence be like a VPN
+            # For this to work you have to set the dnsserver IP of your router (or dnsserver of choice) in your clients
+            postSetup = ''
+              ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o ens18 -j MASQUERADE
+            '';
 
-          peers = [
-            {
-              # T480
-              publicKey = "fSaTvwFYNcAx/dKxS9HCEB/017HITk/dpZCwJ1uZDDs=";
-              allowedIPs = [ "10.100.0.2/32" ];
-            }
-            {
-              # PHONE
-              publicKey = "Am+PSLEvczLPxaoI/x2QEiQCe1N5/LwSzVqPD/CUDF4=";
-              allowedIPs = [ "10.100.0.3/32" ];
-            }
-            {
-              # MEDION
-              publicKey = "U0VkfE6TbUkE9QsbzdSMM+lu6XxpszXmnilF98DrRQY=";
-              allowedIPs = [ "10.100.0.4/32" ];
-            }
-          ];
+            # This undoes the above command
+            postShutdown = ''
+              ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o ens18 -j MASQUERADE
+            '';
+
+            # Path to the private key file.
+            #
+            # Note: The private key can also be included inline via the privateKey option,
+            # but this makes the private key world-readable; thus, using privateKeyFile is
+            # recommended.
+            privateKeyFile = "/home/${variables.user}/.wireguard-keys/private";
+
+            peers = [
+              {
+                # T480
+                publicKey = "fSaTvwFYNcAx/dKxS9HCEB/017HITk/dpZCwJ1uZDDs=";
+                allowedIPs = [ "10.100.0.2/32" ];
+              }
+              {
+                # PHONE
+                publicKey = "Am+PSLEvczLPxaoI/x2QEiQCe1N5/LwSzVqPD/CUDF4=";
+                allowedIPs = [ "10.100.0.3/32" ];
+              }
+              {
+                # MEDION
+                publicKey = "U0VkfE6TbUkE9QsbzdSMM+lu6XxpszXmnilF98DrRQY=";
+                allowedIPs = [ "10.100.0.4/32" ];
+              }
+            ];
+          };
         };
       };
     };
