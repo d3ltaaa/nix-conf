@@ -13,6 +13,7 @@ in
     caddy-module.enable = lib.mkEnableOption "Enable caddy module";
   };
   config = lib.mkIf config.caddy-module.enable {
+    networking.firewall.allowedTCPPorts = [ 8006 ]; # For Proxmox Web UI
     services.caddy = {
       enable = true;
 
