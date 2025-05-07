@@ -5,6 +5,7 @@
     ./amdgpu.nix
     ./brightness.nix
     ./bootloader.nix
+    ./caddy.nix
     ./connections.nix
     ./environment.nix
     ./flatpaks.nix

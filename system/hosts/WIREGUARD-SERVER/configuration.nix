@@ -94,4 +94,6 @@
 
   fileSharing-module.enable = false;
 
+  caddy-module.enable = true;
+
 }
