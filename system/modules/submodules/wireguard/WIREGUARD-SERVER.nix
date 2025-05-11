@@ -17,24 +17,6 @@
     };
 
     networking = {
-      useDHCP = false;
-      interfaces.ens18.ipv4.addresses = [
-        {
-          address = "192.168.2.11";
-          prefixLength = 24;
-        }
-      ];
-      defaultGateway = "192.168.2.1";
-      nameservers = [
-        "192.168.2.1"
-      ]; # or your router's DNS
-
-      nat = {
-        enable = true;
-        externalInterface = "ens18";
-        internalInterfaces = [ "wg0" ];
-      };
-
       wireguard = {
         interfaces = {
           # "wg0" is the network interface name. You can name the interface arbitrarily.

@@ -60,7 +60,7 @@
         ];
         defaultGateway = "192.168.2.1";
         nameservers = [
-          "192.168.2.1"
+          "1.1.1.1"
         ]; # or your router's DNS
       };
 
