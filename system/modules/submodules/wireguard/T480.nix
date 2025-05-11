@@ -12,14 +12,10 @@ in
 {
 
   networking = lib.mkIf (config.networking.hostName == "T480") {
-    wireguard = {
+    wg-quick = {
       interfaces = {
         wg0 = {
-          ips = [ "10.100.0.2/32" ];
-          dns = [
-            "192.168.2.12"
-            "192.168.2.1"
-          ];
+          address = [ "10.100.0.2/32" ];
 
           # Don't listen for incoming connections (client-only)
           listenPort = null;
