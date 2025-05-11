@@ -44,6 +44,26 @@
       # networking.firewall.enable = false;
     })
     (lib.mkIf (config.connections-module.enable == true && config.connections-module.type == "server") {
+      networking = {
+        useDHCP = false;
+        interfaces.ens18.ipv4.addresses = [
+          {
+            address = "192.168.2.12";
+            prefixLength = 24;
+          }
+        ];
+        interfaces.ens18.ipv6.addresses = [
+          {
+            address = "fd12:3456:789a::11";
+            prefixLength = 64;
+          }
+        ];
+        defaultGateway = "192.168.2.1";
+        nameservers = [
+          "192.168.2.1"
+        ]; # or your router's DNS
+      };
+
       networking.firewall.allowedTCPPorts = [
         53
         80
@@ -61,10 +81,14 @@
           # Upstream DNS for external names
           server = [
             "1.1.1.1"
+            "2003:180:2:1000::53"
+            "2003:180:2:5000::53"
           ];
           listen-address = [
             "127.0.0.1"
+            "::1"
             "192.168.2.11"
+            "fd00::11"
           ];
 
           address = [
@@ -73,15 +97,6 @@
             # "/home.internal/192.168.2.11"
             # "/files.internal/192.168.2.11"
           ];
-
-          # DHCP setup
-          # dhcp-range = "192.168.2.100,192.168.2.200,24h";
-          # dhcp-option = [
-          #   "option:router,192.168.2.1" # Default gateway = your router
-          #   "option:dns-server,192.168.2.11" # Hand out self as DNS
-          # ];
-          # domain = "internal"; # optional; used for DHCP-assigned hostnames
-          # log-queries = true; # Optional for debugging
         };
       };
 
