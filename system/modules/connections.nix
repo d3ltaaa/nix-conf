@@ -81,6 +81,12 @@
         nameservers = [
           "1.1.1.1"
         ]; # or your router's DNS
+
+        nat = {
+          enable = true;
+          externalInterface = "ens18";
+          internalInterfaces = [ "wg0" ];
+        };
       };
 
       networking.firewall.allowedTCPPorts = [
