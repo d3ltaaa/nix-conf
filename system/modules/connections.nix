@@ -15,33 +15,52 @@
   };
   config = lib.mkMerge [
     (lib.mkIf (config.connections-module.enable == true && config.connections-module.type == "client") {
-      # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-      # Configure network proxy if necessary
-      # networking.proxy.default = "http://user:password@proxy:port/";
-      # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
       # Enable networking
       networking.networkmanager.enable = true;
 
       # Enable blutooth
       hardware.bluetooth.enable = true;
+      networking.networkmanager.ensureProfiles.profiles = {
+        "home-ethernet" = {
+          connection = {
+            id = "Wired connection 1";
+            type = "ethernet";
+          };
+          ipv4 = {
+            method = "auto";
+            dns = "192.168.2.11;192.168.2.1";
+            dns-priority = -10;
+          };
+          ipv6.method = "auto";
+        };
+        "home-wifi-2.4" = {
+          connection = {
+            id = "Wlan-12-2.4";
+            type = "wifi";
+          };
+          ipv4 = {
+            method = "auto";
+            dns = "192.168.2.11;192.168.2.1";
 
-      # Some programs need SUID wrappers, can be configured further or are
-      # started in user sessions.
-      # programs.mtr.enable = true;
-      # programs.gnupg.agent = {
-      #   enable = true;
-      #   enableSSHSupport = true;
-      # };
+            dns-priority = -10;
+          };
+          ipv6.method = "auto";
+        };
+        "home-wifi-12-5" = {
+          connection = {
+            id = "Wlan-12-5";
+            type = "wifi";
+          };
+          ipv4 = {
+            method = "auto";
+            dns = "192.168.2.11;192.168.2.1";
+            dns-priority = -10;
+          };
+          ipv6.method = "auto";
+        };
+      };
 
-      # Enable the OpenSSH daemon.
-
-      # Open ports in the firewall.
-      # networking.firewall.allowedTCPPorts = [ ... ];
-      # networking.firewall.allowedUDPPorts = [ ... ];
-      # Or disable the firewall altogether.
-      # networking.firewall.enable = false;
     })
     (lib.mkIf (config.connections-module.enable == true && config.connections-module.type == "server") {
       networking = {
@@ -114,17 +133,17 @@
           };
           # "media.internal" = {
           #   extraConfig = ''
-          #     reverse_proxy 192.168.2.12:8081
+          #     reverse_proxy 192.168.2.11:8081
           #   '';
           # };
           # "home.internal" = {
           #   extraConfig = ''
-          #     reverse_proxy 192.168.2.12:8123
+          #     reverse_proxy 192.168.2.11:8123
           #   '';
           # };
           # "files.internal" = {
           #   extraConfig = ''
-          #     reverse_proxy 192.168.2.12:8000
+          #     reverse_proxy 192.168.2.11:8000
           #   '';
           # };
         };

@@ -16,6 +16,10 @@ in
       interfaces = {
         wg0 = {
           ips = [ "10.100.0.2/32" ];
+          dns = [
+            "192.168.2.12"
+            "192.168.2.1"
+          ];
 
           # Don't listen for incoming connections (client-only)
           listenPort = null;
