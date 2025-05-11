@@ -163,7 +163,7 @@
           interval = "once";
           signal = 6;
           format = "{}";
-          tooltip = false;
+          tooltip = true;
           on-click = "toggle_hypridle.sh";
           exec = "hypridle_icon.sh";
           return-type = "json";
@@ -173,7 +173,7 @@
           interval = "once";
           signal = 7;
           format = "{}";
-          tooltip = false;
+          tooltip = true;
           on-click = "toggle_vpn.sh";
           exec = "vpn_icon.sh";
           return-type = "json";
@@ -277,6 +277,7 @@
       #temperature,
       #custom-power,
       #custom-idle,
+      #custom-vpn,
       #battery,
       #backlight,
       #pulseaudio,
@@ -340,6 +341,10 @@
           background-color: #${config.colorScheme.palette.base05};
       }
 
+      #custom-vpn {
+          background-color: #${config.colorScheme.palette.base05};
+      }
+
       #network {
           background-color: #${config.colorScheme.palette.base05};
         padding-right: 17px;
@@ -376,12 +381,12 @@
       tooltip {
       border-radius: 8px;
       padding: 15px;
-          background-color: #${config.colorScheme.palette.base05};
+          background-color: #${config.colorScheme.palette.base00};
       }
 
       tooltip label {
       padding: 5px;
-          background-color: #${config.colorScheme.palette.base05};
+          background-color: #${config.colorScheme.palette.base00};
       }
     '';
   };
