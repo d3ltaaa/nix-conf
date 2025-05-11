@@ -75,13 +75,13 @@
           ];
 
           # DHCP setup
-          dhcp-range = "192.168.2.100,192.168.2.200,24h";
-          dhcp-option = [
-            "option:router,192.168.2.1" # Default gateway = your router
-            "option:dns-server,192.168.2.11" # Hand out self as DNS
-          ];
-          domain = "internal"; # optional; used for DHCP-assigned hostnames
-          log-queries = true; # Optional for debugging
+          # dhcp-range = "192.168.2.100,192.168.2.200,24h";
+          # dhcp-option = [
+          #   "option:router,192.168.2.1" # Default gateway = your router
+          #   "option:dns-server,192.168.2.11" # Hand out self as DNS
+          # ];
+          # domain = "internal"; # optional; used for DHCP-assigned hostnames
+          # log-queries = true; # Optional for debugging
         };
       };
 
