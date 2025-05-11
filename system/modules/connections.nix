@@ -48,7 +48,7 @@
         useDHCP = false;
         interfaces.ens18.ipv4.addresses = [
           {
-            address = "192.168.2.12";
+            address = "192.168.2.11";
             prefixLength = 24;
           }
         ];
@@ -81,8 +81,6 @@
           # Upstream DNS for external names
           server = [
             "1.1.1.1"
-            "2003:180:2:1000::53"
-            "2003:180:2:5000::53"
           ];
           listen-address = [
             "127.0.0.1"
