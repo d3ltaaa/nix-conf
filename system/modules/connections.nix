@@ -23,6 +23,21 @@
 
       # Enable networking
       networking.networkmanager.enable = true;
+      networking.enableIPv6 = false;
+      networking.nameservers = [
+        "192.168.2.11"
+      ]; # or your router's DNS
+      networking.useDHCP = false;
+      systemd.network.enable = true;
+      systemd.network.networks."eno1" = {
+        matchConfig.Name = "eno1";
+        networkConfig = {
+          DHCP = "yes";
+        };
+        dhcpConfig = {
+          UseDNS = false;
+        };
+      };
 
       # Enable blutooth
       hardware.bluetooth.enable = true;
@@ -83,7 +98,11 @@
         virtualHosts = {
           "proxmox.internal" = {
             extraConfig = ''
-              reverse_proxy 192.168.2.10:8006
+              reverse_proxy 192.168.2.10:8006 {
+                transport http {
+                  tls_insecure_skip_verify
+                }
+              }
             '';
           };
           # "media.internal" = {
