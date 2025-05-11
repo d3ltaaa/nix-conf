@@ -33,6 +33,7 @@
           "network"
           "pulseaudio"
           "custom/idle"
+          "custom/vpn"
           "custom/appmenu"
           "custom/system_stats"
           "custom/settings"
@@ -165,6 +166,16 @@
           tooltip = false;
           on-click = "toggle_hypridle.sh";
           exec = "hypridle_icon.sh";
+          return-type = "json";
+        };
+
+        "custom/vpn" = {
+          interval = "once";
+          signal = 7;
+          format = "{}";
+          tooltip = false;
+          on-click = "toggle_vpn.sh";
+          exec = "vpn_icon.sh";
           return-type = "json";
         };
 
