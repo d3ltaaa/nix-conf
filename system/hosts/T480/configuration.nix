@@ -69,7 +69,10 @@
 
   environment-module.enable = true;
 
-  connections-module.enable = true;
+  connections-module = {
+    enable = true;
+    type = "client";
+  };
 
   syncthing-module.enable = true;
 

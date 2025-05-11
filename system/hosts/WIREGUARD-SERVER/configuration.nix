@@ -64,7 +64,10 @@
 
   environment-module.enable = true;
 
-  connections-module.enable = true;
+  connections-module = {
+    enable = true;
+    type = "server";
+  };
 
   syncthing-module.enable = false;
 
@@ -93,7 +96,4 @@
   wireguard-module.enable = true;
 
   fileSharing-module.enable = false;
-
-  caddy-module.enable = true;
-
 }
