@@ -23,21 +23,6 @@
 
       # Enable networking
       networking.networkmanager.enable = true;
-      networking.enableIPv6 = false;
-      networking.nameservers = [
-        "192.168.2.11"
-      ]; # or your router's DNS
-      networking.useDHCP = false;
-      systemd.network.enable = true;
-      systemd.network.networks."eno1" = {
-        matchConfig.Name = "eno1";
-        networkConfig = {
-          DHCP = "yes";
-        };
-        dhcpConfig = {
-          UseDNS = false;
-        };
-      };
 
       # Enable blutooth
       hardware.bluetooth.enable = true;
@@ -88,6 +73,15 @@
             # "/home.internal/192.168.2.11"
             # "/files.internal/192.168.2.11"
           ];
+
+          # DHCP setup
+          dhcp-range = "192.168.2.100,192.168.2.200,24h";
+          dhcp-option = [
+            "option:router,192.168.2.1" # Default gateway = your router
+            "option:dns-server,192.168.2.11" # Hand out self as DNS
+          ];
+          domain = "internal"; # optional; used for DHCP-assigned hostnames
+          log-queries = true; # Optional for debugging
         };
       };
 
