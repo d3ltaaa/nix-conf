@@ -123,37 +123,39 @@
         };
       };
 
-      # Web Reverse Proxy: Caddy
-      services.caddy = {
+      # Web Reverse Proxy: Nginx
+      services.nginx = {
         enable = true;
-
         virtualHosts = {
           "proxmox.internal" = {
-            extraConfig = ''
-              reverse_proxy 192.168.2.10:8006 {
-                transport http {
-                  tls_insecure_skip_verify
-                }
-              }
-            '';
+            forceSSL = false;
+            enableACME = false;
+            locations."/" = {
+              proxyPass = "http://192.168.2.10:8006";
+              extraConfig = ''
+                proxy_ssl_verify off
+              '';
+            };
           };
-          # "media.internal" = {
-          #   extraConfig = ''
-          #     reverse_proxy 192.168.2.11:8081
-          #   '';
-          # };
-          # "home.internal" = {
-          #   extraConfig = ''
-          #     reverse_proxy 192.168.2.11:8123
-          #   '';
-          # };
-          # "files.internal" = {
-          #   extraConfig = ''
-          #     reverse_proxy 192.168.2.11:8000
-          #   '';
-          # };
         };
       };
+
+      # # Web Reverse Proxy: Caddy
+      # services.caddy = {
+      #   enable = true;
+      #
+      #   virtualHosts = {
+      #     "proxmox.internal" = {
+      #       extraConfig = ''
+      #         reverse_proxy 192.168.2.10:8006 {
+      #           transport http {
+      #             tls_insecure_skip_verify
+      #           }
+      #         }
+      #       '';
+      #     };
+      #   };
+      # };
     })
   ];
 }
