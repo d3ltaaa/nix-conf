@@ -126,7 +126,6 @@
       # Web Reverse Proxy: Nginx
       services.nginx = {
         enable = true;
-        recommendedProxySettings = true;
         virtualHosts = {
           "proxmox.internal" = {
             forceSSL = false;
