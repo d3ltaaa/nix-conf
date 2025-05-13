@@ -1,4 +1,9 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  variables,
+  ...
+}:
 {
 
   options = {
@@ -126,19 +131,28 @@
       # Web Reverse Proxy: Nginx
       services.nginx = {
         enable = true;
-        virtualHosts = {
-          "proxmox.internal" = {
-            forceSSL = false;
-            enableACME = false;
-            locations."/" = {
-              proxyPass = "http://192.168.2.10:8006";
-              proxyWebsockets = true;
-              extraConfig = ''
-                proxy_ssl_verify off;
-              '';
-            };
+        recommendedProxySettings = true;
+        recommendedTlsSettings = true;
+      };
+
+      security.acme = {
+        acceptTerms = true;
+        email = "hil.falk@protonmail.com";
+      };
+
+      services.nginx.virtualHosts = {
+        "proxmox.d3lta.ipv64.net" = {
+          enableACME = true;
+          forceSSL = true;
+          locations."/" = {
+            proxyPass = "http://192.168.2.10:8006";
           };
         };
+      };
+      security.acme.certs."*.d3lta.ipv64.net" = {
+        dnsProvider = "ipv64";
+        dnsResolver = "1.1.1.1:53";
+        credentialsFile = /home/${variables.user}/credentials.sh;
       };
 
       # # Web Reverse Proxy: Caddy
