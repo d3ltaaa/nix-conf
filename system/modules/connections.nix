@@ -4,6 +4,9 @@
   variables,
   ...
 }:
+let
+  serverAddress = lib.strings.trim (builtins.readFile "/home/${variables.user}/.server_address");
+in
 {
 
   options = {
@@ -141,7 +144,7 @@
       };
 
       services.nginx.virtualHosts = {
-        "proxmox.d3lta.ipv64.net" = {
+        "proxmox.${serverAddress}" = {
           enableACME = true;
           forceSSL = true;
           locations."/" = {
@@ -149,10 +152,13 @@
           };
         };
       };
-      security.acme.certs."*.d3lta.ipv64.net" = {
+      security.acme.certs."proxmox.${serverAddress}" = {
         dnsProvider = "ipv64";
         dnsResolver = "1.1.1.1:53";
-        credentialsFile = /home/${variables.user}/credentials.sh;
+        webroot = null;
+        credentialFiles = {
+          IPV64_API_KEY_FILE = "/home/${variables.user}/credentials.sh}";
+        };
       };
 
       # # Web Reverse Proxy: Caddy
