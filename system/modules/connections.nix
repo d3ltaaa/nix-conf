@@ -111,6 +111,9 @@ in
           domain-needed = true;
           bogus-priv = true;
           no-resolv = true;
+          log-queries = true;
+          log-facility = "/var/log/dnsmasq.log";
+
           # Upstream DNS for external names
           server = [
             "1.1.1.1"
@@ -123,6 +126,7 @@ in
           ];
 
           address = [
+            "/${serverAddress}/192.168.2.11"
             "/proxmox.internal/192.168.2.11"
             # "/media.internal/192.168.2.11"
             # "/home.internal/192.168.2.11"
@@ -134,12 +138,10 @@ in
       # Web Reverse Proxy: Nginx
       services.nginx = {
         enable = true;
-        recommendedProxySettings = true;
-        recommendedTlsSettings = true;
         virtualHosts = {
           "proxmox.${serverAddress}" = {
-            enableACME = true;
             forceSSL = true;
+            useACMEHost = "${serverAddress}";
             locations."/" = {
               proxyPass = "http://192.168.2.10:8006";
             };
@@ -149,14 +151,20 @@ in
 
       security.acme = {
         acceptTerms = true;
-        defaults = {
-          email = "hil.falk@protonmail.com";
+        defaults.email = "hil.falk@protonmail.com";
+
+        certs."${serverAddress}" = {
+          domain = "${serverAddress}";
+          extraDomainNames = [ "*.${serverAddress}" ];
           dnsProvider = "ipv64";
+          dnsResolver = "127.0.0.1:53";
           credentialFiles = {
             IPV64_API_KEY_FILE = "/home/${variables.user}/credentials.sh}";
           };
         };
       };
+
+      users.users.${variables.user}.extraGroups = [ "acme" ];
 
       # # Web Reverse Proxy: Caddy
       # services.caddy = {
