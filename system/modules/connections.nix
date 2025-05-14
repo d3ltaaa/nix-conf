@@ -136,28 +136,25 @@ in
         enable = true;
         recommendedProxySettings = true;
         recommendedTlsSettings = true;
+        virtualHosts = {
+          "proxmox.${serverAddress}" = {
+            enableACME = true;
+            forceSSL = true;
+            locations."/" = {
+              proxyPass = "http://192.168.2.10:8006";
+            };
+          };
+        };
       };
 
       security.acme = {
         acceptTerms = true;
-        email = "hil.falk@protonmail.com";
-      };
-
-      services.nginx.virtualHosts = {
-        "proxmox.${serverAddress}" = {
-          enableACME = true;
-          forceSSL = true;
-          locations."/" = {
-            proxyPass = "http://192.168.2.10:8006";
+        defaults = {
+          email = "hil.falk@protonmail.com";
+          dnsProvider = "ipv64";
+          credentialFiles = {
+            IPV64_API_KEY_FILE = "/home/${variables.user}/credentials.sh}";
           };
-        };
-      };
-      security.acme.certs."proxmox.${serverAddress}" = {
-        dnsProvider = "ipv64";
-        dnsResolver = "1.1.1.1:53";
-        webroot = null;
-        credentialFiles = {
-          IPV64_API_KEY_FILE = "/home/${variables.user}/credentials.sh}";
         };
       };
 

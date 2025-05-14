@@ -81,9 +81,9 @@ let
     arduino-ide
     freecad-wayland
     spotify
-    orca-slicer
     # remnote
     telegram-desktop
+    orca-slicer
   ];
 
   unstable-power-pkgs = with pkgs; [
