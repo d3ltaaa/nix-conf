@@ -127,10 +127,6 @@ in
 
           address = [
             "/${serverAddress}/192.168.2.11"
-            "/proxmox.internal/192.168.2.11"
-            # "/media.internal/192.168.2.11"
-            # "/home.internal/192.168.2.11"
-            # "/files.internal/192.168.2.11"
           ];
         };
       };
@@ -140,31 +136,14 @@ in
         enable = true;
         virtualHosts = {
           "proxmox.${serverAddress}" = {
-            forceSSL = true;
-            useACMEHost = "${serverAddress}";
+            enableACME = false;
+            forceSSL = false;
             locations."/" = {
               proxyPass = "http://192.168.2.10:8006";
             };
           };
         };
       };
-
-      security.acme = {
-        acceptTerms = true;
-        defaults.email = "hil.falk@protonmail.com";
-
-        certs."${serverAddress}" = {
-          domain = "${serverAddress}";
-          extraDomainNames = [ "*.${serverAddress}" ];
-          dnsProvider = "ipv64";
-          dnsResolver = "127.0.0.1:53";
-          credentialFiles = {
-            IPV64_API_KEY_FILE = "/home/${variables.user}/credentials.sh}";
-          };
-        };
-      };
-
-      users.users.${variables.user}.extraGroups = [ "acme" ];
 
       # # Web Reverse Proxy: Caddy
       # services.caddy = {
