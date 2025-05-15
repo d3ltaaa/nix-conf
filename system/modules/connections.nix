@@ -141,9 +141,6 @@ in
             locations."/" = {
               proxyPass = "https://192.168.2.10:8006";
               proxyWebsockets = true;
-              extraConfig = ''
-                proxy_ssl_verify off;
-              '';
             };
           };
         };
@@ -154,8 +151,6 @@ in
         defaults.email = "hil.falk@protonmail.com";
         certs."${serverAddress}" = {
           dnsProvider = "ipv64";
-          domain = "${serverAddress}";
-          extraDomainNames = [ "proxmox.${serverAddress}" ];
           credentialFiles = {
             IPV64_API_KEY_FILE = "/home/${variables.user}/credentials.sh";
           };
