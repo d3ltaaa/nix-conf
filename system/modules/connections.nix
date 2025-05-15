@@ -136,11 +136,28 @@ in
         enable = true;
         virtualHosts = {
           "proxmox.${serverAddress}" = {
-            enableACME = false;
-            forceSSL = false;
+            enableACME = true;
+            forceSSL = true;
             locations."/" = {
               proxyPass = "http://192.168.2.10:8006";
+              proxyWebsockets = true;
+              extraConfig = ''
+                proxy_ssl_verify off;
+              '';
             };
+          };
+        };
+      };
+
+      security.acme = {
+        acceptTerms = true;
+        defaults.email = "hil.falk@protonmail.com";
+        certs."${serverAddress}" = {
+          dnsProvider = "ipv64";
+          domain = "${serverAddress}";
+          extraDomainNames = [ "proxmox.${serverAddress}" ];
+          credentialFiles = {
+            IPV64_API_KEY_FILE = "/home/${variables.user}/credentials.sh";
           };
         };
       };
