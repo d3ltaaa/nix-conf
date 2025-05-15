@@ -139,7 +139,7 @@ in
             enableACME = true;
             forceSSL = true;
             locations."/" = {
-              proxyPass = "http://192.168.2.10:8006";
+              proxyPass = "https://192.168.2.10:8006";
               proxyWebsockets = true;
               extraConfig = ''
                 proxy_ssl_verify off;
