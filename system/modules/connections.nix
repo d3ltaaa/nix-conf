@@ -143,6 +143,14 @@ in
               proxyWebsockets = true;
             };
           };
+          "dp.${serverAddress}" = {
+            enableACME = true;
+            forceSSL = true;
+            locations."/" = {
+              proxyPass = "http://192.168.2.31:80"; # allow dp.${serverAddress} in moonraker manually
+              proxyWebsockets = true;
+            };
+          };
         };
       };
 
@@ -151,6 +159,10 @@ in
         defaults.email = "hil.falk@protonmail.com";
         certs."${serverAddress}" = {
           dnsProvider = "ipv64";
+          extraDomainNames = [
+            "dp.${serverAddress}"
+            "proxmox.${serverAddress}"
+          ];
           credentialFiles = {
             IPV64_API_KEY_FILE = "/home/${variables.user}/credentials.sh";
           };
