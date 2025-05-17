@@ -141,6 +141,14 @@ in
             locations."/" = {
               proxyPass = "https://192.168.2.10:8006";
               proxyWebsockets = true;
+              extraConfig = ''
+                client_max_body_size 8G;
+                proxy_buffering off;
+                proxy_request_buffering off;
+                proxy_connect_timeout 3600;
+                proxy_send_timeout 3600;
+                proxy_read_timeout 3600;
+              '';
             };
           };
           "dp.${serverAddress}" = {
