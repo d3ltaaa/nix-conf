@@ -101,7 +101,7 @@
   };
 
   vaultWarden-module = {
-    enble = true;
+    enable = true;
     type = "server";
   };
 }
