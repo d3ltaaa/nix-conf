@@ -159,6 +159,14 @@ in
               proxyWebsockets = true;
             };
           };
+          "vault.${serverAddress}" = {
+            enableACME = true;
+            forceSSL = true;
+            locations."/" = {
+              proxyPass = "http://192.168.2.12:8222";
+              proxyWebsockets = true;
+            };
+          };
         };
       };
 
@@ -170,6 +178,7 @@ in
           extraDomainNames = [
             "dp.${serverAddress}"
             "proxmox.${serverAddress}"
+            "vault.${serverAddress}"
           ];
           credentialFiles = {
             IPV64_API_KEY_FILE = "/home/${variables.user}/credentials.sh";

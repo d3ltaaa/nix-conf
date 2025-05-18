@@ -99,4 +99,9 @@
     enable = true;
     type = "server";
   };
+
+  vaultWarden-module = {
+    enble = true;
+    type = "server";
+  };
 }

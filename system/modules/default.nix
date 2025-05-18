@@ -20,5 +20,6 @@
     ./user.nix
     ./virtualisation.nix
     ./wireguard.nix
+    ./vaultwarden.nix
   ];
 }
