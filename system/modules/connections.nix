@@ -167,18 +167,34 @@ in
               proxyWebsockets = true;
             };
           };
+          "home.${serverAddress}" = {
+            enableACME = true;
+            forceSSL = true;
+            locations."/" = {
+              proxyPass = "http://192.168.2.12:8082";
+              proxyWebsockets = true;
+            };
+          };
         };
       };
+
+      # regenerate certs with
+      # sudo rm -r /var/lib/acme
+      # sudo systemctl restart acme-setup.service
+      # sudo nixos-rebuild
 
       security.acme = {
         acceptTerms = true;
         defaults.email = "hil.falk@protonmail.com";
+        dnsProvider = "ipv64";
+        dnsResolver = "1.1.1.1:53";
         certs."${serverAddress}" = {
-          dnsProvider = "ipv64";
+          # domain = "*.${serverAddress}";
           extraDomainNames = [
             "dp.${serverAddress}"
             "proxmox.${serverAddress}"
             "vault.${serverAddress}"
+            "home.${serverAddress}"
           ];
           credentialFiles = {
             IPV64_API_KEY_FILE = "/home/${variables.user}/credentials.sh";

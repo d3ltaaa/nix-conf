@@ -70,6 +70,9 @@ let
     pulsemixer
     libpulseaudio
     pavucontrol
+
+    busybox
+    dnsutils
   ];
 
   unstable-desk-pkgs = with pkgs; [
