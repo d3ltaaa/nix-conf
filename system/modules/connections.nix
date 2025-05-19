@@ -185,9 +185,11 @@ in
 
       security.acme = {
         acceptTerms = true;
-        defaults.email = "hil.falk@protonmail.com";
-        dnsProvider = "ipv64";
-        dnsResolver = "1.1.1.1:53";
+        defaults = {
+          email = "hil.falk@protonmail.com";
+          dnsProvider = "ipv64";
+          dnsResolver = "1.1.1.1:53";
+        };
         certs."${serverAddress}" = {
           # domain = "*.${serverAddress}";
           extraDomainNames = [
