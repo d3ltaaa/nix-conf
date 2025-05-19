@@ -57,8 +57,8 @@
                 allowedIPs = [ "10.100.0.3/32" ];
               }
               {
-                # MEDION
-                publicKey = "U0VkfE6TbUkE9QsbzdSMM+lu6XxpszXmnilF98DrRQY=";
+                # TABS9
+                publicKey = "Ggovi9VYVEHK70enoT/8/GweGBTX8xgiktRTMSGboww=";
                 allowedIPs = [ "10.100.0.4/32" ];
               }
             ];
