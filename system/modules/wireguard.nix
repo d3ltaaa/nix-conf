@@ -12,12 +12,13 @@
   imports = [
     ./submodules/wireguard/WIREGUARD-SERVER.nix
     ./submodules/wireguard/T480.nix
+    ./submodules/wireguard/wireguard-ui.nix
   ];
 
   config = lib.mkIf config.wireguard-module.enable {
     networking = {
       firewall.allowedUDPPorts = [ 51920 ];
-      wireguard.enable = false;
+      wireguard.enable = true;
     };
   };
 }

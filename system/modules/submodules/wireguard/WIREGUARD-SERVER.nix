@@ -21,7 +21,6 @@
     # install packages for imparative control
     environment.systemPackages = with pkgs; [
       wireguard-tools
-      wireguard-ui
     ];
 
     systemd.services."wg-quick@wg0" = {
