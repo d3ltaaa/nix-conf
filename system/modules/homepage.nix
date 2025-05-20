@@ -37,6 +37,8 @@
               "Router" = {
                 href = "http://192.168.2.1";
               };
+            }
+            {
               "3D Printer" = {
                 href = "https://dp.d3lta.ipv64.net";
               };
