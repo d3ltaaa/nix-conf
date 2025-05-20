@@ -104,4 +104,6 @@
     enable = true;
     type = "server";
   };
+
+  homepage-module.enable = true;
 }
