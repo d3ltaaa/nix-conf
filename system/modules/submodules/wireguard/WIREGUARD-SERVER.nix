@@ -16,7 +16,32 @@
       };
     };
 
+    # imparative
+
+    # install packages for imparative control
+    environment.systemPackages = with pkgs; [
+      wireguard-tools
+      wireguard-ui
+    ];
+
+    systemd.services."wg-quick@wg0" = {
+      enable = true;
+      description = "Imperative WireGuard VPN (wg0)";
+      after = [ "network.target" ];
+      wantedBy = [ "multi-user.target" ];
+      serviceConfig = {
+        Type = "oneshot";
+        RemainAfterExit = true;
+        ExecStart = "${pkgs.wireguard-tools}/bin/wg-quick up wg0";
+        ExecStop = "${pkgs.wireguard-tools}/bin/wg-quick down wg0";
+      };
+    };
+
     networking = {
+      firewall.allowedTCPPorts = [ 5000 ]; # port for wireguard-webui
+      firewall.allowedUDPPorts = [ 51920 ]; # port for imparative wireguard
+
+      # declarative
       wireguard = {
         interfaces = {
           # "wg0" is the network interface name. You can name the interface arbitrarily.
@@ -25,7 +50,7 @@
             ips = [ "10.100.0.1/24" ];
 
             # The port that WireGuard listens to. Must be accessible by the client.
-            listenPort = 51920;
+            listenPort = 51930; # must be different from imparative llistenPort
 
             # This allows the wireguard server to route your traffic to the internet and hence be like a VPN
             # For this to work you have to set the dnsserver IP of your router (or dnsserver of choice) in your clients

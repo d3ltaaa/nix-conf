@@ -15,12 +15,7 @@
   ];
 
   config = lib.mkIf config.wireguard-module.enable {
-    environment.systemPackages = with pkgs; [
-      wireguard-tools
-      wireguard-ui
-    ];
     networking = {
-      firewall.allowedTCPPorts = [ 5000 ];
       firewall.allowedUDPPorts = [ 51920 ];
       wireguard.enable = false;
     };
