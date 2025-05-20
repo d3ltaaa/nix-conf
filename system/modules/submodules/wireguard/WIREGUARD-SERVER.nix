@@ -39,13 +39,16 @@
 
     networking = {
       firewall.allowedTCPPorts = [ 5000 ]; # port for wireguard-webui
-      firewall.allowedUDPPorts = [ 51920 ]; # port for imparative wireguard
+      firewall.allowedUDPPorts = [
+        51920 # imparative
+        51930 # declarative
+      ];
 
       # declarative
       wireguard = {
         interfaces = {
           # "wg0" is the network interface name. You can name the interface arbitrarily.
-          wg0 = {
+          wg1 = {
             # Determines the IP address and subnet of the server's end of the tunnel interface.
             ips = [ "10.100.0.1/24" ];
 
