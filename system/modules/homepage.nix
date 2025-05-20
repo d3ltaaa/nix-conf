@@ -12,6 +12,21 @@
       enable = true;
       allowedHosts = "192.168.2.12:8082,home.d3lta.ipv64.net";
       openFirewall = true;
+      widgets = [
+        {
+          resources = {
+            cpu = true;
+            disk = "/";
+            memory = true;
+          };
+        }
+        {
+          search = {
+            provider = "duckduckgo";
+            target = "_blank";
+          };
+        }
+      ];
       services = [
         {
           "Administration" = [
