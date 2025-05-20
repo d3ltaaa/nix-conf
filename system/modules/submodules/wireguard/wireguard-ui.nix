@@ -21,7 +21,6 @@
 
       serviceConfig = {
         ExecStart = "${pkgs.wireguard-ui}/bin/wireguard-ui"; # path to wireguard-ui binary
-        Restart = "on-failure";
         # Run as root (default), so no User/Group needed
         WorkingDirectory = "/etc/wireguard"; # or wherever configs live
         StandardOutput = "journal";
