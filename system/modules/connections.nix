@@ -175,6 +175,14 @@ in
               proxyWebsockets = true;
             };
           };
+          "wg.${serverAddress}" = {
+            enableACME = true;
+            forceSSL = true;
+            locations."/" = {
+              proxyPass = "http://192.168.2.11:5000";
+              proxyWebsockets = true;
+            };
+          };
         };
       };
 
@@ -197,6 +205,7 @@ in
             "proxmox.${serverAddress}"
             "vault.${serverAddress}"
             "home.${serverAddress}"
+            "wg.${serverAddress}"
           ];
           credentialFiles = {
             IPV64_API_KEY_FILE = "/home/${variables.user}/credentials.sh";
