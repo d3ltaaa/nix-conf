@@ -26,6 +26,7 @@ in
 
       # Enable networking
       networking.networkmanager.enable = true;
+      networking.interfaces.eno1.wakeOnLan.enable = lib.mkIf (config.networking.hostName == "PC") true;
 
       # Enable blutooth
       hardware.bluetooth.enable = true;

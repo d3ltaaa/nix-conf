@@ -3,7 +3,7 @@
 
   options = {
     bootloader-module = {
-      enable = lib.mkEnableOption "Enables Bootlaoder module";
+      enable = lib.mkEnableOption "Enables Bootloader module";
       os-prober.enable = lib.mkEnableOption "Enables Os-Prober";
     };
   };
@@ -21,6 +21,9 @@
           }
           menuentry "Poweroff" {
               halt
+          }
+          menuentry "Enter UEFI Firmware Settings" {
+              fwsetup
           }
         '';
       };

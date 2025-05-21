@@ -73,6 +73,8 @@ let
 
     busybox
     dnsutils
+    ethtool
+    netcat-openbsd
   ];
 
   unstable-desk-pkgs = with pkgs; [
