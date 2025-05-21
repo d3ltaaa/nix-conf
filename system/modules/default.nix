@@ -9,6 +9,7 @@
     ./environment.nix
     ./flatpaks.nix
     ./general.nix
+    ./homeassistant.nix
     ./homepage.nix
     ./locale.nix
     ./nvidiagpu.nix

@@ -106,4 +106,6 @@
   };
 
   homepage-module.enable = true;
+
+  homeassistant-module.enable = true;
 }
