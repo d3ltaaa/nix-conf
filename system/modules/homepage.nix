@@ -36,6 +36,12 @@
                 href = "https://proxmox.d3lta.ipv64.net";
               };
             }
+            {
+              "Wireguard" = {
+                icon = "wireguard.png";
+                href = "https://wg.d3lta.ipv64.net";
+              };
+            }
           ];
         }
         {
@@ -47,14 +53,8 @@
               };
             }
             {
-              "Wireguard" = {
-                icon = "wireguard.png";
-                href = "https://wg.d3lta.ipv64.net";
-              };
-            }
-            {
               "Homeassistant" = {
-                icon = "home assistant.png";
+                icon = "home-assistant.png";
                 href = "https://homeassistant.d3lta.ipv64.net";
               };
             }
