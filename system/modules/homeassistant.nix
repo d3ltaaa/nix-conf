@@ -26,12 +26,12 @@
               "/etc/homeassistant/config"
             ];
             ports = [
-              "127.0.0.1:8123:8123"
-              "127.0.0.1:8124:80"
+              "0.0.0.0:8123:8123"
+              "0.0.0.0:8124:80"
             ];
             environment = {
-              PUID = toString config.users.users.${variables.user}.uid;
-              PGID = toString config.users.groups.${variables.group}.gid;
+              # PUID = toString config.users.users.${variables.user}.uid;
+              # PGID = toString config.users.groups.${variables.group}.gid;
             };
           };
         };
