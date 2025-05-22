@@ -52,6 +52,12 @@
                 href = "https://wg.d3lta.ipv64.net";
               };
             }
+            {
+              "Homeassistant" = {
+                icon = "homeassistant.png";
+                href = "https://homeassistant.d3lta.ipv64.net";
+              };
+            }
           ];
         }
         {

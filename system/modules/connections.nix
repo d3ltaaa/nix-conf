@@ -184,6 +184,14 @@ in
               proxyWebsockets = true;
             };
           };
+          "homeassistant.${serverAddress}" = {
+            enableACME = true;
+            forceSSL = true;
+            locations."/" = {
+              proxyPass = "http://192.168.2.12:8123";
+              proxyWebsockets = true;
+            };
+          };
         };
       };
 
@@ -207,6 +215,7 @@ in
             "vault.${serverAddress}"
             "home.${serverAddress}"
             "wg.${serverAddress}"
+            "homeassistant.${serverAddress}"
           ];
           credentialFiles = {
             IPV64_API_KEY_FILE = "/home/${variables.user}/credentials.sh";
