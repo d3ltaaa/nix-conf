@@ -20,6 +20,7 @@
             image = "homeassistant/home-assistant:stable";
             autoStart = true;
             extraOptions = [
+              "--network=host"
               "--pull=newer"
             ];
             volumes = [
@@ -30,6 +31,7 @@
               "0.0.0.0:8124:80"
             ];
             environment = {
+              TZ = "Europe/Berlin";
               # PUID = toString config.users.users.${variables.user}.uid;
               # PGID = toString config.users.groups.${variables.group}.gid;
             };
