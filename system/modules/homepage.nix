@@ -54,7 +54,7 @@
             }
             {
               "Homeassistant" = {
-                icon = "homeassistant.png";
+                icon = "home assistant.png";
                 href = "https://homeassistant.d3lta.ipv64.net";
               };
             }
