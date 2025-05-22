@@ -12,6 +12,8 @@
     };
   };
   config = lib.mkIf config.homeassistant-module.enable {
+    networking.firewall.allowedUDPPorts = [ 8123 ];
+    networking.firewall.allowedTCPPorts = [ 8123 ];
     virtualisation = {
       podman.enable = true;
       oci-containers = {
@@ -26,10 +28,10 @@
             volumes = [
               "/etc/homeassistant/config"
             ];
-            ports = [
-              "0.0.0.0:8123:8123"
-              "0.0.0.0:8124:80"
-            ];
+            # ports = [
+            #   "0.0.0.0:8123:8123"
+            #   "0.0.0.0:8124:80"
+            # ];
             environment = {
               TZ = "Europe/Berlin";
               # PUID = toString config.users.users.${variables.user}.uid;
