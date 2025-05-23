@@ -37,6 +37,7 @@
     let
       variables = {
         user = "falk";
+        group = "falk";
         userHomeDir = "/home/falk";
       };
     in

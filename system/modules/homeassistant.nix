@@ -26,7 +26,7 @@
               "--pull=newer"
             ];
             volumes = [
-              "/etc/homeassistant/config"
+              "/var/lib/homeassistant:/config"
             ];
             # ports = [
             #   "0.0.0.0:8123:8123"
@@ -34,8 +34,8 @@
             # ];
             environment = {
               TZ = "Europe/Berlin";
-              # PUID = toString config.users.users.${variables.user}.uid;
-              # PGID = toString config.users.groups.${variables.group}.gid;
+              PUID = toString config.users.users.${variables.user}.uid;
+              PGID = toString config.users.groups.${variables.user}.gid;
             };
           };
         };

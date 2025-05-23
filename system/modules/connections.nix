@@ -2,6 +2,7 @@
   lib,
   config,
   variables,
+  pkgs,
   ...
 }:
 let
@@ -26,7 +27,19 @@ in
 
       # Enable networking
       networking.networkmanager.enable = true;
+
+      # wol PC
       networking.interfaces.eno1.wakeOnLan.enable = lib.mkIf (config.networking.hostName == "PC") true;
+      systemd.services.wakeonlan = lib.mkIf (config.networking.hostName == "PC") {
+        description = "Re-enable Wake-on-LAN every boot";
+        after = [ "network.target" ];
+        wantedBy = [ "default.target" ];
+        serviceConfig = {
+          Type = "oneshot";
+          RemainAfterExit = true;
+          ExecStart = "${pkgs.ethtool}/sbin/ethtool -s eno1 wol g";
+        };
+      };
 
       # Enable blutooth
       hardware.bluetooth.enable = true;
