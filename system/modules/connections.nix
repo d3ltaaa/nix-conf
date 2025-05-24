@@ -28,34 +28,6 @@ in
       # Enable networking
       networking.networkmanager.enable = true;
 
-      # wol PC/PC-SERVER
-      networking.useDHCP = lib.mkIf (
-        config.networking.hostName == "PC" || config.networking.hostName == "PC-SERVER"
-      ) false;
-
-      networking.interfaces.eno1 =
-        lib.mkIf (config.networking.hostName == "PC" || config.networking.hostName == "PC-SERVER")
-          {
-            wakeOnLan.enable = true;
-            ipv4.addresses = [
-              {
-                address = "192.168.2.30";
-                prefixLength = 24;
-              }
-            ];
-          };
-
-      systemd.services.wakeonlan = lib.mkIf (config.networking.hostName == "PC") {
-        description = "Re-enable Wake-on-LAN every boot";
-        after = [ "network.target" ];
-        wantedBy = [ "default.target" ];
-        serviceConfig = {
-          Type = "oneshot";
-          RemainAfterExit = true;
-          ExecStart = "${pkgs.ethtool}/sbin/ethtool -s eno1 wol g";
-        };
-      };
-
       # Enable blutooth
       hardware.bluetooth.enable = true;
       networking.networkmanager.ensureProfiles.profiles = {
