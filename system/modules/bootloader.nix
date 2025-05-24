@@ -21,7 +21,7 @@
         useOSProber = lib.mkIf config.bootloader-module.os-prober.enable true;
         efiSupport = true;
         configurationName = "NixOS (${config.networking.hostName})";
-        default = lib.mkIf (config.networking.hostName == "PC") "NixOs (PC-SERVER)";
+        default = lib.mkIf (config.networking.hostName == "PC") "1";
         extraEntries =
           let
             defaultEntries = ''
