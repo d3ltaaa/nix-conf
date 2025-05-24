@@ -8,13 +8,11 @@
   networking.hostName = "PC-SERVER";
 
   # enable modules
-  boot.loader.grub.enable = lib.mkForce false;
-  boot.loader.systemd-boot.enable = lib.mkForce false;
-  bootloader-module.enable = false;
-  bootloader-module.os-prober.enable = false;
-  # changes
-  boot.loader.grub.useOSProber = lib.mkForce false;
-  boot.loader.efi.canTouchEfiVariables = lib.mkForce false;
+  bootloader-module = {
+    enable = true;
+    os-prober.enable = false;
+    secondaryOs = true;
+  };
 
   locale-module.enable = true;
 
