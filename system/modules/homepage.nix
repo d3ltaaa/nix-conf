@@ -58,6 +58,12 @@
                 href = "https://homeassistant.d3lta.ipv64.net";
               };
             }
+            {
+              "Ollama/Open-Webui" = {
+                icon = "ollama.png";
+                href = "https://ollama.d3lta.ipv64.net";
+              };
+            }
           ];
         }
         {

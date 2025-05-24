@@ -205,6 +205,14 @@ in
               proxyWebsockets = true;
             };
           };
+          "ollama.${serverAddress}" = {
+            enableACME = true;
+            forceSSL = true;
+            locations."/" = {
+              proxyPass = "http://192.168.2.30:8080";
+              proxyWebsockets = true;
+            };
+          };
         };
       };
 
@@ -229,6 +237,7 @@ in
             "home.${serverAddress}"
             "wg.${serverAddress}"
             "homeassistant.${serverAddress}"
+            "ollama.${serverAddress}"
           ];
           credentialFiles = {
             IPV64_API_KEY_FILE = "/home/${variables.user}/credentials.sh";
