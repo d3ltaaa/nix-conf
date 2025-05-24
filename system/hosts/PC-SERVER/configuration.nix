@@ -68,7 +68,7 @@
   environment-module.enable = true;
 
   connections-module = {
-    enable = false;
+    enable = true;
     type = "client";
   };
 

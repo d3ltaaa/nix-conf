@@ -44,6 +44,7 @@ in
               }
             ];
           };
+
       systemd.services.wakeonlan = lib.mkIf (config.networking.hostName == "PC") {
         description = "Re-enable Wake-on-LAN every boot";
         after = [ "network.target" ];
