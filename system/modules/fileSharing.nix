@@ -24,7 +24,7 @@
       environment.systemPackages = [
         pkgs.cifs-utils
       ];
-      fileSystems."/mnt/share" = {
+      fileSystems."/mnt/private" = {
         device = "//192.168.2.12/private";
         fsType = "cifs";
         options =

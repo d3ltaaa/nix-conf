@@ -15,6 +15,9 @@
       enable = true;
       # port = 8080;
       package = pkgs.open-webui;
+      host = "0.0.0.0";
+      openFirewall = true;
+      # stateDir = "/mnt/share/";
     };
     services.ollama = {
       enable = true;

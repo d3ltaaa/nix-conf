@@ -53,6 +53,11 @@
     fsType = "ext4";
   };
 
+  fileSystems."/mnt/share" = {
+    device = "/dev/disk/by-label/SHARE";
+    fsType = "ext4";
+  };
+
   swapDevices = [
     { device = "/dev/disk/by-label/NIXOS_SWAP"; }
   ];
