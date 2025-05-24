@@ -38,6 +38,15 @@
         "mistral"
       ];
     };
+
+    systemd.services.ollama.serviceConfig = {
+      DynamicUser = true;
+      ReadWritePaths = [
+        "${config.services.ollama.models}"
+        "${config.services.ollama.home}"
+      ];
+    };
+
     users.groups.ollama.members = [ "${variables.user}" ];
   };
 }
