@@ -36,7 +36,7 @@
           models = "/mnt/share/ollama/models";
           home = "/mnt/share/ollama/home";
           acceleration = "rocm";
-          rocmOverrideGfx = "11.0.0"; # 7900xt (gpu-family)
+          # rocmOverrideGfx = "11.0.0"; # 7900xt (gpu-family)
           loadModels = [
             "mistral"
           ];
@@ -48,10 +48,8 @@
         };
 
         systemd.services.ollama = {
-          after = lib.mkIf config.amdgpu-module.enable [
-            "lact.service"
-          ];
           serviceConfig = {
+            ExecStartPre = "/run/current-system/sw/bin/sleep 10"; # add delay, did not find solution for race problem
             ReadWritePaths = [
               "${config.services.ollama.models}"
               "${config.services.ollama.home}"
