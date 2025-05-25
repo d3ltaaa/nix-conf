@@ -10,6 +10,10 @@ let
 in
 {
 
+  imports = [
+    ./submodules/connections/PC.nix
+  ];
+
   options = {
     connections-module = {
       enable = lib.mkEnableOption "Enables Connections module";

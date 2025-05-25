@@ -22,11 +22,10 @@
           package = pkgs.open-webui;
           host = "0.0.0.0";
           openFirewall = true;
-          stateDir = "/mnt/share/ollama/webui/stateDir";
+          stateDir = "/mnt/share/open-webui/stateDir";
         };
 
         systemd.services.open-webui.serviceConfig = {
-          DynamicUser = true;
           ReadWritePaths = [ "${config.services.open-webui.stateDir}" ];
         };
 
@@ -40,13 +39,18 @@
           acceleration = "rocm";
           rocmOverrideGfx = "11.0.0"; # 7900xt (gpu-family)
           loadModels = [
-            "gemma3:27b"
             "mistral"
           ];
         };
 
         systemd.services.ollama.serviceConfig = {
-          DynamicUser = true;
+          ReadWritePaths = [
+            "${config.services.ollama.models}"
+            "${config.services.ollama.home}"
+          ];
+        };
+
+        systemd.services.ollama-model-loader.serviceConfig = {
           ReadWritePaths = [
             "${config.services.ollama.models}"
             "${config.services.ollama.home}"
