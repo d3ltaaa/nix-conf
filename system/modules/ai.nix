@@ -33,7 +33,6 @@
           enable = true;
           package = pkgs.ollama-rocm;
           user = "ollama";
-          group = "ollama";
           models = "/mnt/share/ollama/models";
           home = "/mnt/share/ollama/home";
           acceleration = "rocm";
@@ -41,6 +40,11 @@
           loadModels = [
             "mistral"
           ];
+        };
+
+        # match uid on systems
+        users.users.ollama = {
+          uid = 995;
         };
 
         systemd.services.ollama.serviceConfig = {
@@ -57,6 +61,6 @@
           ];
         };
 
-        users.groups.ollama.members = [ "${variables.user}" ];
+        # users.groups.ollama.members = [ "${variables.user}" ];
       };
 }
