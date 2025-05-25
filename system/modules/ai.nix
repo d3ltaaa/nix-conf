@@ -47,11 +47,16 @@
           uid = 995;
         };
 
-        systemd.services.ollama.serviceConfig = {
-          ReadWritePaths = [
-            "${config.services.ollama.models}"
-            "${config.services.ollama.home}"
+        systemd.services.ollama = {
+          after = lib.mkIf config.amdgpu-module.enable [
+            "lact.service"
           ];
+          serviceConfig = {
+            ReadWritePaths = [
+              "${config.services.ollama.models}"
+              "${config.services.ollama.home}"
+            ];
+          };
         };
 
         systemd.services.ollama-model-loader.serviceConfig = {
