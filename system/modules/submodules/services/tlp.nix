@@ -22,6 +22,8 @@
       DEVICES_TO_DISABLE_ON_WIFI_CONNECT = "wwan";
       DEVICES_TO_DISABLE_ON_WWAN_CONNECT = "wifi";
 
+      WOL_DISABLE = "N";
+
       # CPU_SCALING_GOVERNOR_ON_AC = "performance";
       # CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
       #
