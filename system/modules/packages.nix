@@ -86,7 +86,7 @@ let
     arduino-ide
     freecad-wayland
     spotify
-    # remnote
+    remnote
     telegram-desktop
     orca-slicer
   ];
