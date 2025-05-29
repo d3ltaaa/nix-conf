@@ -17,6 +17,7 @@
       )
       {
 
+        environment.systemPackages = [ pkgs.python313Packages.hf-xet ];
         services.open-webui = {
           enable = true;
           package = pkgs.open-webui;
