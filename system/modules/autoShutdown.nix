@@ -67,6 +67,7 @@
       path = with pkgs; [ coreutils ];
       script = ''
         heartbeat="/var/lib/server-activity/last-active"
+        countdown_file="/var/lib/server-activity/shutdown-in"
 
         # Exit if the heartbeat file doesn't exist yet
         if [ ! -f "$heartbeat" ]; then
