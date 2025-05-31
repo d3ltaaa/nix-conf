@@ -102,4 +102,9 @@
     enable = false;
     type = "client";
   };
+
+  autoShutdown-module = {
+    enable = true;
+    watchPort = "8080";
+  };
 }
