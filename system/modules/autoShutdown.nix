@@ -24,7 +24,7 @@
         mkdir -p /var/lib/server-activity
         # check for active TCP connections to Open-webui
         if ss -tnp | grep -E ':(${config.autoShutdown-module.watchPort})' | grep ESTAB; then 
-          date +%S > /var/lib/server-activity/last-active
+          date +%s > /var/lib/server-activity/last-active
           echo "Activity detected, updating timestamp";
         else
           echo "No Activity detected"
