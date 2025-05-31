@@ -26,10 +26,10 @@
       unstable-base = true;
       unstable-lang = true;
       unstable-tool = true;
-      unstable-hypr = true;
-      unstable-desk = true;
+      unstable-hypr = false;
+      unstable-desk = false;
       unstable-power = true;
-      derivations = true;
+      derivations = false;
     };
     user = {
       stable = true;
