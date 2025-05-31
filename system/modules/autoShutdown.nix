@@ -12,8 +12,8 @@
       default = "8080";
     };
     autoShutdown-module.shutdownTime = lib.mkOption {
-      type = lib.types.int;
-      default = 1800;
+      type = lib.types.str;
+      default = "1800";
     };
   };
   config = lib.mkIf config.autoShutdown-module.enable {
