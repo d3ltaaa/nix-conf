@@ -66,28 +66,28 @@
       description = "Shutdown server after ${config.autoShutdown-module.shutdownTime}s";
       path = with pkgs; [ coreutils ];
       script = ''
-        heartbeat="/var/lib/server-activity/last-active"
-        countdown_file="/var/lib/server-activity/shutdown-in"
+                heartbeat="/var/lib/server-activity/last-active"
+                countdown_file="/var/lib/server-activity/shutdown-in"
 
-        # Exit if the heartbeat file doesn't exist yet
-        if [ ! -f "$heartbeat" ]; then
-          echo "No heartbeat file; skipping shutdown."
-          exit 0
-        fi
+                # Exit if the heartbeat file doesn't exist yet
+                if [ ! -f "$heartbeat" ]; then
+                  echo "No heartbeat file; skipping shutdown."
+                  exit 0
+                fi
 
-        last_active=$(cat "$heartbeat")
-        now=$(date +%s)
-        diff=$((now - last_active))
-        remaining=$((shutdown_delay - diff))
+                last_active=$(cat "$heartbeat")
+                now=$(date +%s)
+                diff=$((now - last_active))
+                remaining=$((${config.autoShutdown-module.shutdownTime} - diff))
 
-        if [ "$remaining" -le 0 ]; then
-          echo "0" > "$countdown_file"
-          echo "Inactivity timeout exceeded, shutting down..."
-          shutdown +1 "Shutting down due to 30 minutes of inactivity."
-        else
-          echo "$remaining" > "$countdown_file"
-          echo "Recent activity ($diff seconds ago); $remaining seconds left before shutdown."
-        fi
+                if [ "$remaining" -le 0 ]; then
+                  echo "0" > "$countdown_file"
+        j         echo "Inactivity timeout exceeded, shutting down..."
+                  shutdown +1 "Shutting down due to 30 minutes of inactivity."
+                else
+                  echo "$remaining" > "$countdown_file"
+                  echo "Recent activity ($diff seconds ago); $remaining seconds left before shutdown."
+                fi
 
       '';
       serviceConfig.Type = "oneshot";
