@@ -3,6 +3,7 @@
   imports = [
     ./ai.nix
     ./amdgpu.nix
+    ./autoShutdown.nix
     ./brightness.nix
     ./bootloader.nix
     ./connections.nix
