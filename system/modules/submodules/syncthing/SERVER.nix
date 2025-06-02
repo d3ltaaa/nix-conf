@@ -8,6 +8,8 @@
   config = lib.mkIf (config.networking.hostName == "SERVER") {
     networking.firewall.allowedTCPPorts = [ 8384 ];
     services.syncthing = {
+      openDefaultPorts = true;
+      guiAddress = "0.0.0.0:8384";
       settings = {
         devices = {
           "PC" = {
