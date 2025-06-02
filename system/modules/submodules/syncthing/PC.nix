@@ -7,6 +7,9 @@
 {
   services.syncthing.settings = lib.mkIf (config.networking.hostName == "PC") {
     devices = {
+      "PX8" = {
+        id = "UPROPYX-AFK4Q5X-P5WRKRE-4VXJ5XU-QKTXML3-2SFWBV7-ELVVPDH-AOWS2QY";
+      };
       "T480" = {
         id = "Z3EA4H3-RNVAKPJ-JIWF4HD-L4AISEX-DUZZ4SV-P3E45GU-AKA3DHG-VYQNRAK";
       };

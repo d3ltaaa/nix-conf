@@ -12,6 +12,9 @@
       guiAddress = "0.0.0.0:8384";
       settings = {
         devices = {
+          "PX8" = {
+            id = "UPROPYX-AFK4Q5X-P5WRKRE-4VXJ5XU-QKTXML3-2SFWBV7-ELVVPDH-AOWS2QY";
+          };
           "PC" = {
             id = "MIR6FXD-EEKYM5S-GQFPDZT-DWNCTYW-XGZNIGY-6CNO5C2-VOR6YPG-T3JCMAX";
           };
@@ -38,6 +41,12 @@
               "T480"
               "PC"
               "T440P"
+            ];
+          };
+          "PX8/DCIM" = {
+            path = "/mnt/share/sync/PX8/DCIM";
+            devices = [
+              "PX8"
             ];
           };
         };
