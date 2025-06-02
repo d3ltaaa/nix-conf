@@ -35,7 +35,7 @@
             environment = {
               TZ = "Europe/Berlin";
               PUID = toString config.users.users.${variables.user}.uid;
-              PGID = toString config.users.groups.${variables.user}.gid;
+              PGID = toString config.users.groups.users.gid;
             };
           };
         };
