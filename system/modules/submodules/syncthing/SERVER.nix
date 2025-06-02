@@ -44,7 +44,7 @@
             ];
           };
           "PX8/DCIM" = {
-            path = "/mnt/share/sync/PX8/DCIM";
+            path = "/mnt/shared/private/sync/PX8/DCIM";
             devices = [
               "PX8"
             ];
