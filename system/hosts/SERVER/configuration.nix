@@ -69,7 +69,7 @@
     type = "client";
   };
 
-  syncthing-module.enable = false;
+  syncthing-module.enable = true;
 
   theme-module.enable = false;
 
