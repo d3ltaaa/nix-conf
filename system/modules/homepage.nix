@@ -47,6 +47,12 @@
         {
           "Services" = [
             {
+              "Syncthing (SERVER)" = {
+                icon = "syncthing.png";
+                href = "https://syncthing.d3lta.ipv64.net";
+              };
+            }
+            {
               "Vaultwarden" = {
                 icon = "vaultwarden.png";
                 href = "https://vault.d3lta.ipv64.net";

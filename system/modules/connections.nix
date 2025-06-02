@@ -204,6 +204,14 @@ in
               proxyWebsockets = true;
             };
           };
+          "syncthing.${serverAddress}" = {
+            enableACME = true;
+            forceSSL = true;
+            locations."/" = {
+              proxyPass = "http://127.0.0.1:8384";
+              proxyWebsockets = true;
+            };
+          };
         };
       };
 
@@ -229,6 +237,7 @@ in
             "wg.${serverAddress}"
             "homeassistant.${serverAddress}"
             "ollama.${serverAddress}"
+            "syncthing.${serverAddress}"
           ];
           credentialFiles = {
             IPV64_API_KEY_FILE = "/home/${variables.user}/credentials.sh";
