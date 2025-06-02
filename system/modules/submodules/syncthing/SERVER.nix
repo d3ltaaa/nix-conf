@@ -6,7 +6,7 @@
 }:
 {
   config = lib.mkIf (config.networking.hostName == "SERVER") {
-    networking.firewall.allowedUDPPorts = [ 8384 ];
+    networking.firewall.allowedTCPPorts = [ 8384 ];
     services.syncthing = {
       settings = {
         devices = {
