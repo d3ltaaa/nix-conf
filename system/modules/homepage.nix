@@ -33,7 +33,7 @@
             {
               "Proton Mail" = [
                 {
-                  icon = "Proton Mail.png";
+                  icon = "proton-mail.png";
                   href = "https://mail.proton.me/u/0/inbox";
                 }
               ];
@@ -41,7 +41,7 @@
             {
               "Proton Calendar" = [
                 {
-                  icon = "Proton Calendar.png";
+                  icon = "proton-calendar.png";
                   href = "https://calendar.proton.me/u/0/";
                 }
               ];
@@ -49,7 +49,7 @@
             {
               "Github" = [
                 {
-                  icon = "Gihub.png";
+                  icon = "github-light.png";
                   href = "https://github.com/";
                 }
               ];
@@ -57,7 +57,7 @@
             {
               "Youtube" = [
                 {
-                  icon = "Youtube.png";
+                  icon = "youtube.png";
                   href = "https://youtube.com/";
                 }
               ];
@@ -65,7 +65,7 @@
             {
               "ChatGPT" = [
                 {
-                  icon = "Chatgpt.png";
+                  icon = "chatgpt.png";
                   href = "https://chat.openai.com/chat";
                 }
               ];
@@ -73,7 +73,7 @@
             {
               "HM4Mint" = [
                 {
-                  icon = "Bookstack.png";
+                  icon = "bookstack.png";
                   href = "https://hm4mint.nrw/hm1/link/HoeherMathem1";
                 }
               ];
