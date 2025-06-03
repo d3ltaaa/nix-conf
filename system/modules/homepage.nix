@@ -31,40 +31,52 @@
         {
           "Bookmarks" = [
             {
-              "Proton Mail" = {
-                icon = "Proton Mail.png";
-                href = "https://mail.proton.me/u/0/inbox";
-              };
+              "Proton Mail" = [
+                {
+                  icon = "Proton Mail.png";
+                  href = "https://mail.proton.me/u/0/inbox";
+                }
+              ];
             }
             {
-              "Proton Calendar" = {
-                icon = "Proton Calendar.png";
-                href = "https://calendar.proton.me/u/0/";
-              };
+              "Proton Calendar" = [
+                {
+                  icon = "Proton Calendar.png";
+                  href = "https://calendar.proton.me/u/0/";
+                }
+              ];
             }
             {
-              "Github" = {
-                icon = "Gihub.png";
-                href = "https://github.com/";
-              };
+              "Github" = [
+                {
+                  icon = "Gihub.png";
+                  href = "https://github.com/";
+                }
+              ];
             }
             {
-              "Youtube" = {
-                icon = "Youtube.png";
-                href = "https://youtube.com/";
-              };
+              "Youtube" = [
+                {
+                  icon = "Youtube.png";
+                  href = "https://youtube.com/";
+                }
+              ];
             }
             {
-              "ChatGPT" = {
-                icon = "Chatgpt.png";
-                href = "https://chat.openai.com/chat";
-              };
+              "ChatGPT" = [
+                {
+                  icon = "Chatgpt.png";
+                  href = "https://chat.openai.com/chat";
+                }
+              ];
             }
             {
-              "HM4Mint" = {
-                icon = "Bookstack.png";
-                href = "https://hm4mint.nrw/hm1/link/HoeherMathem1";
-              };
+              "HM4Mint" = [
+                {
+                  icon = "Bookstack.png";
+                  href = "https://hm4mint.nrw/hm1/link/HoeherMathem1";
+                }
+              ];
             }
           ];
         }
