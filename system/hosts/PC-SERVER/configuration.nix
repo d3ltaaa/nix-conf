@@ -70,6 +70,7 @@
   connections-module = {
     enable = true;
     type = "client";
+    ssh = true;
   };
 
   syncthing-module.enable = false;
