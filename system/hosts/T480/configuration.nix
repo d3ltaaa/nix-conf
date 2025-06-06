@@ -115,4 +115,5 @@
     watchPort = "8080";
   };
 
+  tablet-module.enable = true;
 }

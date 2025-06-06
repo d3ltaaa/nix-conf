@@ -18,6 +18,7 @@
     ./programs.nix
     ./services.nix
     ./syncthing.nix
+    ./tablet.nix
     ./theme.nix
     ./fileSharing.nix
     ./user.nix

@@ -99,4 +99,6 @@
     enable = true;
     type = "client";
   };
+
+  tablet-module.enable = true;
 }
