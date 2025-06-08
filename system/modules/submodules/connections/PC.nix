@@ -8,7 +8,6 @@
   config =
     lib.mkIf (config.networking.hostName == "PC" || config.networking.hostName == "PC-SERVER")
       {
-        services.openssh.enable = true;
         networking = {
           useDHCP = false;
           defaultGateway = "192.168.2.1";

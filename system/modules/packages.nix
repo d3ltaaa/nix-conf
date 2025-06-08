@@ -89,6 +89,7 @@ let
     remnote
     telegram-desktop
     orca-slicer
+    rnote
   ];
 
   unstable-power-pkgs = with pkgs; [

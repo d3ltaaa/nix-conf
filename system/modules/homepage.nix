@@ -27,6 +27,60 @@
           };
         }
       ];
+      bookmarks = [
+        {
+          "Bookmarks" = [
+            {
+              "Proton Mail" = [
+                {
+                  icon = "proton-mail.png";
+                  href = "https://mail.proton.me/u/0/inbox";
+                }
+              ];
+            }
+            {
+              "Proton Calendar" = [
+                {
+                  icon = "proton-calendar.png";
+                  href = "https://calendar.proton.me/u/0/";
+                }
+              ];
+            }
+            {
+              "Github" = [
+                {
+                  icon = "github-light.png";
+                  href = "https://github.com/";
+                }
+              ];
+            }
+            {
+              "Youtube" = [
+                {
+                  icon = "youtube.png";
+                  href = "https://youtube.com/";
+                }
+              ];
+            }
+            {
+              "ChatGPT" = [
+                {
+                  icon = "chatgpt.png";
+                  href = "https://chat.openai.com/chat";
+                }
+              ];
+            }
+            {
+              "HM4Mint" = [
+                {
+                  icon = "bookstack.png";
+                  href = "https://hm4mint.nrw/hm1/link/HoeherMathem1";
+                }
+              ];
+            }
+          ];
+        }
+      ];
       services = [
         {
           "Administration" = [

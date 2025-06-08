@@ -24,10 +24,12 @@ in
         ];
         default = "client";
       };
+      ssh = lib.mkEnableOption "Enables ssh";
     };
   };
   config = lib.mkMerge [
     (lib.mkIf (config.connections-module.enable == true && config.connections-module.type == "client") {
+      services.openssh.enable = config.connections-module.ssh;
 
       # Enable networking
       networking.networkmanager.enable = true;
@@ -76,6 +78,7 @@ in
 
     })
     (lib.mkIf (config.connections-module.enable == true && config.connections-module.type == "server") {
+      services.openssh.enable = config.connections-module.ssh;
       networking = {
         useDHCP = false;
         interfaces.ens18.ipv4.addresses = [

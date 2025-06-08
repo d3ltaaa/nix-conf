@@ -67,6 +67,7 @@
   connections-module = {
     enable = true;
     type = "server";
+    ssh = true;
   };
 
   syncthing-module.enable = false;
