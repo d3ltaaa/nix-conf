@@ -20,12 +20,12 @@
       package = pkgs.open-webui;
       host = "0.0.0.0";
       openFirewall = true;
-      stateDir = "/mnt/share/open-webui/stateDir";
+      #   stateDir = "/mnt/share/open-webui/stateDir";
     };
-
-    systemd.services.open-webui.serviceConfig = lib.mkIf config.ai-module.openWebui.enable {
-      ReadWritePaths = [ "${config.services.open-webui.stateDir}" ];
-    };
+    #
+    # systemd.services.open-webui.serviceConfig = lib.mkIf config.ai-module.openWebui.enable {
+    #   ReadWritePaths = [ "${config.services.open-webui.stateDir}" ];
+    # };
 
     services.ollama = lib.mkIf config.ai-module.ollama.enable {
       enable = true;
