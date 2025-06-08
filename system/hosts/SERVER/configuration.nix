@@ -80,7 +80,8 @@
 
   amdgpu-module.enable = false;
 
-  ai-module.enable = false;
+  ai-module.openWebui.enable = true;
+  ai-module.ollama.enable = false;
 
   virtualisation-module = {
     enable = false;
