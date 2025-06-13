@@ -71,6 +71,9 @@
                 *.FCStd|*.FCSTD)
                     freecad "$f" &
                     ;;
+                *.rnote)
+                    rnote "$f" &
+                    ;;
                 *) 
                     if [ "$(stat -c %U "$f")" == "root" ]; then
                         clear
