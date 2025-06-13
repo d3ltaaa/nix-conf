@@ -50,8 +50,8 @@
     };
     qt = {
       enable = true;
-      platformTheme.name = "gtk";
-      style.name = "gtk2";
+      platformTheme.name = "adwaita";
+      style.name = "breeze";
     };
   };
 }

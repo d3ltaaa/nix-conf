@@ -35,7 +35,7 @@
       history.size = 1000;
       history.share = true;
       # viMode = true;
-      initExtra = ''
+      initContent = ''
         if pgrep -f Hyprland > /dev/null; then
           if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]]; then
         	tmux

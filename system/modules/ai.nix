@@ -30,6 +30,8 @@
     services.ollama = lib.mkIf config.ai-module.ollama.enable {
       enable = true;
       package = pkgs.ollama-rocm;
+      openFirewall = true;
+      host = "0.0.0.0";
       user = "ollama";
       models = "/mnt/share/ollama/models";
       home = "/mnt/share/ollama/home";

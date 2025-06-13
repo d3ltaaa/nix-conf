@@ -90,6 +90,7 @@ let
     telegram-desktop
     orca-slicer
     rnote
+    vlc
   ];
 
   unstable-power-pkgs = with pkgs; [
