@@ -57,8 +57,9 @@
     systemd.timers.update-activity = {
       wantedBy = [ "timers.target" ];
       timerConfig = {
-        OnBootSec = "1min";
-        OnUnitActiveSec = "5min";
+        OnBootSec = "5s";
+        OnUnitActiveSec = "2s";
+        AccuracySec = "1s";
       };
     };
 
