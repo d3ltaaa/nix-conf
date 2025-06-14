@@ -9,7 +9,7 @@
     autoShutdown-module.enable = lib.mkEnableOption "Enables autoShutdown module";
     autoShutdown-module.watchPort = lib.mkOption {
       type = lib.types.str;
-      default = "8080";
+      default = "11434";
     };
     autoShutdown-module.shutdownTime = lib.mkOption {
       type = lib.types.str;

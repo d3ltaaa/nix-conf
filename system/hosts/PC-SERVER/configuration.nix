@@ -107,6 +107,6 @@
 
   autoShutdown-module = {
     enable = true;
-    watchPort = "8080";
+    watchPort = "11434";
   };
 }
