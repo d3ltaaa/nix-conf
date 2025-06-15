@@ -114,6 +114,7 @@
           "$mod SHIFT, RETURN, exec, foot"
           "$mod, X, killactive, "
           "$mod, M, exit,"
+          "$mod, E, exec, thunar"
           "$mod, T, togglefloating,"
           "$mod, F, fullscreen,"
           "$mod, SPACE, exec, rofi -show drun -case-insensitive"

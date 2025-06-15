@@ -102,4 +102,5 @@
   };
 
   tablet-module.enable = true;
+
 }

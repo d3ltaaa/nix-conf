@@ -2,6 +2,7 @@
   lib,
   config,
   inputs,
+  pkgs,
   ...
 }:
 {
@@ -46,12 +47,17 @@
       enable = true;
       # theme.name = "adw-gtk3";
       cursorTheme.name = "Bibata-Modern-Ice";
-      iconTheme.name = "GruvboxPlus";
+      iconTheme.name = "WhiteSur-light";
+      iconTheme.package = pkgs.whitesur-icon-theme;
+      theme = {
+        name = "WhiteSur-Light";
+        package = pkgs.whitesur-gtk-theme;
+      };
     };
     qt = {
       enable = true;
       platformTheme.name = "adwaita";
-      style.name = "breeze";
+      style.name = "adwaita-light";
     };
   };
 }

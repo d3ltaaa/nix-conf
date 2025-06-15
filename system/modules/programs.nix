@@ -1,4 +1,9 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 {
   imports = [
     ./submodules/programs/git.nix
@@ -17,6 +22,15 @@
   };
 
   config = lib.mkIf config.programs-module.enable {
+    services = {
+      gvfs.enable = true;
+      tumbler.enable = true;
+    };
+
+    environment.systemPackages = with pkgs; [
+      xdg-utils
+      whitesur-icon-theme
+    ];
     programs = lib.mkMerge [
       (lib.mkIf config.programs-module.programs.hyprland {
         hyprland.enable = true;
@@ -28,7 +42,16 @@
         zsh.enable = true;
       })
       (lib.mkIf config.programs-module.programs.thunar {
-        thunar.enable = true;
+        xfconf.enable = true;
+        file-roller.enable = true;
+        dconf.enable = true;
+        thunar = {
+          enable = true;
+          plugins = with pkgs.xfce; [
+            thunar-archive-plugin
+            thunar-volman
+          ];
+        };
       })
 
       (lib.mkIf config.programs-module.programs.dconf {
