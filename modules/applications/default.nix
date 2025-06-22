@@ -1,0 +1,30 @@
+{ ... }:
+{
+  imports = [
+    ./acme.nix
+    ./dconf.nix
+    ./dnsmasq.nix
+    ./dunst.nix
+    ./fileSharing.nix
+    ./foot.nix
+    ./git.nix
+    ./homeassistant.nix
+    ./homepage.nix
+    ./lf.nix
+    ./neovim.nix
+    ./nginx.nix
+    ./ollama.nix
+    ./open-webui.nix
+    ./rofi.nix
+    ./swappy.nix
+    ./syncthing.nix
+    ./thunar.nix
+    ./tmux.nix
+    ./vaultwarden.nix
+    ./virtualisation.nix
+    ./waybar.nix
+    ./wireguard.nix
+    ./zsh.nix
+    ./packages/general.nix
+  ];
+}

@@ -1,7 +1,7 @@
 {
   inputs = {
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -14,32 +14,19 @@
 
     nix-flatpak.url = "github:gmodena/nix-flatpak"; # unstable branch. Use github:gmodena/nix-flatpak/?ref=<tag> to pin releases.
 
-    # catppuccin.url = "github:catppuccin/nix";
-    # catppuccin.inputs.nixpkgs.follows = "nixpkgs-unstable";
-
     scripts.url = "github:d3ltaaa/fscripts";
     scripts.flake = false;
 
-    # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
-    # hyprland.url = "github:hyprwm/Hyprland";
-    # hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
-    # hyprland-plugins.inputs.hyprland.follows = "hyprland";
   };
   outputs =
     {
-      self,
       nixpkgs-unstable,
       nixpkgs-stable,
       scripts,
       ...
     }@inputs:
     let
-      variables = {
-        user = "falk";
-        group = "falk";
-        userHomeDir = "/home/falk";
-      };
+      user = "falk";
     in
     {
       nixosConfigurations = {
@@ -48,14 +35,14 @@
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
-            inherit nixpkgs-stable;
             inherit scripts;
-            inherit variables;
+            nixpkgs-stable = import nixpkgs-stable {
+              config.allowUnfree = true;
+            };
           };
           modules = [
-            ./system/hosts/T480/configuration.nix
-            # inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
-            # inputs.catppuccin.nixosModules.catppuccin
+            ./hosts/T480/configuration.nix
+            ./modules/default.nix
             inputs.home-manager.nixosModules.home-manager
             inputs.nix-flatpak.nixosModules.nix-flatpak
             {
@@ -63,12 +50,9 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit inputs;
-                inherit variables;
               };
-              home-manager.users.${variables.user}.imports = [
+              home-manager.users.${user}.imports = [
                 inputs.nixvim.homeManagerModules.nixvim
-                # inputs.catppuccin.homeModules.catppuccin
-                ./home/hosts/T480/home.nix
               ];
             }
           ];
@@ -79,26 +63,23 @@
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
-            inherit nixpkgs-stable;
             inherit scripts;
-            inherit variables;
+            nixpkgs-stable = import nixpkgs-stable {
+              config.allowUnfree = true;
+            };
           };
           modules = [
-            ./system/hosts/T440P/configuration.nix
-            # inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t440p
-            # inputs.catppuccin.nixosModules.catppuccin
+            ./hosts/T440P/configuration.nix
+            ./modules/default.nix
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit inputs;
-                inherit variables;
               };
-              home-manager.users.${variables.user}.imports = [
+              home-manager.users.${user}.imports = [
                 inputs.nixvim.homeManagerModules.nixvim
-                # inputs.catppuccin.homeModules.catppuccin
-                ./home/hosts/T440P/home.nix
               ];
             }
           ];
@@ -109,13 +90,14 @@
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
-            inherit nixpkgs-stable;
             inherit scripts;
-            inherit variables;
+            nixpkgs-stable = import nixpkgs-stable {
+              config.allowUnfree = true;
+            };
           };
           modules = [
-            ./system/hosts/PC/configuration.nix
-            # inputs.catppuccin.nixosModules.catppuccin
+            ./hosts/PC/configuration.nix
+            ./modules/default.nix
             inputs.nix-flatpak.nixosModules.nix-flatpak
             inputs.home-manager.nixosModules.home-manager
             {
@@ -123,12 +105,9 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit inputs;
-                inherit variables;
               };
-              home-manager.users.${variables.user}.imports = [
+              home-manager.users.${user}.imports = [
                 inputs.nixvim.homeManagerModules.nixvim
-                # inputs.catppuccin.homeModules.catppuccin
-                ./home/hosts/PC/home.nix
               ];
             }
           ];
@@ -138,13 +117,14 @@
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
-            inherit nixpkgs-stable;
             inherit scripts;
-            inherit variables;
+            nixpkgs-stable = import nixpkgs-stable {
+              config.allowUnfree = true;
+            };
           };
           modules = [
-            ./system/hosts/WIREGUARD-SERVER/configuration.nix
-            # inputs.catppuccin.nixosModules.catppuccin
+            ./hosts/WIREGUARD-SERVER/configuration.nix
+            ./modules/default.nix
             inputs.nix-flatpak.nixosModules.nix-flatpak
           ];
         };
@@ -153,13 +133,14 @@
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
-            inherit nixpkgs-stable;
             inherit scripts;
-            inherit variables;
+            nixpkgs-stable = import nixpkgs-stable {
+              config.allowUnfree = true;
+            };
           };
           modules = [
-            ./system/hosts/SERVER/configuration.nix
-            # inputs.catppuccin.nixosModules.catppuccin
+            ./hosts/SERVER/configuration.nix
+            ./modules/default.nix
             inputs.nix-flatpak.nixosModules.nix-flatpak
             inputs.home-manager.nixosModules.home-manager
             {
@@ -167,12 +148,9 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit inputs;
-                inherit variables;
               };
-              home-manager.users.${variables.user}.imports = [
+              home-manager.users.${user}.imports = [
                 inputs.nixvim.homeManagerModules.nixvim
-                # inputs.catppuccin.homeModules.catppuccin
-                ./home/hosts/SERVER/home.nix
               ];
             }
           ];
@@ -182,13 +160,14 @@
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
-            inherit nixpkgs-stable;
             inherit scripts;
-            inherit variables;
+            nixpkgs-stable = import nixpkgs-stable {
+              config.allowUnfree = true;
+            };
           };
           modules = [
-            ./system/hosts/PC-SERVER/configuration.nix
-            # inputs.catppuccin.nixosModules.catppuccin
+            ./hosts/PC-SERVER/configuration.nix
+            ./modules/default.nix
             inputs.nix-flatpak.nixosModules.nix-flatpak
             inputs.nix-flatpak.nixosModules.nix-flatpak
             inputs.home-manager.nixosModules.home-manager
@@ -197,12 +176,9 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
                 inherit inputs;
-                inherit variables;
               };
-              home-manager.users.${variables.user}.imports = [
+              home-manager.users.${user}.imports = [
                 inputs.nixvim.homeManagerModules.nixvim
-                # inputs.catppuccin.homeModules.catppuccin
-                ./home/hosts/PC-SERVER/home.nix
               ];
             }
           ];
