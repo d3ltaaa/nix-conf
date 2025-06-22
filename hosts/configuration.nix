@@ -13,7 +13,7 @@ in
 
   settings = {
     general = {
-      name = "PC";
+      name = "DEFAULT";
       nixosStateVersion = "25.05";
       homeManagerStateVersion = "25.05";
       language = "en";
@@ -342,7 +342,6 @@ in
   };
 
   hardware = {
-    tablet.enable = true;
     powerManagement = {
       upower.enable = true;
       tlp.enable = true;

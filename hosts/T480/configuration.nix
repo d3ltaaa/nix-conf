@@ -316,6 +316,7 @@ in
   };
 
   hardware = {
+    tablet.enable = true;
     powerManagement = {
       upower.enable = true;
       tlp.enable = true;
