@@ -10,15 +10,14 @@
       autoLogin.enable = lib.mkEnableOption "Enables AutoLogin";
       windowManager.hyprland = {
         enable = lib.mkEnableOption "Enable hyprland as windowManager";
-        hypridle.enable = lib.mkEnableOption "Enable hypridle for hyprland";
-      };
-      windowManager.hyprland.monitor = lib.mkOption {
-        type = lib.types.nullOr (lib.types.listOf lib.types.str);
-        default = [ "eDP-1, 1920x1080@60, 0x0, 1" ];
-      };
-      windowManager.hyprland.workspaces = lib.mkOption {
-        type = lib.types.nullOr (lib.types.listOf lib.types.str);
-        default = null;
+        monitor = lib.mkOption {
+          type = lib.types.nullOr (lib.types.listOf lib.types.str);
+          default = [ "eDP-1, 1920x1080@60, 0x0, 1" ];
+        };
+        workspaces = lib.mkOption {
+          type = lib.types.nullOr (lib.types.listOf lib.types.str);
+          default = null;
+        };
       };
       screenLock.hypridle.enable = lib.mkEnableOption "Enables hypridle";
     };

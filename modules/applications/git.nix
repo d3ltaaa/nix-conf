@@ -10,8 +10,12 @@
     applications.configuration.git = {
       enable = lib.mkEnableOption "Enables git module";
       username = lib.mkOption {
-        type = lib.types.str;
-        default = "d3ltaaa";
+        type = lib.types.nullOr lib.types.str;
+        default = null;
+      };
+      email = lib.mkOption {
+        type = lib.types.nullOr lib.types.str;
+        default = null;
       };
     };
   };
@@ -24,5 +28,18 @@
       config.credential."https://github.com".username = config.applications.configuration.git.username;
       config.credential.credentialstore = "cache";
     };
+
+    home-manager.users.${config.settings.users.primary} =
+      let
+        nixos-config = config;
+      in
+      { config, ... }:
+      {
+        programs.git = {
+          enable = true;
+          userName = nixos-config.applications.configuration.git.username;
+          userEmail = nixos-config.applications.configuration.git.email;
+        };
+      };
   };
 }

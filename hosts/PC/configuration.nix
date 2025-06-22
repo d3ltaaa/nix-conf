@@ -113,6 +113,7 @@ in
       git = {
         enable = true;
         username = "d3ltaaa";
+        email = "hil.falk@protonmail.com";
       };
       zsh.enable = true;
       thunar.enable = true;

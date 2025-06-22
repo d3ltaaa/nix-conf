@@ -27,7 +27,7 @@ in
       autoLogin.enable = true;
       windowManager.hyprland = {
         enable = true;
-        monitor = null;
+        monitor = [ "eDP-1, 1920x1080@60, 0x0, 1" ];
         workspaces = null;
       };
       screenLock.hypridle.enable = true;
@@ -84,6 +84,7 @@ in
       git = {
         enable = true;
         username = "d3ltaaa";
+        email = "hil.falk@protonmail.com";
       };
       zsh.enable = true;
       thunar.enable = true;
