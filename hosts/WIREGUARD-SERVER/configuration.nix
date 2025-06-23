@@ -225,13 +225,13 @@ in
 
       # home-manager
       neovim.enable = true;
-      foot.enable = true;
-      dunst.enable = true;
+      foot.enable = false;
+      dunst.enable = false;
       lf.enable = true;
-      rofi.enable = true;
+      rofi.enable = false;
       tmux.enable = true;
-      waybar.enable = true;
-      swappy.enable = true;
+      waybar.enable = false;
+      swappy.enable = false;
     };
   };
 

@@ -11,6 +11,12 @@ in
     ./hardware-configuration.nix
   ];
 
+  specialisation = {
+    nvidiaGpu.configuration = {
+      hardware.nvidiaGpu.enableGpu = true;
+    };
+  };
+
   settings = {
     general = {
       name = "T480";
