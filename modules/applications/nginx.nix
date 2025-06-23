@@ -7,7 +7,7 @@
         default = false;
       };
       virtualHosts = lib.mkOption {
-        type = lib.types.attrsOf (lib.types.atttrs);
+        type = lib.types.attrsOf (lib.types.attrs);
       };
     };
   };
