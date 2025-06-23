@@ -220,18 +220,18 @@ in
           };
         };
       };
-    };
-    syncthing.enable = false;
+      syncthing.enable = false;
 
-    # home-manager
-    neovim.enable = true;
-    foot.enable = true;
-    dunst.enable = true;
-    lf.enable = true;
-    rofi.enable = true;
-    tmux.enable = true;
-    waybar.enable = true;
-    swappy.enable = true;
+      # home-manager
+      neovim.enable = true;
+      foot.enable = true;
+      dunst.enable = true;
+      lf.enable = true;
+      rofi.enable = true;
+      tmux.enable = true;
+      waybar.enable = true;
+      swappy.enable = true;
+    };
   };
 
   hardware = {
