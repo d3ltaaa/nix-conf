@@ -119,104 +119,104 @@ in
       };
       homeassistant-server.enable = false;
       homepage-server.enable = false;
-    };
-    fileSharing-client.enable = true;
-    fileSharing-server.enable = false;
-    acme-server = {
-      enable = true;
-      domain = "${serverAddress}";
-      email = "hil.falk@protonmail.com";
-      dnsProvider = "ipv64";
-      domainNames = [
-        "dp.${serverAddress}"
-        "proxmox.${serverAddress}"
-        "vault.${serverAddress}"
-        "home.${serverAddress}"
-        "wg.${serverAddress}"
-        "homeassistant.${serverAddress}"
-        "ollama.${serverAddress}"
-        "syncthing.${serverAddress}"
-      ];
-    };
-    dnsmasq-server = {
-      enable = true;
-      address = [
-        "/${config.settings.general.serverAddress}/192.168.2.11"
-      ];
-    };
-    nginx-server = {
-      enable = true;
-      virtualHosts = {
-        "proxmox.${serverAddress}" = {
-          enableACME = true;
-          forceSSL = true;
-          locations."/" = {
-            proxyPass = "https://192.168.2.10:8006";
-            proxyWebsockets = true;
-            extraConfig = ''
-              client_max_body_size 8G;
-              proxy_buffering off;
-              proxy_request_buffering off;
-              proxy_connect_timeout 3600;
-              proxy_send_timeout 3600;
-              proxy_read_timeout 3600;
-            '';
+      fileSharing-client.enable = true;
+      fileSharing-server.enable = false;
+      acme-server = {
+        enable = true;
+        domain = "${serverAddress}";
+        email = "hil.falk@protonmail.com";
+        dnsProvider = "ipv64";
+        domainNames = [
+          "dp.${serverAddress}"
+          "proxmox.${serverAddress}"
+          "vault.${serverAddress}"
+          "home.${serverAddress}"
+          "wg.${serverAddress}"
+          "homeassistant.${serverAddress}"
+          "ollama.${serverAddress}"
+          "syncthing.${serverAddress}"
+        ];
+      };
+      dnsmasq-server = {
+        enable = true;
+        address = [
+          "/${config.settings.general.serverAddress}/192.168.2.11"
+        ];
+      };
+      nginx-server = {
+        enable = true;
+        virtualHosts = {
+          "proxmox.${serverAddress}" = {
+            enableACME = true;
+            forceSSL = true;
+            locations."/" = {
+              proxyPass = "https://192.168.2.10:8006";
+              proxyWebsockets = true;
+              extraConfig = ''
+                client_max_body_size 8G;
+                proxy_buffering off;
+                proxy_request_buffering off;
+                proxy_connect_timeout 3600;
+                proxy_send_timeout 3600;
+                proxy_read_timeout 3600;
+              '';
+            };
           };
-        };
-        "dp.${serverAddress}" = {
-          enableACME = true;
-          forceSSL = true;
-          locations."/" = {
-            proxyPass = "http://192.168.2.31:80"; # allow dp.${serverAddress} in moonraker manually
-            proxyWebsockets = true;
+          "dp.${serverAddress}" = {
+            enableACME = true;
+            forceSSL = true;
+            locations."/" = {
+              proxyPass = "http://192.168.2.31:80"; # allow dp.${serverAddress} in moonraker manually
+              proxyWebsockets = true;
+            };
           };
-        };
-        "vault.${serverAddress}" = {
-          enableACME = true;
-          forceSSL = true;
-          locations."/" = {
-            proxyPass = "http://192.168.2.12:8222";
-            proxyWebsockets = true;
+          "vault.${serverAddress}" = {
+            enableACME = true;
+            forceSSL = true;
+            locations."/" = {
+              proxyPass = "http://192.168.2.12:8222";
+              proxyWebsockets = true;
+            };
           };
-        };
-        "home.${serverAddress}" = {
-          enableACME = true;
-          forceSSL = true;
-          locations."/" = {
-            proxyPass = "http://192.168.2.12:8082";
-            proxyWebsockets = true;
+          "home.${serverAddress}" = {
+            enableACME = true;
+            forceSSL = true;
+            locations."/" = {
+              proxyPass = "http://192.168.2.12:8082";
+              proxyWebsockets = true;
+            };
           };
-        };
-        "wg.${serverAddress}" = {
-          enableACME = true;
-          forceSSL = true;
-          locations."/" = {
-            proxyPass = "http://192.168.2.11:5000";
-            proxyWebsockets = true;
+          "wg.${serverAddress}" = {
+            enableACME = true;
+            forceSSL = true;
+            locations."/" = {
+              proxyPass = "http://192.168.2.11:5000";
+              proxyWebsockets = true;
+            };
           };
-        };
-        "homeassistant.${serverAddress}" = {
-          enableACME = true;
-          forceSSL = true;
-          locations."/" = {
-            proxyPass = "http://192.168.2.12:8123";
-            proxyWebsockets = true;
+          "homeassistant.${serverAddress}" = {
+            enableACME = true;
+            forceSSL = true;
+            locations."/" = {
+              proxyPass = "http://192.168.2.12:8123";
+              proxyWebsockets = true;
+            };
           };
-        };
-        "ollama.${serverAddress}" = {
-          enableACME = true;
-          forceSSL = true;
-          locations."/" = {
-            proxyPass = "http://192.168.2.12:8080";
-            proxyWebsockets = true;
+          "ollama.${serverAddress}" = {
+            enableACME = true;
+            forceSSL = true;
+            locations."/" = {
+              proxyPass = "http://192.168.2.12:8080";
+              proxyWebsockets = true;
+            };
           };
-        };
-        "syncthing.${serverAddress}" = {
-          enableACME = true;
-          forceSSL = true;
-          locations."/" = {
-            proxyPass = "http://192.168.2.12:8384";
-            proxyWebsockets = true;
+          "syncthing.${serverAddress}" = {
+            enableACME = true;
+            forceSSL = true;
+            locations."/" = {
+              proxyPass = "http://192.168.2.12:8384";
+              proxyWebsockets = true;
+            };
           };
         };
       };
