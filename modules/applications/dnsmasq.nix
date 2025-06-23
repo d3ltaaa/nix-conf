@@ -29,7 +29,7 @@
         listen-address = [
           "127.0.0.1"
           "::1"
-          # "192.168.2.11"
+          "${config.settings.networking.staticIP}"
           "fd00::11"
         ];
 
