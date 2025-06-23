@@ -21,6 +21,8 @@
     };
   };
   config = lib.mkIf config.applications.configuration.acme-server.enable {
+    # remember to put api key into /etc/credentials/acmeIPV64.cert
+
     # regenerate certs with
     # sudo rm -r /var/lib/acme
     # sudo systemctl restart acme-setup.service

@@ -88,7 +88,7 @@ in
       };
       zsh.enable = true;
       thunar.enable = false;
-      dconf.enable = false;
+      dconf.enable = true;
       virtualisation = {
         vbox.enable = false;
         kvmqemu.enable = false;

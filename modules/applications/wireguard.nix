@@ -66,7 +66,7 @@
                 address = config.applications.configuration.wireguard-client.address;
                 dns = config.applications.configuration.wireguard-client.dns;
                 listenPort = null; # Don't listen for incoming connections (client-only)
-                privateKeyFile = "/home/${config.settings.users.primary}/.wireguard-keys/private";
+                privateKeyFile = "/etc/credentials/wireguard-keys/private";
                 peers = [
                   {
                     publicKey = config.applications.configuration.wireguard-client.serverPublicKey;
