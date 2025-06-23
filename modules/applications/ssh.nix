@@ -4,6 +4,6 @@
     applications.configuration.ssh.enable = lib.mkEnableOption "Enables ssh";
   };
   config = {
-    services.openssh.enable = lib.mkIf config.applications.configuration.ssh;
+    services.openssh.enable = config.applications.configuration.ssh;
   };
 }
