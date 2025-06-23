@@ -221,6 +221,7 @@ in
         };
       };
       syncthing.enable = false;
+      ssh.enable = true;
 
       # home-manager
       neovim.enable = true;

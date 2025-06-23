@@ -16,6 +16,7 @@
     ./ollama.nix
     ./open-webui.nix
     ./rofi.nix
+    ./ssh.nix
     ./swappy.nix
     ./syncthing.nix
     ./thunar.nix
