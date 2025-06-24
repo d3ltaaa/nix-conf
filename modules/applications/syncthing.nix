@@ -11,6 +11,7 @@
         type = lib.types.attrsOf lib.types.anything;
         default = { };
       };
+      gui = lib.mkEnableOption "Enables gui access from outside";
     };
   };
   config = lib.mkIf config.applications.configuration.syncthing.enable {
@@ -18,7 +19,8 @@
       enable = true;
       dataDir = "/home/${config.settings.users.primary}";
       user = config.settings.users.primary;
-      openDefaultPorts = true;
+      openDefaultPorts = lib.mkIf config.applications.configuration.syncthing.gui true;
+      guiAddress = lib.mkIf config.applications.configuration.syncthing.gui "0.0.0.0:8384";
       settings = {
         devices = config.applications.configuration.syncthing.devices;
         folders = config.applications.configuration.syncthing.folders;
