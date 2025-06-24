@@ -148,6 +148,7 @@ in
           };
         };
       };
+      ssh.enable = true;
 
       # home-manager
       neovim.enable = true;

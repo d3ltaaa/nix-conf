@@ -15,6 +15,9 @@
     };
   };
   config = lib.mkIf config.applications.configuration.syncthing.enable {
+    networking.firewall.allowedTCPPorts = lib.mkIf config.applications.configuration.syncthing.gui [
+      8384
+    ];
     services.syncthing = {
       enable = true;
       dataDir = "/home/${config.settings.users.primary}";
