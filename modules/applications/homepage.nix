@@ -10,7 +10,7 @@
   config = lib.mkIf config.applications.configuration.homepage-server.enable {
     services.homepage-dashboard = {
       enable = true;
-      allowedHosts = "home.${config.settings.general.serverAddress}";
+      allowedHosts = "${config.settings.networking.staticIp}:8082,home.${config.settings.general.serverAddress}";
       openFirewall = true;
       widgets = [
         {

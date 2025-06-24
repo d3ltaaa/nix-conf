@@ -13,7 +13,7 @@ in
 
   specialisation = {
     nvidiaGpu.configuration = {
-      hardware.nvidiaGpu.enableGpu = true;
+      hardware.nvidiaGpu.enableGpu = lib.mkForce true;
     };
   };
 
