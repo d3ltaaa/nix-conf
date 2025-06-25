@@ -41,6 +41,9 @@
     (lib.mkIf (config.settings.networking.role == "server") {
       # Enable networking
       networking.networkmanager.enable = true;
+      networking.networkmanager.dns = lib.mkIf (
+        config.settings.networking.nameservers != [ "1.1.1.1" ]
+      ) "none";
 
       networking = {
         useDHCP = false;

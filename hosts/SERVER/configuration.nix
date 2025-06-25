@@ -36,7 +36,7 @@ in
     boot = {
       primaryBoot = true;
       osProber = false;
-      defaultEntry = 1;
+      defaultEntry = 0;
       extraEntries = null;
     };
 
