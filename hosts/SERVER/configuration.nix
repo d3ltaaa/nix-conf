@@ -232,9 +232,8 @@ in
             share = {
               private = {
                 path = "/mnt/shared/private";
-                "valid user" = "falk";
                 "force user" = "falk";
-                "force group" = "user";
+                "force group" = "users";
               };
             };
           }

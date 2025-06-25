@@ -111,6 +111,7 @@
     (lib.mkIf config.applications.configuration.fileSharing-client.enable {
       environment.systemPackages = [
         pkgs.cifs-utils
+        pkgs.samba
       ];
 
       fileSystems =
