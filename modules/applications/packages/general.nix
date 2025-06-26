@@ -77,7 +77,7 @@ let
   ];
 
   unstable-desk-pkgs = with pkgs; [
-    firefox
+    # firefox
     protonmail-desktop
     waybar
     discord

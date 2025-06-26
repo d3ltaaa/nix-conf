@@ -6,6 +6,7 @@
     ./dnsmasq.nix
     ./dunst.nix
     ./fileSharing.nix
+    ./firefox.nix
     ./foot.nix
     ./git.nix
     ./homeassistant.nix

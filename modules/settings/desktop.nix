@@ -23,7 +23,10 @@
     };
   };
   config = {
-    programs.hyprland.enable = config.settings.desktop.windowManager.hyprland.enable;
+    programs.hyprland = lib.mkIf config.settings.desktop.windowManager.hyprland.enable {
+      enable = true;
+      xwayland.enable = true;
+    };
     services = {
       hypridle.enable = config.settings.desktop.screenLock.hypridle.enable;
       getty.autologinUser = lib.mkIf config.settings.desktop.autoLogin.enable "${config.settings.users.primary
