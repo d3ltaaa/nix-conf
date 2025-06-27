@@ -342,6 +342,7 @@ in
   };
 
   hardware = {
+    blueTooth.enable = true;
     tablet.enable = true;
     powerManagement = {
       upower.enable = true;

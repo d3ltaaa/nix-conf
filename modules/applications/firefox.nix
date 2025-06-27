@@ -10,9 +10,10 @@
   };
 
   config = lib.mkIf config.applications.configuration.firefox.enable {
-    environment.systemPackages = [
-      (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true; }) { })
-    ];
+    programs.firefox = {
+      enable = true;
+      package = (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true; }) { });
+    };
 
     hardware.audio.enable = lib.mkDefault true; # needs pipewire
 

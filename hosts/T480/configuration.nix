@@ -95,6 +95,7 @@ in
       zsh.enable = true;
       thunar.enable = true;
       dconf.enable = true;
+      firefox.enable = true;
       virtualisation = {
         vbox.enable = true;
         kvmqemu.enable = false;
@@ -321,6 +322,7 @@ in
   };
 
   hardware = {
+    blueTooth.enable = true;
     tablet.enable = true;
     powerManagement = {
       upower.enable = true;
