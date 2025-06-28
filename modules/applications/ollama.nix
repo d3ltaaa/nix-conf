@@ -33,6 +33,7 @@
 
       # only on amd-gpu
       package = lib.mkIf config.hardware.amdGpu.enable nixpkgs-stable.ollama-rocm;
+      # package = lib.mkIf config.hardware.amdGpu.enable pkgs.ollama-rocm;
       acceleration = lib.mkIf config.hardware.amdGpu.enable "rocm";
       rocmOverrideGfx = "11.0.0"; # 7900xt (gpu-family)
     };

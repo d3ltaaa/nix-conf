@@ -85,7 +85,6 @@ let
     arduino-ide
     freecad-wayland
     spotify
-    remnote
     telegram-desktop
     orca-slicer
     rnote
@@ -107,6 +106,7 @@ let
 
   stable-system-pkgs = with nixpkgs-stable; [
     auto-cpufreq
+    remnote
   ];
 
   unstable-user-pkgs = with pkgs; [
