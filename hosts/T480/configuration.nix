@@ -106,6 +106,9 @@ in
         modelDir = "/mnt/share/ollama/models";
         homeDir = "/mnt/share/ollama/home";
       };
+      open-webui-client = {
+        enable = true;
+      };
       open-webui-server = {
         enable = false;
         # prefix = "ollama.${serverAddress}";

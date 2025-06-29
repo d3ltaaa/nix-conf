@@ -1,4 +1,9 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 {
   options = {
     settings.networking = {
@@ -29,6 +34,7 @@
         type = lib.types.listOf lib.types.str;
         default = [ "1.1.1.1" ];
       };
+      wakeOnLan = lib.mkEnableOption "Enables WakeOnLan";
     };
   };
 
@@ -74,6 +80,17 @@
         443
       ];
       networking.firewall.allowedUDPPorts = [ 53 ];
+
+      systemd.services.wakeonlan = lib.mkIf config.settings.networking.wakeOnLan {
+        description = "Re-enable Wake-on-LAN every boot";
+        after = [ "network.target" ];
+        wantedBy = [ "default.target" ];
+        serviceConfig = {
+          Type = "oneshot";
+          RemainAfterExit = true;
+          ExecStart = "${pkgs.ethtool}/sbin/ethtool -s eno1 wol g";
+        };
+      };
     })
   ];
 }

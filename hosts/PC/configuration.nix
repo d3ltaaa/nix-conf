@@ -25,6 +25,11 @@ in
 
     desktop = {
       autoLogin.enable = true;
+      autoShutdown = {
+        enable = false;
+        watchPort = "11434"; # ollama port
+        shutdownTime = "1800"; # seconds
+      };
       windowManager.hyprland = {
         enable = true;
         monitor = [
@@ -80,6 +85,7 @@ in
         "192.168.2.11"
         "1.1.1.1"
       ];
+      wakeOnLan = true;
     };
   };
 
@@ -128,6 +134,9 @@ in
         dualSetup = true;
         modelDir = "/mnt/share/ollama/models";
         homeDir = "/mnt/share/ollama/home";
+      };
+      open-webui-client = {
+        enable = true;
       };
       open-webui-server = {
         enable = false;
