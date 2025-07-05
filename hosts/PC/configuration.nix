@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  nixpkgs-stable,
   ...
 }:
 let

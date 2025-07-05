@@ -15,14 +15,14 @@
     };
 
     programs = {
-      xfconf.enable = true; # configuration daemon for xfce applications
-      file-roller.enable = true; # archive-operations
+      # xfconf.enable = true; # configuration daemon for xfce applications
+      # file-roller.enable = true; # archive-operations
 
       thunar = {
         enable = true;
         plugins = with pkgs.xfce; [
           # thunar-archive-plugin
-          thunar-volman
+          # thunar-volman
         ];
       };
     };

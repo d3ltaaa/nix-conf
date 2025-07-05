@@ -34,7 +34,7 @@
         {
           xdg.desktopEntries.open-webui = {
             name = "Open-Webui";
-            exec = "firefox --new-window ollama.${nixos-config.settings.general.serverAddress}";
+            exec = "flatpak run app.zen_browser.zen --new-window ollama.${nixos-config.settings.general.serverAddress}";
             startupNotify = false;
             terminal = false;
             icon = "openai";

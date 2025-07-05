@@ -126,6 +126,12 @@ let
   my-scripts = import ./derivations/scripts.nix { inherit pkgs scripts; };
   derivations = [ my-scripts ]; # add to list
 
+  flatpak-pkgs = [
+    "com.obsproject.Studio"
+    "net.mkiol.SpeechNote"
+    "app.zen_browser.zen"
+  ];
+
 in
 {
   options = {
@@ -180,5 +186,20 @@ in
       [ ]
       ++ (pkgs.lib.optionals config.applications.packages.libraries.stable.font.default stable-font-pkgs)
       ++ (pkgs.lib.optionals config.applications.packages.libraries.unstable.font.default unstable-font-pkgs);
+
+    services.flatpak = {
+      enable = true;
+      remotes = lib.mkOptionDefault [
+        {
+          name = "flathub-beta";
+          location = "https://flathub.org/beta-repo/flathub-beta.flatpakrepo";
+        }
+      ];
+      update.auto.enable = false;
+      uninstallUnmanaged = true;
+
+      # Add here the flatpaks you want to install
+      packages = flatpak-pkgs;
+    };
   };
 }

@@ -42,14 +42,18 @@
     (lib.mkIf (config.settings.networking.role == "client") {
       # Enable networking
       networking.networkmanager.enable = true;
+      networking.networkmanager.settings.connectivity.uri =
+        "http://nmcheck.gnome.org/check_network_status.txt"; # fix for spotify (always showed connectivity limited)
 
     })
     (lib.mkIf (config.settings.networking.role == "server") {
       # Enable networking
       networking.networkmanager.enable = true;
+      networking.networkmanager.settings.connectivity.uri =
+        "http://nmcheck.gnome.org/check_network_status.txt"; # fix for spotify (always showed connectivity limited)
       networking.networkmanager.dns = lib.mkIf (
         config.settings.networking.nameservers != [ "1.1.1.1" ]
-      ) "none";
+      ) "default";
 
       networking = {
         useDHCP = false;
