@@ -126,6 +126,7 @@ in
       thunar.enable = true;
       dconf.enable = true;
       firefox.enable = true;
+      spotify.enable = true;
       virtualisation = {
         vbox.enable = true;
         kvmqemu.enable = false;

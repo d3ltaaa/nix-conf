@@ -17,6 +17,7 @@
     ./ollama.nix
     ./open-webui.nix
     ./rofi.nix
+    ./spotify.nix
     ./ssh.nix
     ./swappy.nix
     ./syncthing.nix
