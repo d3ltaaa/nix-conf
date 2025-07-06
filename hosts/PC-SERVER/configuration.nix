@@ -85,7 +85,7 @@ in
           system = {
             base = true;
             lang = false;
-            tool = true;
+            tool = false;
             hypr = false;
             desk = false;
             power = true;
@@ -326,6 +326,7 @@ in
           };
         };
       };
+      ssh.enable = true;
 
       # home-manager
       neovim.enable = true;

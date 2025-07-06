@@ -186,6 +186,15 @@ in
       ++ (pkgs.lib.optionals config.applications.packages.libraries.stable.font.default stable-font-pkgs)
       ++ (pkgs.lib.optionals config.applications.packages.libraries.unstable.font.default unstable-font-pkgs);
 
+    # has to be enabled in order for flatpaks to work!
+    xdg.portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-wlr
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-hyprland
+      ];
+    };
     services.flatpak = {
       enable = true;
       remotes = lib.mkOptionDefault [
