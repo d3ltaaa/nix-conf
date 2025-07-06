@@ -206,10 +206,6 @@
                   "$mod CONTROL, J, resizeactive, 0 40"
                   "$mod, S, exec, menu_options &"
                   "$mod SHIFT, S, exec, menu_system &"
-                  ",F86AudioMicMute, exec, rofi"
-                  ",F86AudioPlay, exec, playerctl play-pause"
-                  ",F86AudioPrev, exec, playerctl previous"
-                  ",F86AudioNext, exec, playerctl next"
 
                   "$mod SHIFT, N, exec, dunstctl history-pop"
                   "$mod, N, exec, dunstctl close"
@@ -232,6 +228,9 @@
                   ",XF86AudioRaiseVolume, exec, scr_volume inc"
                   ",XF86MonBrightnessUp, exec, scr_light up"
                   ",XF86MonBrightnessDown, exec, scr_light down"
+                  ",XF86AudioPlay, exec, playerctl play-pause"
+                  ",XF86AudioPrev, exec, playerctl previous"
+                  ",XF86AudioNext, exec, playerctl next"
                 ];
 
                 exec-once = "start-hyprland-env.sh";
