@@ -174,13 +174,12 @@
             inherit scripts;
             nixpkgs-stable = import nixpkgs-stable {
               config.allowUnfree = true;
-              system = "x86_64-linux";
+              system = "x86_64-linux"; # ?
             };
           };
           modules = [
             ./hosts/PC-SERVER/configuration.nix
             ./modules/default.nix
-            inputs.nix-flatpak.nixosModules.nix-flatpak
             inputs.nix-flatpak.nixosModules.nix-flatpak
             inputs.home-manager.nixosModules.home-manager
             {
