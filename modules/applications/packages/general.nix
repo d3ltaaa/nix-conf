@@ -84,7 +84,6 @@ let
     libreoffice-still
     arduino-ide
     freecad-wayland
-    spotify
     telegram-desktop
     orca-slicer
     rnote
