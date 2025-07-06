@@ -49,7 +49,7 @@
       networking.networkmanager.enable = true;
       networking.networkmanager.dns = lib.mkIf (
         config.settings.networking.nameservers != [ "1.1.1.1" ]
-      ) "default";
+      ) "none";
 
       networking = {
         useDHCP = false;
