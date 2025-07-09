@@ -11,7 +11,7 @@
   config = lib.mkIf config.applications.configuration.thunar.enable {
     services = {
       gvfs.enable = true; # set of backends like trash management
-      tumbler.enable = true; # thumbnails
+      tumbler.enable = false; # thumbnails
     };
 
     programs = {
@@ -26,6 +26,17 @@
         ];
       };
     };
+
+    # systemd.user.services.thunar-daemon = {
+    #   description = "Enable thunar-daemon";
+    #   after = [ "network.target" ];
+    #   wantedBy = [ "default.target" ];
+    #   serviceConfig = {
+    #     Type = "oneshot";
+    #     RemainAfterExit = true;
+    #     ExecStart = "${pkgs.xfce.thunar}/bin/thunar --daemon";
+    #   };
+    # };
 
     home-manager.users.${config.settings.users.primary} =
       { config, ... }:
