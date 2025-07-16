@@ -1,6 +1,6 @@
 {
   pkgs,
-  nixpkgs-stable,
+  nixpkgs-unstable,
   lib,
   scripts,
   config,
@@ -88,6 +88,7 @@ let
     orca-slicer
     rnote
     vlc
+    remnote
   ];
 
   unstable-power-pkgs = with pkgs; [
@@ -98,20 +99,19 @@ let
     powerstat
     tlp
     stress-ng
+    auto-cpufreq
   ];
 
   unstable-system-pkgs = with pkgs; [
   ];
 
-  stable-system-pkgs = with nixpkgs-stable; [
-    auto-cpufreq
-    remnote
+  stable-system-pkgs = with nixpkgs-unstable; [
   ];
 
   unstable-user-pkgs = with pkgs; [
   ];
 
-  stable-user-pkgs = with nixpkgs-stable; [ ];
+  stable-user-pkgs = with nixpkgs-unstable; [ ];
 
   unstable-font-pkgs = with pkgs; [
     nerd-fonts.ubuntu-mono
@@ -119,7 +119,7 @@ let
     nerd-fonts.hack
   ];
 
-  stable-font-pkgs = with nixpkgs-stable; [ ];
+  stable-font-pkgs = with nixpkgs-unstable; [ ];
 
   # derivations
   my-scripts = import ./derivations/scripts.nix { inherit pkgs scripts; };

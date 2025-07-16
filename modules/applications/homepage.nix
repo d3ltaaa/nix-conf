@@ -24,7 +24,7 @@
   config = lib.mkIf config.applications.configuration.homepage-server.enable {
     services.homepage-dashboard = {
       enable = true;
-      allowedHosts = "${config.settings.networking.staticIp}:8082,home.${config.settings.general.serverAddress}";
+      # allowedHosts = "${config.settings.networking.staticIp}:8082,home.${config.settings.general.serverAddress}";
       openFirewall = true;
       widgets = config.applications.configuration.homepage-server.widgets;
       bookmarks = config.applications.configuration.homepage-server.bookmarks;

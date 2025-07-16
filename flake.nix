@@ -1,18 +1,18 @@
 {
   inputs = {
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
 
     home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs-stable";
 
     nixvim.url = "github:nix-community/nixvim";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs-stable";
 
     nix-colors.url = "github:misterio77/nix-colors";
-    nix-colors.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    nix-colors.inputs.nixpkgs.follows = "nixpkgs-stable";
 
-    nix-flatpak.url = "github:gmodena/nix-flatpak"; # unstable branch. Use github:gmodena/nix-flatpak/?ref=<tag> to pin releases.
+    nix-flatpak.url = "github:gmodena/nix-flatpak"; # stable branch. Use github:gmodena/nix-flatpak/?ref=<tag> to pin releases.
 
     scripts.url = "github:d3ltaaa/fscripts";
     scripts.flake = false;
@@ -30,13 +30,13 @@
     in
     {
       nixosConfigurations = {
-        "T480" = nixpkgs-unstable.lib.nixosSystem {
-          # nixpkgs-unstable -> pkgs
+        "T480" = nixpkgs-stable.lib.nixosSystem {
+          # nixpkgs-stable -> pkgs
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
             inherit scripts;
-            nixpkgs-stable = import nixpkgs-stable {
+            nixpkgs-unstable = import nixpkgs-unstable {
               config.allowUnfree = true;
             };
           };
@@ -58,13 +58,13 @@
           ];
         };
 
-        "T440P" = nixpkgs-unstable.lib.nixosSystem {
-          # nixpkgs-unstable -> pkgs
+        "T440P" = nixpkgs-stable.lib.nixosSystem {
+          # nixpkgs-stable -> pkgs
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
             inherit scripts;
-            nixpkgs-stable = import nixpkgs-stable {
+            nixpkgs-unstable = import nixpkgs-unstable {
               config.allowUnfree = true;
             };
           };
@@ -85,13 +85,13 @@
           ];
         };
 
-        "PC" = nixpkgs-unstable.lib.nixosSystem {
-          # nixpkgs-unstable -> pkgs
+        "PC" = nixpkgs-stable.lib.nixosSystem {
+          # nixpkgs-stable -> pkgs
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
             inherit scripts;
-            nixpkgs-stable = import nixpkgs-stable {
+            nixpkgs-unstable = import nixpkgs-unstable {
               config.allowUnfree = true;
             };
           };
@@ -112,13 +112,13 @@
             }
           ];
         };
-        "WIREGUARD-SERVER" = nixpkgs-unstable.lib.nixosSystem {
-          # nixpkgs-unstable -> pkgs
+        "WIREGUARD-SERVER" = nixpkgs-stable.lib.nixosSystem {
+          # nixpkgs-stable -> pkgs
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
             inherit scripts;
-            nixpkgs-stable = import nixpkgs-stable {
+            nixpkgs-unstable = import nixpkgs-unstable {
               config.allowUnfree = true;
             };
           };
@@ -139,13 +139,13 @@
             }
           ];
         };
-        "SERVER" = nixpkgs-unstable.lib.nixosSystem {
-          # nixpkgs-unstable -> pkgs
+        "SERVER" = nixpkgs-stable.lib.nixosSystem {
+          # nixpkgs-stable -> pkgs
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
             inherit scripts;
-            nixpkgs-stable = import nixpkgs-stable {
+            nixpkgs-unstable = import nixpkgs-unstable {
               config.allowUnfree = true;
             };
           };
@@ -166,13 +166,13 @@
             }
           ];
         };
-        "PC-SERVER" = nixpkgs-unstable.lib.nixosSystem {
-          # nixpkgs-unstable -> pkgs
+        "PC-SERVER" = nixpkgs-stable.lib.nixosSystem {
+          # nixpkgs-stable -> pkgs
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
             inherit scripts;
-            nixpkgs-stable = import nixpkgs-stable {
+            nixpkgs-unstable = import nixpkgs-unstable {
               config.allowUnfree = true;
               system = "x86_64-linux"; # ?
             };
