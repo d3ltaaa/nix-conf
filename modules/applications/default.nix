@@ -12,6 +12,7 @@
     ./homeassistant.nix
     ./homepage.nix
     ./lf.nix
+    ./litellm.nix
     ./neovim.nix
     ./nginx.nix
     ./ollama.nix

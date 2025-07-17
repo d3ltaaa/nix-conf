@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 let
@@ -88,6 +89,7 @@ in
       zsh.enable = true;
       dconf.enable = true;
       open-webui-server.enable = true;
+      litellm-server.enable = true;
       vaultwarden-server.enable = true;
       homeassistant-server.enable = true;
       homepage-server = {
@@ -176,6 +178,12 @@ in
                   href = "https://wg.${config.settings.general.serverAddress}";
                 };
               }
+              {
+                "Litellm" = {
+                  icon = "anything-llm-light.png";
+                  href = "https://litellm.${config.settings.general.serverAddress}";
+                };
+              }
             ];
           }
           {
@@ -199,9 +207,9 @@ in
                 };
               }
               {
-                "Ollama/Open-Webui" = {
-                  icon = "ollama.png";
-                  href = "https://ollama.${config.settings.general.serverAddress}";
+                "Open-Webui" = {
+                  icon = "open-webui.png";
+                  href = "https://open-webui.${config.settings.general.serverAddress}";
                 };
               }
             ];
