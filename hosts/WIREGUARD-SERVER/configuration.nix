@@ -133,7 +133,7 @@ in
           "home.${serverAddress}"
           "wg.${serverAddress}"
           "homeassistant.${serverAddress}"
-          "ollama.${serverAddress}"
+          "open-webui.${serverAddress}"
           "syncthing.${serverAddress}"
         ];
       };
@@ -202,11 +202,19 @@ in
               proxyWebsockets = true;
             };
           };
-          "ollama.${serverAddress}" = {
+          "open-webui.${serverAddress}" = {
             enableACME = true;
             forceSSL = true;
             locations."/" = {
               proxyPass = "http://192.168.2.12:8080";
+              proxyWebsockets = true;
+            };
+          };
+          "litellm.${serverAddress}" = {
+            enableACME = true;
+            forceSSL = true;
+            locations."/" = {
+              proxyPass = "http://192.168.2.12:8090";
               proxyWebsockets = true;
             };
           };
