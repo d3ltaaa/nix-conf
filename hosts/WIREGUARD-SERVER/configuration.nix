@@ -133,7 +133,9 @@ in
           "home.${serverAddress}"
           "wg.${serverAddress}"
           "homeassistant.${serverAddress}"
+          "ntfy.${serverAddress}"
           "open-webui.${serverAddress}"
+          "litellm.${serverAddress}"
           "syncthing.${serverAddress}"
         ];
       };
@@ -199,6 +201,14 @@ in
             forceSSL = true;
             locations."/" = {
               proxyPass = "http://192.168.2.12:8123";
+              proxyWebsockets = true;
+            };
+          };
+          "ntfy.${serverAddress}" = {
+            enableACME = true;
+            forceSSL = true;
+            locations."/" = {
+              proxyPass = "http://192.168.2.12:8070";
               proxyWebsockets = true;
             };
           };
