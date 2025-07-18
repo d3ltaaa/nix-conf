@@ -71,6 +71,7 @@
         environment = {
           LITELLM_MASTER_KEY = "sk-1234";
           DATABASE_URL = "postgres://nixcloud:nixcloud@127.0.0.1:5432/nixcloud";
+          STORE_MODEL_IN_DB = "True";
           HOME = "/var/lib/litellm";
           XDG_CACHE_HOME = "/var/lib/litellm/.cache";
         };

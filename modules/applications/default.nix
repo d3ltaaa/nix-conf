@@ -15,6 +15,7 @@
     ./litellm.nix
     ./neovim.nix
     ./nginx.nix
+    ./ntfy.nix
     ./ollama.nix
     ./open-webui.nix
     ./rofi.nix

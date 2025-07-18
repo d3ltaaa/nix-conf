@@ -92,6 +92,10 @@ in
       litellm-server.enable = true;
       vaultwarden-server.enable = true;
       homeassistant-server.enable = true;
+      ntfy-server = {
+        enable = true;
+        base-url = "https://ntfy.${serverAddress}";
+      };
       homepage-server = {
         enable = true;
         widgets = [
@@ -176,6 +180,12 @@ in
                 "Wireguard" = {
                   icon = "wireguard.png";
                   href = "https://wg.${config.settings.general.serverAddress}";
+                };
+              }
+              {
+                "Ntfy" = {
+                  icon = "ntfy.png";
+                  href = "https://ntfy.${config.settings.general.serverAddress}";
                 };
               }
               {
