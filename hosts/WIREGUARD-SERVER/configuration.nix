@@ -137,6 +137,7 @@ in
           "open-webui.${serverAddress}"
           "litellm.${serverAddress}"
           "syncthing.${serverAddress}"
+          "n8n.${serverAddress}"
         ];
       };
       dnsmasq-server = {
@@ -233,6 +234,14 @@ in
             forceSSL = true;
             locations."/" = {
               proxyPass = "http://192.168.2.12:8384";
+              proxyWebsockets = true;
+            };
+          };
+          "n8n.${serverAddress}" = {
+            enableACME = true;
+            forceSSL = true;
+            locations."/" = {
+              proxyPass = "http://192.168.2.12:5678";
               proxyWebsockets = true;
             };
           };
