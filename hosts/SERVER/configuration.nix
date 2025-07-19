@@ -353,7 +353,4 @@ in
     };
     amdGpu.enable = false;
   };
-
-  networking.firewall.allowedTCPPorts = [ 5678 ];
-  services.n8n.enable = true;
 }
