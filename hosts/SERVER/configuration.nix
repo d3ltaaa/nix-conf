@@ -90,6 +90,7 @@ in
       dconf.enable = true;
       open-webui-server.enable = true;
       litellm-server.enable = true;
+      n8n-server.enable = true;
       vaultwarden-server.enable = true;
       homeassistant-server.enable = true;
       ntfy-server = {
@@ -202,6 +203,12 @@ in
                 "Syncthing" = {
                   icon = "syncthing.png";
                   href = "https://syncthing.${config.settings.general.serverAddress}";
+                };
+              }
+              {
+                "n8n" = {
+                  icon = "n8n.png";
+                  href = "https://n8n.${config.settings.general.serverAddress}";
                 };
               }
               {
@@ -346,4 +353,7 @@ in
     };
     amdGpu.enable = false;
   };
+
+  networking.firewall.allowedTCPPorts = [ 5678 ];
+  services.n8n.enable = true;
 }

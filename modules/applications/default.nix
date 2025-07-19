@@ -13,6 +13,7 @@
     ./homepage.nix
     ./lf.nix
     ./litellm.nix
+    ./n8n.nix
     ./neovim.nix
     ./nginx.nix
     ./ntfy.nix
