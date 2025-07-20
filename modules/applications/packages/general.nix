@@ -77,8 +77,6 @@ let
   ];
 
   unstable-desk-pkgs = with pkgs; [
-    # firefox
-    protonmail-desktop
     waybar
     discord
     libreoffice-still

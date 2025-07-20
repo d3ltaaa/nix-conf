@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 let
@@ -96,6 +97,7 @@ in
       thunar.enable = true;
       dconf.enable = true;
       firefox.enable = true;
+      thunderbird.enable = true;
       spotify.enable = true;
       virtualisation = {
         vbox.enable = true;
@@ -359,4 +361,20 @@ in
     };
     amdGpu.enable = false;
   };
+
+  # protonmail-bridge >>> login >>> info (in thunderbird starttls -> none)
+  services.protonmail-bridge = {
+    enable = true;
+    logLevel = "debug";
+    path = with pkgs; [
+      gnome-keyring
+    ];
+  };
+  services.gnome.gnome-keyring.enable = true;
+  programs.seahorse.enable = true; # Optional GUI for managing keyrings
+  services.passSecretService.enable = true;
+  environment.systemPackages = [
+    pkgs.thunderbird
+    pkgs.gnome-keyring
+  ];
 }

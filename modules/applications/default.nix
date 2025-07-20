@@ -25,6 +25,7 @@
     ./swappy.nix
     ./syncthing.nix
     ./thunar.nix
+    ./thunderbird.nix
     ./tmux.nix
     ./vaultwarden.nix
     ./virtualisation.nix
