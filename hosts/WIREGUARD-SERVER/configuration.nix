@@ -138,6 +138,7 @@ in
           "litellm.${serverAddress}"
           "syncthing.${serverAddress}"
           "n8n.${serverAddress}"
+          "radicale.${serverAddress}"
         ];
       };
       dnsmasq-server = {
@@ -242,6 +243,14 @@ in
             forceSSL = true;
             locations."/" = {
               proxyPass = "http://192.168.2.12:5678";
+              proxyWebsockets = true;
+            };
+          };
+          "radicale.${serverAddress}" = {
+            enableACME = true;
+            forceSSL = true;
+            locations."/" = {
+              proxyPass = "http://192.168.2.12:5232";
               proxyWebsockets = true;
             };
           };
