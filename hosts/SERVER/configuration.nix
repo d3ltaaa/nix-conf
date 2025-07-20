@@ -196,6 +196,12 @@ in
                   href = "https://litellm.${config.settings.general.serverAddress}";
                 };
               }
+              {
+                "Radicale" = {
+                  icon = "radicale.png";
+                  href = "https://radicale.${config.settings.general.serverAddress}";
+                };
+              }
             ];
           }
           {
