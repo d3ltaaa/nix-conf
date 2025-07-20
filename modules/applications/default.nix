@@ -19,6 +19,7 @@
     ./ntfy.nix
     ./ollama.nix
     ./open-webui.nix
+    ./radicale.nix
     ./rofi.nix
     ./spotify.nix
     ./ssh.nix

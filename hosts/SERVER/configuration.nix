@@ -90,6 +90,7 @@ in
       dconf.enable = true;
       open-webui-server.enable = true;
       litellm-server.enable = true;
+      radicale-server.enable = true;
       n8n-server.enable = true;
       vaultwarden-server.enable = true;
       homeassistant-server.enable = true;
