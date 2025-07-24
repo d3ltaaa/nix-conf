@@ -240,7 +240,7 @@ in
               {
                 "Jellyfin" = {
                   icon = "jellyfin.png";
-                  href = "https://jellyfin.${config.settings.general.serverAddress}";
+                  href = "https://jf.${config.settings.general.serverAddress}";
                 };
               }
             ];

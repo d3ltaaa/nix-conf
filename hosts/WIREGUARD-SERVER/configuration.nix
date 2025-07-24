@@ -139,7 +139,7 @@ in
           "syncthing.${serverAddress}"
           "n8n.${serverAddress}"
           "radicale.${serverAddress}"
-          "jellyfin.${serverAddress}"
+          "jf.${serverAddress}"
         ];
       };
       dnsmasq-server = {
@@ -255,7 +255,7 @@ in
               proxyWebsockets = true;
             };
           };
-          "jellyfin.${serverAddress}" = {
+          "jf.${serverAddress}" = {
             enableACME = true;
             forceSSL = true;
             locations."/" = {
