@@ -237,6 +237,12 @@ in
                   href = "https://open-webui.${config.settings.general.serverAddress}";
                 };
               }
+              {
+                "Jellyfin" = {
+                  icon = "jellyfin.png";
+                  href = "https://jellyfin.${config.settings.general.serverAddress}";
+                };
+              }
             ];
           }
           {
