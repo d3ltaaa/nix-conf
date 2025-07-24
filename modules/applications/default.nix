@@ -20,6 +20,7 @@
     ./ntfy.nix
     ./ollama.nix
     ./open-webui.nix
+    ./protonmail-bridge.nix
     ./radicale.nix
     ./rofi.nix
     ./spotify.nix
