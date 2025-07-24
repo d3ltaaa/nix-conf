@@ -126,6 +126,7 @@ in
       dconf.enable = true;
       firefox.enable = true;
       thunderbird.enable = true;
+      protonmail-bridge.enable = true;
       spotify.enable = true;
       virtualisation = {
         vbox.enable = true;
