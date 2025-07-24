@@ -11,6 +11,7 @@
     ./git.nix
     ./homeassistant.nix
     ./homepage.nix
+    ./jellyfin.nix
     ./lf.nix
     ./litellm.nix
     ./n8n.nix

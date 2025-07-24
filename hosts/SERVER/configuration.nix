@@ -89,6 +89,7 @@ in
       zsh.enable = true;
       dconf.enable = true;
       open-webui-server.enable = true;
+      jellyfin-server.enable = true;
       litellm-server.enable = true;
       radicale-server.enable = true;
       n8n-server.enable = true;
