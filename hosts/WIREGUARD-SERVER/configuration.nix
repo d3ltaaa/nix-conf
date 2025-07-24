@@ -139,6 +139,7 @@ in
           "syncthing.${serverAddress}"
           "n8n.${serverAddress}"
           "radicale.${serverAddress}"
+          "jellyfin.${serverAddress}"
         ];
       };
       dnsmasq-server = {
@@ -251,6 +252,14 @@ in
             forceSSL = true;
             locations."/" = {
               proxyPass = "http://192.168.2.12:5232";
+              proxyWebsockets = true;
+            };
+          };
+          "jellyfin.${serverAddress}" = {
+            enableACME = true;
+            forceSSL = true;
+            locations."/" = {
+              proxyPass = "http://192.168.2.12:8096";
               proxyWebsockets = true;
             };
           };

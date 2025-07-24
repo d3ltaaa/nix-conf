@@ -387,6 +387,4 @@ in
     };
     amdGpu.enable = true;
   };
-
-  services.jellyfin.enable = true;
 }
