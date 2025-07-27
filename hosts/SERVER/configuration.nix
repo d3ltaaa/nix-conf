@@ -276,6 +276,20 @@ in
               };
             };
           }
+          {
+            share = {
+              public = {
+                path = "/mnt/shared/public";
+                "guest ok" = "yes";
+                "public" = "yes";
+                "force user" = "nobody";
+                "force group" = "nobody";
+                "read only" = "no";
+                "create mask" = "0777";
+                "directory mask" = "0777";
+              };
+            };
+          }
         ];
       };
       syncthing = {
