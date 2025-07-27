@@ -196,6 +196,13 @@ in
               };
             };
           }
+          {
+            share = {
+              "/mnt/public" = {
+                device = "//192.168.2.12/public";
+              };
+            };
+          }
         ];
       };
       fileSharing-server = {
