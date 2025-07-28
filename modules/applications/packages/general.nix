@@ -87,6 +87,7 @@ let
     rnote
     vlc
     remnote
+    tor
   ];
 
   unstable-power-pkgs = with pkgs; [
