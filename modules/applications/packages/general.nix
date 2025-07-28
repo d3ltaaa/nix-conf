@@ -87,7 +87,7 @@ let
     rnote
     vlc
     remnote
-    tor
+    tor-browser-bundle-bin
   ];
 
   unstable-power-pkgs = with pkgs; [
