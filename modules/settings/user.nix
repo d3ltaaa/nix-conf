@@ -28,6 +28,13 @@
     # needed for neovim
     security.sudo.extraConfig = "Defaults        !sudoedit_checkdir";
 
+    security.polkit.enable = true;
+    security.polkit.debug = true;
+
+    environment.systemPackages = [
+      pkgs.hyprpolkitagent
+    ];
+
     # set initial password
 
     home-manager.users.${config.settings.users.primary} =

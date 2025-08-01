@@ -100,6 +100,10 @@ in
       thunderbird.enable = true;
       protonmail-bridge.enable = true;
       spotify.enable = true;
+      timeshift = {
+        enable = true;
+        wayland = true;
+      };
       virtualisation = {
         vbox.enable = true;
         kvmqemu.enable = false;

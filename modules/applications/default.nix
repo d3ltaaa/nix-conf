@@ -29,6 +29,7 @@
     ./syncthing.nix
     ./thunar.nix
     ./thunderbird.nix
+    ./timeshift.nix
     ./tmux.nix
     ./vaultwarden.nix
     ./virtualisation.nix
