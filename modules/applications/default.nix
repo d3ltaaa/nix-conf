@@ -9,6 +9,7 @@
     ./firefox.nix
     ./foot.nix
     ./git.nix
+    ./grafana.nix
     ./homeassistant.nix
     ./homepage.nix
     ./jellyfin.nix

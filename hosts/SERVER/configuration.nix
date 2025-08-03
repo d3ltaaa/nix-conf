@@ -243,6 +243,12 @@ in
                   href = "https://jf.${config.settings.general.serverAddress}";
                 };
               }
+              {
+                "Grafana" = {
+                  icon = "grafana.png";
+                  href = "https://grafana.${config.settings.general.serverAddress}";
+                };
+              }
             ];
           }
           {
@@ -262,6 +268,9 @@ in
             ];
           }
         ];
+      };
+      grafana-server = {
+        enable = true;
       };
       fileSharing-server = {
         enable = true;
