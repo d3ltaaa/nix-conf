@@ -366,4 +366,8 @@ in
     };
     amdGpu.enable = false;
   };
+
+  services.grafana = {
+    enable = true;
+  };
 }

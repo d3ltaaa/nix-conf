@@ -140,6 +140,7 @@ in
           "n8n.${serverAddress}"
           "radicale.${serverAddress}"
           "jf.${serverAddress}"
+          "grafana.${serverAddress}"
         ];
       };
       dnsmasq-server = {
@@ -261,6 +262,15 @@ in
             locations."/" = {
               proxyPass = "http://192.168.2.12:8096";
               proxyWebsockets = true;
+            };
+          };
+          "grafana.${serverAddress}" = {
+            enableACME = true;
+            forceSSL = true;
+            locations."/" = {
+              proxyPass = "http://192.168.2.12:2342";
+              proxyWebsockets = true;
+              recommendedProxySettings = true;
             };
           };
         };
