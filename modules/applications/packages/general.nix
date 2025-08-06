@@ -21,6 +21,7 @@ let
     zsh-syntax-highlighting
     starship
     git-credential-manager
+    lazygit
     fastfetch
   ];
 

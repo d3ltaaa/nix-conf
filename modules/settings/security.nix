@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
-    ./security/
+    ./security/firewall.nix
+    ./security/passwordManager.nix
   ];
 }
