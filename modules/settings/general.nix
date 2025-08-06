@@ -1,4 +1,8 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  ...
+}@inputs:
 {
   options = {
     settings.general = {
@@ -37,6 +41,18 @@
     networking.hostName = config.settings.general.name;
 
     time.timeZone = config.settings.general.timeZone;
+
+    system.autoUpgrade = {
+      enable = true;
+      flake = "path:${
+        config.users.users.${config.settings.users.primary}.home
+      }/nix-conf#${config.networking.hostName}";
+      flags = [
+        "--print-build-logs"
+      ];
+      dates = "10:00";
+      randomizedDelaySec = "45min";
+    };
 
     # enable flakes
     nix.settings.experimental-features = [

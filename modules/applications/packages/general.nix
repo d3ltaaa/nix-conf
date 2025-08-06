@@ -129,6 +129,8 @@ let
     "com.obsproject.Studio"
     "net.mkiol.SpeechNote"
     "app.zen_browser.zen"
+    "org.bleachbit.BleachBit"
+    "com.borgbase.Vorta" # Vorta backups
   ];
 
 in
