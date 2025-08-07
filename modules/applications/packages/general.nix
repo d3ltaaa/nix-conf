@@ -125,6 +125,7 @@ let
   derivations = [ my-scripts ]; # add to list
 
   flatpak-pkgs = [
+    "io.emeric.toolblex"
     "com.obsproject.Studio"
     "net.mkiol.SpeechNote"
     "app.zen_browser.zen"

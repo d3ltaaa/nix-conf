@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 let
@@ -128,6 +129,10 @@ in
       thunderbird.enable = true;
       protonmail-bridge.enable = true;
       spotify.enable = true;
+      timeshift = {
+        enable = true;
+        wayland = true;
+      };
       virtualisation = {
         vbox.enable = true;
         kvmqemu.enable = false;
@@ -394,4 +399,38 @@ in
     };
     amdGpu.enable = true;
   };
+
+  services.grafana = {
+    enable = true;
+    # domain = "grafana.pele";
+    port = 2342;
+    addr = "127.0.0.1";
+  };
+
+  services.prometheus = {
+    enable = true;
+    port = 9001;
+  };
+
+  # node exporter
+  services.prometheus = {
+    exporters = {
+      node = {
+        enable = true;
+        enabledCollectors = [ "systemd" ];
+        port = 9002;
+      };
+    };
+    scrapeConfigs = [
+      {
+        job_name = "chrysalis";
+        static_configs = [
+          {
+            targets = [ "127.0.0.1:${toString config.services.prometheus.exporters.node.port}" ];
+          }
+        ];
+      }
+    ];
+  };
+  services.blueman.enable = true;
 }

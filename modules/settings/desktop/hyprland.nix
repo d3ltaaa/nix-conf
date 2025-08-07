@@ -43,6 +43,10 @@
               enable = true;
               xwayland.enable = true;
               systemd.enable = true;
+              extraConfig = "
+              source=~/.config/hypr/monitors.conf
+              source=~/.config/hypr/workspaces.conf
+              ";
               settings = {
 
                 env = [
@@ -71,13 +75,13 @@
                   allow_tearing = false;
                 };
 
-                monitor = lib.mkIf (
-                  nixos-config.settings.desktop.windowManager.hyprland.monitor != null
-                ) nixos-config.settings.desktop.windowManager.hyprland.monitor;
-
-                workspace = lib.mkIf (
-                  nixos-config.settings.desktop.windowManager.hyprland.workspaces != null
-                ) nixos-config.settings.desktop.windowManager.hyprland.workspaces;
+                # monitor = lib.mkIf (
+                #   nixos-config.settings.desktop.windowManager.hyprland.monitor != null
+                # ) nixos-config.settings.desktop.windowManager.hyprland.monitor;
+                #
+                # workspace = lib.mkIf (
+                #   nixos-config.settings.desktop.windowManager.hyprland.workspaces != null
+                # ) nixos-config.settings.desktop.windowManager.hyprland.workspaces;
 
                 plugin = {
                   hyprbars = {
