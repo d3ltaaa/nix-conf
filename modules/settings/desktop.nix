@@ -5,5 +5,6 @@
     ./desktop/autoShutdown.nix
     ./desktop/hyprland.nix
     ./desktop/theme.nix
+    ./desktop/monitors.nix
   ];
 }
