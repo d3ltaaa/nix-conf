@@ -157,7 +157,7 @@
                   "$mod, T, togglefloating,"
                   "$mod, F, fullscreen,"
                   "$mod, SPACE, exec, rofi -show drun -case-insensitive"
-                  "$mod, P, pseudo"
+                  "$mod, P, menu_options energy"
                   "$mod, U, togglesplit"
                   "$mod SHIFT, W, exec, pkill waybar; waybar"
 
