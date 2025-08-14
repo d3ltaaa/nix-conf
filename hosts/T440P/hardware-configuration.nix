@@ -22,6 +22,7 @@
     "sd_mod"
     "sr_mod"
   ];
+  boot.kernelParams = [ "mitigations=auto,nosmt" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
