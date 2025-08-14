@@ -32,13 +32,21 @@
   fileSystems."/" = {
     device = "/dev/disk/by-label/FS_BTRFS";
     fsType = "btrfs";
-    options = [ "subvol=@" ];
+    options = [
+      "subvol=@"
+      "compress=zstd:1"
+      "noatime"
+    ];
   };
 
   fileSystems."/home" = {
     device = "/dev/disk/by-label/FS_BTRFS";
     fsType = "btrfs";
-    options = [ "subvol=@home" ];
+    options = [
+      "subvol=@home"
+      "compress=zstd:1"
+      "noatime"
+    ];
   };
 
   fileSystems."/boot" = {
