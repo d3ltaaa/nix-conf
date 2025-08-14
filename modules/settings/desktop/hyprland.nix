@@ -157,8 +157,8 @@
                   "$mod, T, togglefloating,"
                   "$mod, F, fullscreen,"
                   "$mod, SPACE, exec, rofi -show drun -case-insensitive"
-                  "$mod, P, menu_options energy"
-                  "$mod, U, togglesplit"
+                  "$mod, P, exec, menu_options energy"
+                  "$mod, Z, togglesplit"
                   "$mod SHIFT, W, exec, pkill waybar; waybar"
 
                   "$mod, L, movefocus, r"
@@ -198,17 +198,26 @@
                   "$mod SHIFT, 9, movetoworkspace, 9"
                   "$mod SHIFT, 0, movetoworkspace, 10"
 
+                  "$mod, mouse_down, workspace, e+1"
+                  "$mod, mouse_up, workspace, e-1"
+                  "$mod, I, workspace, e+1"
+                  "$mod, U, workspace, e-1"
+
+                  "$mod SHIFT, mouse_down, movetoworkspace, e+1"
+                  "$mod SHIFT, mouse_up, movetoworkspace, e-1"
+                  "$mod SHIFT, I, movetoworkspace, e+1"
+                  "$mod SHIFT, U, movetoworkspace, e-1"
+
                   "$mod CONTROL, S, togglespecialworkspace, magic"
                   "$mod CONTROL SHIFT, S, movetoworkspace, special:magic"
 
-                  "$mod, mouse_down, workspace, e+1"
-                  "$mod, mouse_up, workspace, e-1"
+                  "$mod, V, exec, toggle_vpn.sh"
 
                   "$mod CONTROL, L, resizeactive, 40 0"
                   "$mod CONTROL, H, resizeactive, -40 0"
                   "$mod CONTROL, K, resizeactive, 0 -40"
                   "$mod CONTROL, J, resizeactive, 0 40"
-                  "$mod, S, exec, menu_options &"
+                  "$mod, S, exec, menu_options"
                   "$mod SHIFT, S, exec, menu_system &"
 
                   "$mod SHIFT, N, exec, dunstctl history-pop"

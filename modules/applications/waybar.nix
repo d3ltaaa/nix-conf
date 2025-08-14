@@ -157,7 +157,7 @@
             };
 
             "custom/appmenu" = {
-              format = "";
+              format = "󰌧";
               tooltip = false;
               on-click = "sleep 0.1; rofi -show drun -case-insensitive";
             };
@@ -210,7 +210,7 @@
             };
 
             "custom/settings" = {
-              format = "";
+              format = " ";
               tooltip = false;
               on-click = "sleep 0.1; menu_options";
             };
