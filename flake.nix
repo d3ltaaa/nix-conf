@@ -72,6 +72,7 @@
             ./hosts/T440P/configuration.nix
             ./modules/default.nix
             inputs.home-manager.nixosModules.home-manager
+            inputs.nix-flatpak.nixosModules.nix-flatpak
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
