@@ -154,6 +154,7 @@
                   "$mod, X, killactive, "
                   "$mod, M, exit,"
                   "$mod, E, exec, thunar"
+                  "$mod, C, exec, menu_options updates"
                   "$mod, T, togglefloating,"
                   "$mod, F, fullscreen,"
                   "$mod, SPACE, exec, rofi -show drun -case-insensitive"

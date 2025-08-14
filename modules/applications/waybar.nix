@@ -37,6 +37,7 @@
               "pulseaudio"
               "custom/idle"
               "custom/vpn"
+              "custom/config"
               "custom/appmenu"
               "custom/system_stats"
               "custom/settings"
@@ -154,6 +155,12 @@
                 critical = 10;
               };
               tooltip = false;
+            };
+
+            "custom/config" = {
+              format = "";
+              tooltip = false;
+              on-click = "menu_options updates";
             };
 
             "custom/appmenu" = {
@@ -287,6 +294,7 @@
           #network,
           #clock,
           #custom-settings,
+          #custom-config,
           #custom-appmenu,
           #custom-logo {
             border-radius: 4px;
@@ -376,6 +384,7 @@
           }
 
           #custom-system_stats,
+          #custon-config,
           #custom-appmenu {
               background-color: #${config.colorScheme.palette.base05};
           }

@@ -244,11 +244,11 @@
     "scripts": {
       "flake": false,
       "locked": {
-        "lastModified": 1755175308,
-        "narHash": "sha256-IqPPmd9sETg5mTcYCTOhgXVMupLq+jaLb6jJw1Jee6o=",
+        "lastModified": 1755181504,
+        "narHash": "sha256-UaU8H9UQUnO9uuYYewgph4MtjhjEzY0Eg+LTEej4nI4=",
         "owner": "d3ltaaa",
         "repo": "fscripts",
-        "rev": "c379ef7118a195c303e9fbf98722be8af4c63ea4",
+        "rev": "21f989b1073a17f643533688ad20e15157299fce",
         "type": "github"
       },
       "original": {
