@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 let
@@ -11,9 +12,15 @@ in
     ./hardware-configuration.nix
   ];
 
+  specialisation = {
+    nvidiaGpu.configuration = {
+      hardware.nvidiaGpu.enableGpu = lib.mkForce true;
+    };
+  };
+
   settings = {
     general = {
-      name = "DEFAULT";
+      name = "VM";
       nixosStateVersion = "25.05";
       homeManagerStateVersion = "25.05";
       language = "en";
@@ -27,21 +34,8 @@ in
       autoLogin.enable = true;
       windowManager.hyprland = {
         enable = true;
-        monitor = [
-          "DP-3, 2560x1440@240, 0x0, 1"
-          "DP-2, 1920x1080@165, 2560x0, 1"
-        ];
-        workspaces = [
-          "1, monitor:DP-3"
-          "3, monitor:DP-3"
-          "5, monitor:DP-3"
-          "7, monitor:DP-3"
-          "9, monitor:DP-3"
-          "2, monitor:DP-2"
-          "4, monitor:DP-2"
-          "6, monitor:DP-2"
-          "8, monitor:DP-2"
-        ];
+        monitor = [ "eDP-1, 1920x1080@60, 0x0, 1" ];
+        workspaces = null;
       };
       screenLock.hypridle.enable = true;
     };
@@ -54,32 +48,16 @@ in
       primaryBoot = true;
       osProber = false;
       defaultEntry = 0;
-      extraEntries = ''
-        menuentry "NixOs (PC-SERVER)" {
-            insmod part_gpt
-            insmod fat
-            search --no-floppy --label SERVER_BOOT --set=root
-            chainloader /EFI/NixOS-boot/grubx64.efi
-        }
-        menuentry "Windows 10 " {
-            insmod part_gpt
-            insmod fat
-            search --no-floppy --label W10_BOOT --set=root
-            chainloader /EFI/Microsoft/Boot/bootmgfw.efi
-        }
-      '';
+      extraEntries = null;
     };
 
     networking = {
-      role = "server";
-      lanInterface = "eno1";
-      wifiInterface = null;
-      staticIp = "192.168.2.30";
-      defaultGateway = "192.168.2.1";
-      nameservers = [
-        "192.168.2.11"
-        "1.1.1.1"
-      ];
+      role = "client";
+      lanInterface = "enp0s31f6";
+      wifiInterface = "wlp3s0";
+      staticIp = null;
+      defaultGateway = null;
+      nameservers = [ "1.1.1.1" ];
     };
   };
 
@@ -118,15 +96,26 @@ in
       zsh.enable = true;
       thunar.enable = true;
       dconf.enable = true;
+      firefox.enable = true;
+      thunderbird.enable = true;
+      protonmail-bridge.enable = true;
+      spotify.enable = true;
+      timeshift = {
+        enable = true;
+        wayland = true;
+      };
       virtualisation = {
         vbox.enable = true;
         kvmqemu.enable = false;
       };
       ollama-server = {
-        enable = true;
+        enable = false;
         dualSetup = true;
         modelDir = "/mnt/share/ollama/models";
         homeDir = "/mnt/share/ollama/home";
+      };
+      open-webui-client = {
+        enable = true;
       };
       open-webui-server = {
         enable = false;
@@ -139,8 +128,8 @@ in
         # role = "client";
       };
       wireguard-client = {
-        enable = false;
-        address = [ "10.100.0.2/32" ];
+        enable = true;
+        address = [ "10.100.0.5/32" ];
         dns = [
           "192.168.2.11"
           "192.168.2.1"
@@ -193,9 +182,8 @@ in
             share = {
               private = {
                 path = "/mnt/shared/private";
-                "valid user" = "falk";
                 "force user" = "falk";
-                "force group" = "user";
+                "force group" = "users";
               };
             };
           }
@@ -303,8 +291,9 @@ in
       syncthing = {
         enable = true;
         devices = {
+          "PC".id = "MIR6FXD-EEKYM5S-GQFPDZT-DWNCTYW-XGZNIGY-6CNO5C2-VOR6YPG-T3JCMAX";
           "PX8".id = "UPROPYX-AFK4Q5X-P5WRKRE-4VXJ5XU-QKTXML3-2SFWBV7-ELVVPDH-AOWS2QY";
-          "T480".id = "Z3EA4H3-RNVAKPJ-JIWF4HD-L4AISEX-DUZZ4SV-P3E45GU-AKA3DHG-VYQNRAK";
+          # "T480".id = "Z3EA4H3-RNVAKPJ-JIWF4HD-L4AISEX-DUZZ4SV-P3E45GU-AKA3DHG-VYQNRAK";
           "T440P".id = "CAWY2HI-K3QLENX-QABH4C4-QDGBZAB-GH22BRL-ZB6YBG5-PXVDZTR-4MSF7QY";
           "SERVER".id = "OP5RCKE-UFEQ4IT-DRMANC2-425AFHE-RS4PG3Y-35VLH6F-7UJXUIJ-EAVK5A3";
         };
@@ -313,7 +302,8 @@ in
           "Dokumente" = {
             path = "/home/${config.settings.users.primary}/Dokumente";
             devices = [
-              "T480"
+              "PC"
+              # "T480"
               "T440P"
               "SERVER"
             ];
@@ -321,7 +311,8 @@ in
           "Bilder" = {
             path = "/home/${config.settings.users.primary}/Bilder";
             devices = [
-              "T480"
+              "PC"
+              # "T480"
               "T440P"
               "SERVER"
             ];
@@ -342,12 +333,14 @@ in
   };
 
   hardware = {
+    blueTooth.enable = true;
+    tablet.enable = true;
     powerManagement = {
       upower.enable = true;
       tlp.enable = true;
       auto-cpufreq = {
         enable = true;
-        thresholds = false;
+        thresholds = true;
       };
     };
     printing = {
@@ -363,14 +356,18 @@ in
     usb.enable = true;
     brightness = {
       enable = true;
-      monitorType = "external";
+      monitorType = "internal";
     };
     nvidiaGpu = {
-      enable = false;
-      # enableGpu = false;
-      # intelBusId = "PCI:0@0:2:0";
-      # nvidiaBusId = "PCI:0@01:0:0";
+      enable = true;
+      enableGpu = false;
+      intelBusId = "PCI:0@0:2:0";
+      nvidiaBusId = "PCI:0@01:0:0";
     };
-    amdGpu.enable = true;
+    amdGpu.enable = false;
+  };
+
+  services.grafana = {
+    enable = true;
   };
 }

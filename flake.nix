@@ -86,6 +86,34 @@
           ];
         };
 
+        "VM" = nixpkgs-stable.lib.nixosSystem {
+          # nixpkgs-stable -> pkgs
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+            inherit scripts;
+            nixpkgs-unstable = import nixpkgs-unstable {
+              config.allowUnfree = true;
+            };
+          };
+          modules = [
+            ./hosts/VM/configuration.nix
+            ./modules/default.nix
+            inputs.home-manager.nixosModules.home-manager
+            inputs.nix-flatpak.nixosModules.nix-flatpak
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+              };
+              home-manager.users.${user}.imports = [
+                inputs.nixvim.homeManagerModules.nixvim
+              ];
+            }
+          ];
+        };
+
         "PC" = nixpkgs-stable.lib.nixosSystem {
           # nixpkgs-stable -> pkgs
           system = "x86_64-linux";
