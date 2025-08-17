@@ -50,14 +50,14 @@
 
         gtk = {
           enable = true;
-          # theme.name = "adw-gtk3";
+          theme.name = "Adwaita";
           cursorTheme.name = "Bibata-Modern-Ice";
           iconTheme.name = "WhiteSur-light";
           iconTheme.package = pkgs.whitesur-icon-theme;
-          theme = {
-            name = "WhiteSur-Light";
-            package = pkgs.whitesur-gtk-theme;
-          };
+          # theme = {
+          #   name = "WhiteSur-Light";
+          #   package = pkgs.whitesur-gtk-theme;
+          # };
         };
         qt = {
           enable = true;

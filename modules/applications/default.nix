@@ -18,7 +18,9 @@
     ./n8n.nix
     ./neovim.nix
     ./nginx.nix
+    ./nix-helper.nix
     ./ntfy.nix
+    ./msmtp.nix
     ./ollama.nix
     ./open-webui.nix
     ./protonmail-bridge.nix
