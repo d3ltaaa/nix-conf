@@ -43,6 +43,7 @@
     device = "/dev/disk/by-label/SYSTEM_BOOT";
     fsType = "vfat";
     options = [
+      "umask=0077"
       "fmask=0077"
       "dmask=0077"
     ];

@@ -55,6 +55,12 @@ in
       primary = "falk";
     };
 
+    security.monitoring = {
+      enable = true;
+      OnUnitActiveSec = "5min";
+      OnBootSec = "1h";
+    };
+
     boot = {
       primaryBoot = false;
       osProber = false;
